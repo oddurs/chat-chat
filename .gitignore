@@ -12,3 +12,4 @@ __pycache__/
 
 # uv writes this when a pyproject is present; the harness pins deps inline instead
 uv.lock
+.venv/
