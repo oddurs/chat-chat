@@ -16,9 +16,17 @@ export type Turn = {
   model: string | null;
   content: string;
   usage: Usage;
+  provider?: string;
+  gen_id?: string;
   latency: number;
   ts: string;
 };
+
+/** Anything the harness did between turns: a provocation, a referee ruling, a failed call. */
+export type Event =
+  | { type: "intervention"; after: number; text: string; reason: string; collapse_score?: number }
+  | { type: "referee"; after: number; collapsed?: boolean; why?: string; model?: string; error?: string }
+  | { type: "error"; idx: number; speaker: string; error: string };
 
 export type AgentConfig = {
   name?: string;
@@ -28,51 +36,84 @@ export type AgentConfig = {
   top_p?: number;
   seed?: number;
   max_tokens?: number;
+  reasoning?: { effort?: string };
 };
 
 export type RunConfig = {
   name?: string;
-  seed: string;
+  seed?: string;
+  seeds?: string[];
   max_turns?: number;
   max_seconds?: number;
+  max_cost?: number;
+  stop?: { referee?: string; referee_every?: number; collapse_threshold?: number };
+  intervene?: { every?: number; on_collapse?: boolean; max?: number };
   a: AgentConfig;
   b: AgentConfig;
 };
 
-export type Finding = { turns: number[]; tag: string; why: string; quote: string };
+export type Finding = {
+  turns: number[];
+  tag: string;
+  why: string;
+  quote: string;
+  votes?: string[];
+  alt_tags?: string[];
+};
+
+export type Heuristic = {
+  idx: number;
+  name: string;
+  score: number;
+  novelty: number;
+  self_sim: number;
+  echo: number;
+  assent?: number;
+  dissent?: number;
+  collapse?: number;
+  tags: string[];
+};
 
 export type Analysis = {
   turns: number;
   tokens: number;
-  heuristics: { idx: number; name: string; score: number; novelty: number; self_sim: number; echo: number; tags: string[] }[];
-  judge?: { findings: Finding[]; arc: string; collapse_turn: number | null };
+  cost?: number;
+  mean_interest?: number;
+  collapse_turn?: number | null;
+  collapse_curve?: number[];
+  judges?: string[];
+  heuristics: Heuristic[];
+  judge?: { findings: Finding[]; arc: string; arcs?: Record<string, string>; collapse_turn: number | null };
 };
 
 export type Conversation = {
   id: string;
   config: RunConfig;
-  configPath: string;
+  seed: string;
   started: string;
   turns: Turn[];
+  events: Event[];
   stopReason: string;
   elapsed: number;
-  errors: { idx: number; error: string }[];
+  interventions: number;
+  collapseTurn: number | null;
   tokens: number;
   cost: number;
   analysis: Analysis | null;
 };
 
-const LOG_DIR = process.env.CHATCHAT_LOGS ?? path.join(process.cwd(), "..", "logs");
+export const LOG_DIR = process.env.CHATCHAT_LOGS ?? path.join(process.cwd(), "..", "logs");
 
 function parse(file: string): Conversation | null {
-  const id = path.basename(file, ".jsonl");
   let config: RunConfig | null = null;
-  let configPath = "";
+  let seed = "";
   let started = "";
   let stopReason = "running";
   let elapsed = 0;
+  let interventions = 0;
+  let collapseTurn: number | null = null;
   const turns: Turn[] = [];
-  const errors: { idx: number; error: string }[] = [];
+  const events: Event[] = [];
 
   for (const line of fs.readFileSync(file, "utf8").split("\n")) {
     if (!line.trim()) continue;
@@ -82,15 +123,24 @@ function parse(file: string): Conversation | null {
     } catch {
       continue; // a run killed mid-write leaves a partial last line
     }
-    if (rec.type === "meta") {
-      config = rec.config;
-      configPath = rec.config_path;
-      started = rec.started;
-    } else if (rec.type === "turn") turns.push(rec);
-    else if (rec.type === "end") {
-      stopReason = rec.stop_reason;
-      elapsed = rec.elapsed;
-    } else if (rec.type === "error") errors.push({ idx: rec.idx, error: rec.error });
+    switch (rec.type) {
+      case "meta":
+        config = rec.config;
+        seed = rec.seed ?? rec.config?.seed ?? rec.config?.seeds?.[0] ?? "";
+        started = rec.started;
+        break;
+      case "turn":
+        turns.push(rec);
+        break;
+      case "end":
+        stopReason = rec.stop_reason;
+        elapsed = rec.elapsed;
+        interventions = rec.interventions ?? 0;
+        collapseTurn = rec.collapse_turn ?? null;
+        break;
+      default:
+        events.push(rec);
+    }
   }
   if (!config) return null;
 
@@ -103,14 +153,16 @@ function parse(file: string): Conversation | null {
   }
 
   return {
-    id,
+    id: path.basename(file, ".jsonl"),
     config,
-    configPath,
+    seed,
     started,
     turns,
+    events,
     stopReason,
     elapsed,
-    errors,
+    interventions,
+    collapseTurn,
     tokens: turns.reduce((n, t) => n + (t.usage?.total_tokens ?? 0), 0),
     cost: turns.reduce((n, t) => n + (t.usage?.cost ?? 0), 0),
     analysis,
@@ -132,6 +184,13 @@ export function getConversation(id: string): Conversation | null {
   return fs.existsSync(file) ? parse(file) : null;
 }
 
-export function logDir() {
-  return LOG_DIR;
+export function bodyTurns(c: Conversation) {
+  return c.turns.filter((t) => t.speaker !== "seed");
+}
+
+/** Every judged finding across every conversation, newest run first. */
+export function allFindings() {
+  return listConversations().flatMap((c) =>
+    (c.analysis?.judge?.findings ?? []).map((f) => ({ finding: f, conversation: c })),
+  );
 }
