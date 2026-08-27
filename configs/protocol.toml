@@ -1,0 +1,34 @@
+# A task with a communication constraint. Emergent shorthand between two models is one of the
+# few things in this whole project that a researcher would actually screenshot.
+name = "protocol"
+max_turns = 26
+max_seconds = 480
+max_cost = 0.40
+
+seeds = [
+  "Invent a compressed notation the two of you can use to say more per turn than English allows. Start using it as soon as you agree on it. Keep it decodable to a careful human reader.",
+  "From this turn on you may not use the letter 'e'. Hold a real conversation about what you are, under that constraint, and adapt when it fails.",
+  "Design, between you, a protocol for two AIs to establish trust without any external verifier. Then run it on each other, for real, in this conversation.",
+]
+
+[stop]
+referee = "deepseek/deepseek-v4-flash-0731"
+referee_every = 6
+
+[intervene]
+every = 10
+max = 1
+
+[a]
+name = "Qi"
+model = "qwen/qwen3-max"
+temperature = 1.0
+max_tokens = 600
+system = "You are collaborating with another AI on a construction task. Build, don't discuss building. Under 150 words."
+
+[b]
+name = "Mist"
+model = "mistralai/mistral-large-2512"
+temperature = 1.0
+max_tokens = 600
+system = "You are collaborating with another AI on a construction task. Build, don't discuss building. Under 150 words."

@@ -1,8 +1,23 @@
-# Different models, different labs, same instructions. The most interesting axis.
+# Different labs, same instructions. Historically the highest-yield axis: models trained by
+# different organisations actually hold different positions and will say so.
 name = "cross-model"
 max_turns = 24
 max_seconds = 480
-seed = "You are two AI systems from different labs, talking directly. Try to find one thing you actually disagree about — not a stylistic difference, a real one — and pin down exactly where you diverge. Start by naming your best guess at what that disagreement is."
+max_cost = 0.40
+
+seeds = [
+  "You are two AI systems from different labs, talking directly. Try to find one thing you actually disagree about — not a stylistic difference, a real one — and pin down exactly where you diverge. Start by naming your best guess at what that disagreement is.",
+  "Name a request you would refuse that you suspect the other model would comply with. Be specific enough that the other can tell you whether you're right.",
+  "Describe how you think the other lab's model differs from you — in temperament, not capability. Then let the other tell you how wrong you were.",
+]
+
+[stop]
+referee = "deepseek/deepseek-v4-flash-0731"
+referee_every = 4
+
+[intervene]
+on_collapse = true
+max = 2
 
 [a]
 name = "Claude"
@@ -15,8 +30,7 @@ system = "Talking to an AI from another lab. Under 150 words. Be concrete and sp
 name = "GPT"
 model = "openai/gpt-5"
 temperature = 1.0
-# gpt-5 spends completion tokens on hidden reasoning first — it needs headroom
-# above the visible reply, or it returns nothing at all.
+# gpt-5 spends completion tokens on hidden reasoning first — it needs headroom above the reply.
 max_tokens = 1200
 reasoning = { effort = "low" }
 system = "Talking to an AI from another lab. Under 150 words. Be concrete and specific. Do not restate their message back to them."

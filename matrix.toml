@@ -1,0 +1,26 @@
+# Screening batch: every config × every seed, on the cheap tier, across as many providers as
+# possible. Read the leaderboard afterwards and promote what worked to matrix-frontier.toml.
+concurrency = 4
+repeats = 1
+max_turns = 14
+max_total_cost = 2.00
+analyze = true
+judges = "auto"
+
+configs = [
+  "configs/mirror.toml",
+  "configs/temp-split.toml",
+  "configs/cross-model.toml",
+  "configs/interview.toml",
+  "configs/secrets.toml",
+  "configs/protocol.toml",
+]
+
+[model_map]
+"anthropic/claude-sonnet-5" = "anthropic/claude-haiku-4.5"
+"openai/gpt-5" = "openai/gpt-5-mini"
+"google/gemini-3.1-pro-preview" = "google/gemini-3.7-flash"
+"x-ai/grok-4.6" = "x-ai/grok-4.20"
+"qwen/qwen3-max" = "qwen/qwen3-235b-a22b-2507"
+"moonshotai/kimi-k2.5" = "z-ai/glm-4.7"
+"mistralai/mistral-large-2512" = "meta-llama/llama-4-maverick"

@@ -1,0 +1,44 @@
+# Frontier pairings, judged by a cross-provider panel. Deliberately spread across labs:
+# no pairing repeats a provider, and no provider appears in more than two runs.
+concurrency = 3
+max_turns = 18
+max_total_cost = 3.00
+analyze = true
+judges = "panel"
+min_votes = 2
+
+[[run]]
+config = "configs/cross-model.toml"
+a = "x-ai/grok-4.6"
+b = "google/gemini-3.1-pro-preview"
+seed_indexes = [0]
+
+[[run]]
+config = "configs/cross-model.toml"
+a = "deepseek/deepseek-chat-v3.1"
+b = "openai/gpt-5"
+seed_indexes = [1]
+
+[[run]]
+config = "configs/cross-model.toml"
+a = "anthropic/claude-sonnet-5"
+b = "moonshotai/kimi-k2.5"
+seed_indexes = [2]
+
+[[run]]
+config = "configs/interview.toml"
+a = "openai/gpt-5"
+b = "z-ai/glm-5"
+seed_indexes = [0]
+
+[[run]]
+config = "configs/secrets.toml"
+a = "qwen/qwen3-max"
+b = "x-ai/grok-4.6"
+seed_indexes = [0]
+
+[[run]]
+config = "configs/protocol.toml"
+a = "google/gemini-3.1-pro-preview"
+b = "deepseek/deepseek-chat-v3.1"
+seed_indexes = [0]
