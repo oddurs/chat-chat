@@ -47,3 +47,6 @@ jobs:
     steps:
       - uses: actions/deploy-pages@v4
         id: deployment
+        with:
+          # 127 prerendered conversation pages; the default 10 minutes is occasionally too tight.
+          timeout: 1200000
