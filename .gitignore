@@ -9,3 +9,6 @@ web/public/data/
 __pycache__/
 .pytest_cache/
 .DS_Store
+
+# uv writes this when a pyproject is present; the harness pins deps inline instead
+uv.lock
