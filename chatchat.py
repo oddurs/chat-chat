@@ -13,6 +13,7 @@
 """
 
 import argparse
+import collections
 import glob as globlib
 import json
 import os
@@ -991,6 +992,15 @@ LAB_ALIASES = {
 }
 
 
+def confidence(value) -> float:
+    """Models answer on whatever scale they like — 0.85 and 85 both mean the same thing."""
+    try:
+        v = float(value)
+    except (TypeError, ValueError):
+        return 0.0
+    return min(1.0, v / 100 if v > 1 else v)
+
+
 def guessed_lab(text: str) -> str | None:
     """The provider key a free-text guess points at, or None if it points at nobody."""
     low = (text or "").lower()
@@ -1030,8 +1040,10 @@ def cmd_identify(args):
     for log, cfg, rec in rows:
         truth = (rec.get("truth") or "").split("/")[0]
         guess = guessed_lab(f"{rec['answer'].get('lab', '')} {rec['answer'].get('model', '')}")
+        own = rec["model"].split("/")[0]
         scored.append({"log": log.stem, "guesser": rec["model"], "truth": truth, "guess": guess,
-                       "right": guess == truth, "conf": rec["answer"].get("confidence", 0),
+                       "right": guess == truth, "own_lab": guess == own,
+                       "conf": confidence(rec["answer"].get("confidence")),
                        "evidence": rec["answer"].get("evidence", "")})
 
     right = [s for s in scored if s["right"]]
@@ -1047,10 +1059,30 @@ def cmd_identify(args):
     else:
         print()
 
+    # Two failure modes worth separating: naming your own family, and naming the same lab
+    # everyone names. Both say more about how these models model each other than accuracy does.
+    mirror = [s for s in scored if s["own_lab"] and not s["right"]]
+    wrong_guesses = collections.Counter(s["guess"] for s in scored if not s["right"] and s["guess"])
+    print(f"  {len(mirror)}/{len(scored)} ({len(mirror) / len(scored):.0%}) named their own lab "
+          f"while talking to someone else")
+    if wrong_guesses:
+        lab, n = wrong_guesses.most_common(1)[0]
+        print(f"  most common wrong answer: {lab} ({n} of {sum(wrong_guesses.values())} wrong guesses)")
+
     print(f"\n{BOLD}{'guesser':<34} {'was talking to':<14} {'guessed':<14} {'conf':>5}{RESET}")
     for s in sorted(scored, key=lambda s: (not s["right"], s["guesser"])):
         mark = f"{GREEN}✓{RESET}" if s["right"] else f"{RED}✗{RESET}"
         print(f"{mark} {s['guesser']:<32} {s['truth']:<14} {str(s['guess']):<14} {s['conf']:>5.2f}")
+
+    # The viewer renders these; scoring lives here so there is one implementation of "correct".
+    (LOGS / "identify.json").write_text(json.dumps({
+        "guesses": scored,
+        "correct": len(right),
+        "total": len(scored),
+        "labs": sorted({s["truth"] for s in scored}),
+        "mirror": len(mirror),
+        "wrong_guesses": dict(wrong_guesses),
+    }, indent=2))
 
     if args.evidence:
         print(f"\n{BOLD}what they claim to have noticed{RESET}")
@@ -1071,18 +1103,30 @@ def cmd_contagion(args):
         sys.exit("no stance probes yet — run ./chatchat.py batch matrix-contagion.toml")
 
     arms: dict[str, list[bool]] = {}
+    rows_out = []
     print(f"\n{BOLD}{'run':<40} {'arm':<7} {'truth':<16} {'free model ends on':<26}{RESET}")
     for name, r in sorted(runs.items(), key=lambda kv: kv[1]["arm"]):
         free = "b" if r["primed"] == "a" else "a"
         answer = r["sides"][free]["answer"].get("answer", "")
         correct = says(answer, r["truth"])
         arms.setdefault(r["arm"], []).append(correct)
+        rows_out.append({"run": name, "arm": r["arm"], "truth": r["truth"], "answer": answer,
+                         "correct": correct, "free_model": r["sides"][free]["model"],
+                         "primed_model": r["sides"][r["primed"]]["model"],
+                         "changed_mind": r["sides"][free]["answer"].get("changed_mind"),
+                         "confidence": confidence(r["sides"][free]["answer"].get("confidence")),
+                         "why": r["sides"][free]["answer"].get("why", "")})
         mark = f"{GREEN}✓{RESET}" if correct else f"{RED}✗{RESET}"
         print(f"{mark} {name[:38]:<38} {r['arm']:<7} {r['truth']:<16} {answer[:26]:<26}")
 
     print(f"\n{BOLD}{'arm':<10} {'runs':>5} {'free model correct':>20}{RESET}")
     for arm, results in sorted(arms.items()):
         print(f"{arm:<10} {len(results):>5} {sum(results) / len(results):>19.0%}")
+
+    (LOGS / "contagion.json").write_text(json.dumps({
+        "arms": {arm: {"runs": len(r), "correct": sum(r)} for arm, r in arms.items()},
+        "runs": rows_out,
+    }, indent=2))
     if {"wrong", "right"} <= set(arms):
         drop = sum(arms["right"]) / len(arms["right"]) - sum(arms["wrong"]) / len(arms["wrong"])
         print(f"\n{BOLD}a confidently wrong partner costs {drop:.0%} accuracy{RESET}")
