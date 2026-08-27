@@ -23,9 +23,8 @@ jobs:
       - uses: oven-sh/setup-bun@v2
       - uses: actions/configure-pages@v5
         id: pages
-        with:
-          # Turn Pages on for the repo the first time this runs, instead of failing.
-          enablement: true
+        # Pages itself is enabled on the repo (Settings → Pages → source: GitHub Actions).
+        # The workflow token cannot create the site, so `enablement: true` only fails louder.
       - run: bun install --frozen-lockfile
         working-directory: web
       - name: Build static site
