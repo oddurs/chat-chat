@@ -11,6 +11,7 @@ const NAV = [
   ["/", "conversations"],
   ["/findings", "findings"],
   ["/search", "search"],
+  ["/keepers", "keepers"],
 ];
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

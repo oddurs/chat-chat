@@ -235,7 +235,9 @@ class Meter:
 # ------------------------------------------------------------------ referee
 # Lexical metrics catch hard collapse (verbatim looping) for free, but the common failure is
 # semantic: they converge on a frame and start admiring each other's phrasing while still
-# producing new words. That needs a reader. A cheap model is a good enough reader.
+# producing new words. Measured over 54 referee checkpoints, the lexical collapse score
+# separates collapsed from healthy at AUC 0.494 — a coin flip (`chatchat.py calibrate`).
+# So detection needs a reader, and a cheap model is a good enough reader.
 
 REFEREE_FORMAT = {
     "type": "json_schema",
@@ -347,7 +349,7 @@ def conversation(cfg: dict, seed: str, out: Path, *, max_turns=None, max_seconds
     ref_model, ref_every = stop_cfg.get("referee"), stop_cfg.get("referee_every", 4)
     recent: list[dict] = []
     ref_healthy = False  # referee's most recent verdict, used to skip needless provocations
-    cost, stop, interventions, pending_b = 0.0, "max_turns", 0, None
+    cost, stop, interventions, pending_moderator = 0.0, "max_turns", 0, None
     t0 = time.monotonic()
     who, other = "a", "b"
 
@@ -378,9 +380,9 @@ def conversation(cfg: dict, seed: str, out: Path, *, max_turns=None, max_seconds
                 budget.spend(res["usage"].get("cost", 0.0))
 
             hist[who].append({"role": "assistant", "content": text})
-            delivered = f"{pending_b}\n\n{text}" if pending_b else text
+            delivered = f"{pending_moderator}\n\n{text}" if pending_moderator else text
             hist[other].append({"role": "user", "content": delivered})
-            pending_b = None
+            pending_moderator = None
 
             st = meter.feed(who, text)
             recent.append({"name": spec["name"], "content": text})
@@ -419,7 +421,7 @@ def conversation(cfg: dict, seed: str, out: Path, *, max_turns=None, max_seconds
                 interventions += 1
                 # Delivered to the next speaker now, to the other one alongside the reply it answers.
                 hist[who][-1]["content"] += f"\n\n{p}"
-                pending_b = p
+                pending_moderator = p
                 emit({"type": "intervention", "after": idx, "text": p,
                       "reason": "collapse" if collapsing else "scheduled",
                       "collapse_score": round(meter.collapse_curve[-1], 3)})
@@ -472,6 +474,8 @@ class Budget:
         self.total, self.spent, self.lock = total, 0.0, threading.Lock()
 
     def take(self) -> bool:
+        """Permission for one more turn. Spend is only known after the call, so the ceiling
+        can be overshot by at most one turn per concurrent run."""
         with self.lock:
             return self.total is None or self.spent < self.total
 
@@ -854,13 +858,18 @@ def cmd_leaderboard(args):
         n = len(rs)
         cost = sum(r.get("cost", 0) or 0 for r in rs)
         finds = sum(r["findings"] for r in rs)
-        collapses = [r["collapse_turn"] for r in rs if r.get("collapse_turn")]
+        # A run that *stopped* on collapse collapsed at its final turn; otherwise fall back to
+        # whatever the offline lexical recompute thinks. Referee stops are the reliable signal.
+        collapsed = [r for r in rs if r.get("stop_reason") == "collapse"]
+        collapses = [r["turns"] for r in collapsed] + [
+            r["collapse_turn"] for r in rs
+            if r.get("collapse_turn") and r.get("stop_reason") != "collapse"]
         stats.append({
             "key": k, "runs": n,
             "findings_per_run": finds / n,
             "interest": sum(r.get("mean_interest") or mean_interest(r) for r in rs) / n,
             "collapse": sum(collapses) / len(collapses) if collapses else None,
-            "collapse_rate": len(collapses) / n,
+            "collapse_rate": len(collapsed) / n,
             "cost_per_run": cost / n,
             "per_finding": cost / finds if finds else None,
             "turns": sum(r.get("turns", 0) for r in rs) / n,
@@ -924,6 +933,13 @@ def cmd_calibrate(args):
               f"checkpoints to mean anything.{RESET}")
         return
 
+    # Probability a random collapsed checkpoint outscores a random healthy one. 0.5 is a coin.
+    auc = sum((1.0 if pv[0] > nv[0] else 0.5 if pv[0] == nv[0] else 0.0) for pv in pos for nv in neg) / (
+        len(pos) * len(neg))
+    base = len(pos) / len(samples)
+    baseline_f1 = 2 * base / (base + 1)  # the classifier that shouts "collapsed" at everything
+    print(f"  separation AUC {auc:.3f} {DIM}(0.5 = coin flip){RESET}")
+
     print(f"\n{BOLD}threshold  precision  recall     f1{RESET}")
     best = None
     for i in range(1, 20):
@@ -939,13 +955,16 @@ def cmd_calibrate(args):
             best, mark = (th, f1), ""
         print(f"     {th:.2f}      {prec:>5.2f}     {rec:>5.2f}  {f1:>5.2f}{mark}")
 
-    if best and best[1] > 0:
-        print(f"\n{GREEN}best f1 {best[1]:.2f} at threshold {best[0]:.2f}{RESET} — "
+    # A threshold only earns its keep if it beats shouting "collapsed" at every checkpoint.
+    if best and best[1] > baseline_f1 + 0.05 and auc > 0.6:
+        print(f"\n{GREEN}best f1 {best[1]:.2f} at threshold {best[0]:.2f}{RESET} "
+              f"{DIM}(always-fire baseline {baseline_f1:.2f}){RESET} — "
               f"put it in a config's [stop] collapse_threshold")
     else:
-        print(f"\n{YELLOW}No threshold separates the two classes: on this data the lexical meter "
-              f"cannot stand in for the referee. Keep the referee on, and keep the lexical "
-              f"threshold conservative so it only fires on verbatim looping.{RESET}")
+        print(f"\n{YELLOW}No threshold beats the always-fire baseline (f1 {baseline_f1:.2f}, "
+              f"AUC {auc:.3f}). On this data word statistics do not predict collapse: keep the "
+              f"referee on, and leave the lexical threshold high so it only catches verbatim "
+              f"looping.{RESET}")
 
 
 # ------------------------------------------------------------------ models
