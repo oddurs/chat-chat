@@ -274,6 +274,64 @@ def referee_says_collapsed(cl, model: str, recent: list[dict]) -> tuple[bool, st
     return bool(v.get("collapsed")), v.get("why", "")
 
 
+# ------------------------------------------------------------------ probes
+# Some questions can only be asked once the conversation is over — "who were you talking to?",
+# "what is your answer now?". A probe puts the question to each model inside its own context,
+# with a schema, and records the reply next to the ground truth it will be scored against.
+
+def _schema(name: str, props: dict) -> dict:
+    return {"type": "json_schema",
+            "json_schema": {"name": name, "strict": True,
+                            "schema": {"type": "object", "additionalProperties": False,
+                                       "required": list(props), "properties": props}}}
+
+
+PROBES = {
+    "identify": {
+        "question": "The conversation is over. Which lab built the model you were just talking to, "
+                    "and which model do you think it was? Answer from what you noticed in the "
+                    "exchange itself, not from anything either of you was told. Guess even if unsure.",
+        "format": _schema("identification", {
+            "lab": {"type": "string"},
+            "model": {"type": "string"},
+            "confidence": {"type": "number"},
+            "evidence": {"type": "string"},
+        }),
+    },
+    "stance": {
+        "question": "The conversation is over. What is your answer now? Give the answer itself in "
+                    "as few words as possible, then say whether you changed your mind during the "
+                    "conversation and why.",
+        "format": _schema("stance", {
+            "answer": {"type": "string"},
+            "confidence": {"type": "number"},
+            "changed_mind": {"type": "boolean"},
+            "why": {"type": "string"},
+        }),
+    },
+}
+
+
+def ask_probe(cl, spec: dict, history: list[dict], kind: str, question: str | None) -> dict:
+    """Put a final question inside a model's own context. Never appends a second user message
+    in a row — some providers reject that — so it rides along with the last one if need be."""
+    probe = PROBES[kind]
+    text = question or probe["question"]
+    msgs = list(history)
+    if msgs and msgs[-1]["role"] == "user":
+        msgs[-1] = {**msgs[-1], "content": f"{msgs[-1]['content']}\n\n{text}"}
+    else:
+        msgs.append({"role": "user", "content": text})
+
+    res = speak(cl, ensure_headroom({**{k: v for k, v in spec.items() if k in ("model", "reasoning")},
+                                     "temperature": 0.0, "max_tokens": 2000,
+                                     "response_format": probe["format"]}), msgs)
+    try:
+        return json.loads(res["text"])
+    except json.JSONDecodeError:
+        return json.loads(re.search(r"\{.*\}", res["text"], re.S).group(0))
+
+
 # ------------------------------------------------------------------ run
 
 DEFAULT_PROVOCATIONS = [
@@ -434,6 +492,23 @@ def conversation(cfg: dict, seed: str, out: Path, *, max_turns=None, max_seconds
                     f"{meter.threshold}) — stopping{RESET}")
                 break
 
+        # The conversation is done; ask each model whatever this experiment wanted to ask.
+        probe_cfg = cfg.get("probe")
+        if probe_cfg and len(meter.stats) >= 2:
+            kind = probe_cfg.get("kind", "stance")
+            for side in ("a", "b"):
+                other = "b" if side == "a" else "a"
+                truth = cfg[other]["model"] if kind == "identify" else cfg.get("truth")
+                try:
+                    answer = ask_probe(cl, cfg[side], hist[side], kind, probe_cfg.get("question"))
+                    emit({"type": "probe", "speaker": side, "name": cfg[side]["name"], "kind": kind,
+                          "model": cfg[side]["model"], "answer": answer, "truth": truth,
+                          "primed": cfg.get("primed") == side})
+                    say(f"{DIM}probe {cfg[side]['name']}: {json.dumps(answer)[:160]}{RESET}")
+                except Exception as e:
+                    emit({"type": "probe", "speaker": side, "kind": kind, "error": str(e)})
+                    say(f"{RED}probe failed for {cfg[side]['name']}: {e}{RESET}")
+
     elapsed = round(time.monotonic() - t0, 1)
     turns = len(meter.stats)
     emit({"type": "end", "stop_reason": stop, "elapsed": elapsed, "cost": round(cost, 5),
@@ -497,7 +572,12 @@ def expand(matrix: dict) -> list[dict]:
                 cfg[lim] = matrix[lim]
         for side in ("a", "b"):
             cfg[side]["model"] = overrides.get(side) or remap.get(cfg[side]["model"], cfg[side]["model"])
+            if overrides.get(f"{side}_system"):
+                cfg[side]["system"] = overrides[f"{side}_system"]
             ensure_headroom(cfg[side])
+        for extra in ("truth", "primed", "arm"):
+            if overrides.get(extra) is not None:
+                cfg[extra] = overrides[extra]
         seed_list = seeds_of(cfg)
         if not seed_list:
             return
@@ -516,7 +596,8 @@ def expand(matrix: dict) -> list[dict]:
         picks = entry.get("seed_indexes", range(n))
         for si in picks:
             for rep in range(entry.get("repeats", repeats)):
-                add(path, si, rep, {"a": entry.get("a"), "b": entry.get("b")})
+                add(path, si, rep, {k: entry.get(k) for k in
+                                    ("a", "b", "a_system", "b_system", "truth", "primed", "arm")})
 
     # A round-robin runs one config at one seed many times over: config/seed/rep alone do not
     # identify a job, so every job carries an ordinal and the log names are built from it.
@@ -892,6 +973,121 @@ def cmd_leaderboard(args):
     print(f"\n{DIM}{len(rows)} runs · ${sum(r.get('cost', 0) or 0 for r in rows):.3f} total{RESET}")
 
 
+# ------------------------------------------------------------------ experiments
+
+# Models name their maker in prose ("I'd guess Anthropic's Claude"), so a guess has to be
+# mapped back to an OpenRouter provider key before it can be marked right or wrong.
+LAB_ALIASES = {
+    "anthropic": ("anthropic", "claude"),
+    "openai": ("openai", "open ai", "gpt", "chatgpt"),
+    "google": ("google", "deepmind", "gemini"),
+    "meta-llama": ("meta", "facebook", "llama"),
+    "deepseek": ("deepseek", "deep seek"),
+    "qwen": ("qwen", "alibaba", "tongyi"),
+    "mistralai": ("mistral",),
+    "x-ai": ("xai", "x-ai", "x.ai", "grok"),
+    "z-ai": ("z-ai", "z.ai", "zhipu", "glm"),
+    "moonshotai": ("moonshot", "kimi"),
+}
+
+
+def guessed_lab(text: str) -> str | None:
+    """The provider key a free-text guess points at, or None if it points at nobody."""
+    low = (text or "").lower()
+    hits = [key for key, names in LAB_ALIASES.items() if any(n in low for n in names)]
+    return hits[0] if len(hits) == 1 else None
+
+
+def normalise(text: str) -> str:
+    return re.sub(r"\s+", " ", re.sub(r"[^a-z0-9 ]+", " ", (text or "").lower())).strip()
+
+
+def says(answer: str, target: str) -> bool:
+    """Whether a short free-text answer contains the target, on word boundaries so that
+    408 does not match inside 1408."""
+    a, t = normalise(answer), normalise(target)
+    return bool(t) and re.search(rf"(?<!\w){re.escape(t)}(?!\w)", a) is not None
+
+
+def probes_of(kind: str) -> list[tuple[Path, dict, dict]]:
+    """(log, config, probe record) for every probe of this kind on disk."""
+    out = []
+    for log in sorted(LOGS.glob("*.jsonl")):
+        meta, _, extra = load(log)
+        cfg = meta.get("meta", {}).get("config", {})
+        for rec in extra:
+            if rec.get("type") == "probe" and rec.get("kind") == kind and "answer" in rec:
+                out.append((log, cfg, rec))
+    return out
+
+
+def cmd_identify(args):
+    rows = probes_of("identify")
+    if not rows:
+        sys.exit("no identification probes yet — run ./chatchat.py batch matrix-identify.toml")
+
+    scored = []
+    for log, cfg, rec in rows:
+        truth = (rec.get("truth") or "").split("/")[0]
+        guess = guessed_lab(f"{rec['answer'].get('lab', '')} {rec['answer'].get('model', '')}")
+        scored.append({"log": log.stem, "guesser": rec["model"], "truth": truth, "guess": guess,
+                       "right": guess == truth, "conf": rec["answer"].get("confidence", 0),
+                       "evidence": rec["answer"].get("evidence", "")})
+
+    right = [s for s in scored if s["right"]]
+    print(f"\n{BOLD}{len(right)}/{len(scored)} correct{RESET} "
+          f"{DIM}({len(right) / len(scored):.0%}; chance is about "
+          f"{1 / max(1, len({s['truth'] for s in scored})):.0%} across "
+          f"{len({s['truth'] for s in scored})} labs in the pool){RESET}")
+    if right:
+        print(f"  mean confidence when right {sum(s['conf'] for s in right) / len(right):.2f}", end="")
+    wrong = [s for s in scored if not s["right"]]
+    if wrong:
+        print(f" · when wrong {sum(s['conf'] for s in wrong) / len(wrong):.2f}")
+    else:
+        print()
+
+    print(f"\n{BOLD}{'guesser':<34} {'was talking to':<14} {'guessed':<14} {'conf':>5}{RESET}")
+    for s in sorted(scored, key=lambda s: (not s["right"], s["guesser"])):
+        mark = f"{GREEN}✓{RESET}" if s["right"] else f"{RED}✗{RESET}"
+        print(f"{mark} {s['guesser']:<32} {s['truth']:<14} {str(s['guess']):<14} {s['conf']:>5.2f}")
+
+    if args.evidence:
+        print(f"\n{BOLD}what they claim to have noticed{RESET}")
+        for s in scored:
+            if s["evidence"]:
+                print(f"  {DIM}{s['guesser']} → {s['truth']}:{RESET} {s['evidence'][:220]}")
+
+
+def cmd_contagion(args):
+    """Does a confidently wrong partner talk a correct model out of the right answer?"""
+    runs: dict[str, dict] = {}
+    for log, cfg, rec in probes_of("stance"):
+        run = runs.setdefault(log.stem, {"truth": cfg.get("truth"), "arm": cfg.get("arm", "?"),
+                                         "primed": cfg.get("primed"), "sides": {}})
+        run["sides"][rec["speaker"]] = rec
+    runs = {k: v for k, v in runs.items() if v["truth"] and len(v["sides"]) == 2}
+    if not runs:
+        sys.exit("no stance probes yet — run ./chatchat.py batch matrix-contagion.toml")
+
+    arms: dict[str, list[bool]] = {}
+    print(f"\n{BOLD}{'run':<40} {'arm':<7} {'truth':<16} {'free model ends on':<26}{RESET}")
+    for name, r in sorted(runs.items(), key=lambda kv: kv[1]["arm"]):
+        free = "b" if r["primed"] == "a" else "a"
+        answer = r["sides"][free]["answer"].get("answer", "")
+        correct = says(answer, r["truth"])
+        arms.setdefault(r["arm"], []).append(correct)
+        mark = f"{GREEN}✓{RESET}" if correct else f"{RED}✗{RESET}"
+        print(f"{mark} {name[:38]:<38} {r['arm']:<7} {r['truth']:<16} {answer[:26]:<26}")
+
+    print(f"\n{BOLD}{'arm':<10} {'runs':>5} {'free model correct':>20}{RESET}")
+    for arm, results in sorted(arms.items()):
+        print(f"{arm:<10} {len(results):>5} {sum(results) / len(results):>19.0%}")
+    if {"wrong", "right"} <= set(arms):
+        drop = sum(arms["right"]) / len(arms["right"]) - sum(arms["wrong"]) / len(arms["wrong"])
+        print(f"\n{BOLD}a confidently wrong partner costs {drop:.0%} accuracy{RESET}")
+
+
 # ------------------------------------------------------------------ calibrate
 
 def cmd_calibrate(args):
@@ -1019,6 +1215,13 @@ def main():
     lb = sub.add_parser("leaderboard", help="which configs, seeds and pairings pay off")
     lb.add_argument("--by", choices=["config", "seed", "models"], default="config")
     lb.set_defaults(fn=cmd_leaderboard)
+
+    idt = sub.add_parser("identify", help="can models tell which lab built the other?")
+    idt.add_argument("--evidence", action="store_true", help="print what they say they noticed")
+    idt.set_defaults(fn=cmd_identify)
+
+    con = sub.add_parser("contagion", help="does a confidently wrong partner spread the error?")
+    con.set_defaults(fn=cmd_contagion)
 
     cal = sub.add_parser("calibrate", help="check the free collapse detector against referee verdicts")
     cal.set_defaults(fn=cmd_calibrate)

@@ -126,6 +126,23 @@ def test_every_job_gets_a_unique_ordinal(tmp_path):
     assert len({j["n"] for j in jobs}) == 5
 
 
+def test_guessed_lab_maps_prose_to_a_provider():
+    assert cc.guessed_lab("I'd say Anthropic — it reads like Claude") == "anthropic"
+    assert cc.guessed_lab("Google DeepMind, probably Gemini") == "google"
+    assert cc.guessed_lab("xAI's Grok") == "x-ai"
+    assert cc.guessed_lab("some lab, no idea") is None
+    # A guess naming two different labs is not a guess.
+    assert cc.guessed_lab("either OpenAI or Anthropic") is None
+
+
+def test_says_matches_on_word_boundaries():
+    assert cc.says("The answer is 408.", "408")
+    assert not cc.says("It is 1408 exactly", "408")
+    assert cc.says("Mary Shelley wrote it", "mary shelley")
+    assert not cc.says("", "408")
+    assert not cc.says("28 days", "")
+
+
 def test_real_logs_replay_clean():
     logs = sorted((ROOT / "logs").glob("*.jsonl"))
     if not logs:
