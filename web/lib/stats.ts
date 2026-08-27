@@ -20,6 +20,9 @@ export type PairStat = {
   id: string;
   turns: number;
   collapsed: boolean;
+  /** Ended on the wall clock rather than on anything conversational — a slow-model artifact
+   *  that must not be read as "this pairing had less to say". */
+  timedOut: boolean;
   dissent: number;
   findings: number;
 };
@@ -109,6 +112,7 @@ export function pairStats(config?: string): PairStat[] {
         id: c.id,
         turns: bodyTurns(c).length,
         collapsed: c.stopReason === "collapse",
+        timedOut: c.stopReason === "max_seconds",
         dissent: h.length ? h.reduce((n, x) => n + (x.dissent ?? 0), 0) / h.length : 0,
         findings: (c.analysis?.judge?.findings ?? []).length,
       };

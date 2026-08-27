@@ -61,13 +61,16 @@ function Matrix({ models, pairs }: { models: string[]; pairs: PairStat[] }) {
                     <Link
                       href={`/c/${p.id}`}
                       title={`${modelProfile(row).name} × ${modelProfile(col).name} — ${p.turns} turns${
-                        p.collapsed ? ", collapsed" : ""
+                        p.collapsed ? ", collapsed" : p.timedOut ? ", cut off by the clock" : ""
                       }, ${p.findings} findings, dissent ${p.dissent.toFixed(2)}`}
                       className="flex h-7 w-9 items-center justify-center rounded font-mono text-[10px] text-ink/80 transition-transform hover:scale-110"
                       style={{
-                        background: `color-mix(in oklab, ${
-                          p.collapsed ? "#c98a3f" : "var(--color-accent)"
-                        } ${12 + strength * 55}%, var(--color-panel))`,
+                        background: p.timedOut
+                          ? "var(--color-raised)"
+                          : `color-mix(in oklab, ${
+                              p.collapsed ? "#c98a3f" : "var(--color-accent)"
+                            } ${12 + strength * 55}%, var(--color-panel))`,
+                        color: p.timedOut ? "var(--color-faint)" : undefined,
                       }}
                     >
                       {p.turns}
@@ -148,7 +151,9 @@ export default async function Models({ searchParams }: PageProps<"/models">) {
             <Matrix models={models} pairs={pairs} />
             <p className="text-[12px] text-faint">
               Warmer is longer. <span className="text-[#c98a3f]">Amber</span> means the referee called
-              collapse and the run was stopped. The diagonal is a model talking to itself.
+              collapse and the run was stopped. <span className="text-faint">Grey</span> means the
+              wall clock cut it off — a slow model, not a short conversation, so read nothing into
+              it. The diagonal is a model talking to itself.
             </p>
           </section>
 
