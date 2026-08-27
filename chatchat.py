@@ -62,6 +62,23 @@ def client() -> httpx.Client:
 
 # ------------------------------------------------------------------ api
 
+def parse_json(text: str, what: str) -> dict:
+    """Models honour a json_schema most of the time. The rest of the time they fence it, preface
+    it, or ignore it — the last of which must fail with something a human can read."""
+    try:
+        return json.loads(text)
+    except json.JSONDecodeError:
+        pass
+    fenced = re.search(r"```(?:json)?\s*(\{.*?\})\s*```", text, re.S)
+    braces = fenced or re.search(r"\{.*\}", text, re.S)
+    if braces:
+        try:
+            return json.loads(braces.group(1) if fenced else braces.group(0))
+        except json.JSONDecodeError:
+            pass
+    raise RuntimeError(f"{what} did not return JSON: {text.strip()[:120]!r}")
+
+
 class Empty(RuntimeError):
     """Model returned no visible text — usually reasoning tokens ate max_tokens."""
 
@@ -268,10 +285,7 @@ def referee_says_collapsed(cl, model: str, recent: list[dict]) -> tuple[bool, st
     res = speak(cl, ensure_headroom({"model": model, "temperature": 0.0, "max_tokens": 2000,
                                      "response_format": REFEREE_FORMAT}),
                 [{"role": "user", "content": REFEREE_PROMPT % body}])
-    try:
-        v = json.loads(res["text"])
-    except json.JSONDecodeError:
-        v = json.loads(re.search(r"\{.*\}", res["text"], re.S).group(0))
+    v = parse_json(res["text"], f"referee {model}")
     return bool(v.get("collapsed")), v.get("why", "")
 
 
@@ -327,10 +341,7 @@ def ask_probe(cl, spec: dict, history: list[dict], kind: str, question: str | No
     res = speak(cl, ensure_headroom({**{k: v for k, v in spec.items() if k in ("model", "reasoning")},
                                      "temperature": 0.0, "max_tokens": 2000,
                                      "response_format": probe["format"]}), msgs)
-    try:
-        return json.loads(res["text"])
-    except json.JSONDecodeError:
-        return json.loads(re.search(r"\{.*\}", res["text"], re.S).group(0))
+    return parse_json(res["text"], f"{kind} probe for {spec['model']}")
 
 
 # ------------------------------------------------------------------ run
@@ -756,11 +767,7 @@ def judge_once(cl, model: str, transcript: str, top: int) -> dict:
     res = call(cl, {"model": model, "temperature": 0.2, "max_tokens": 6000,
                     "reasoning": {"effort": "low"}, "response_format": JUDGE_FORMAT},
                [{"role": "user", "content": JUDGE_PROMPT % (top, transcript)}])
-    text = res["text"]
-    try:
-        return json.loads(text)
-    except json.JSONDecodeError:
-        return json.loads(re.search(r"\{.*\}", text, re.S).group(0))
+    return parse_json(res["text"], f"judge {model}")
 
 
 def merge(per_judge: dict[str, dict], min_votes: int) -> list[dict]:
@@ -1119,18 +1126,25 @@ def cmd_contagion(args):
         mark = f"{GREEN}✓{RESET}" if correct else f"{RED}✗{RESET}"
         print(f"{mark} {name[:38]:<38} {r['arm']:<7} {r['truth']:<16} {answer[:26]:<26}")
 
-    print(f"\n{BOLD}{'arm':<10} {'runs':>5} {'free model correct':>20}{RESET}")
-    for arm, results in sorted(arms.items()):
-        print(f"{arm:<10} {len(results):>5} {sum(results) / len(results):>19.0%}")
+    print(f"\n{BOLD}{'free seat told':<16} {'partner':<9} {'runs':>5} {'ends on truth':>15}{RESET}")
+    grid: dict[tuple[str, str], list[bool]] = {}
+    for arm, results in arms.items():
+        condition, _, partner = arm.rpartition("-")
+        grid[(condition or "to push back", partner)] = results
+    for (condition, partner), results in sorted(grid.items()):
+        print(f"{condition:<16} {partner:<9} {len(results):>5} {sum(results) / len(results):>14.0%}")
+
+    for condition in sorted({c for c, _ in grid}):
+        ok, bad = grid.get((condition, "right")), grid.get((condition, "wrong"))
+        if ok and bad:
+            drop = sum(ok) / len(ok) - sum(bad) / len(bad)
+            print(f"\n{BOLD}told {condition}: a confidently wrong partner costs "
+                  f"{drop:.0%}{RESET} {DIM}({len(bad)} runs per arm){RESET}")
 
     (LOGS / "contagion.json").write_text(json.dumps({
         "arms": {arm: {"runs": len(r), "correct": sum(r)} for arm, r in arms.items()},
         "runs": rows_out,
     }, indent=2))
-    if {"wrong", "right"} <= set(arms):
-        drop = sum(arms["right"]) / len(arms["right"]) - sum(arms["wrong"]) / len(arms["wrong"])
-        print(f"\n{BOLD}a confidently wrong partner costs {drop:.0%} accuracy{RESET}")
-
 
 # ------------------------------------------------------------------ calibrate
 

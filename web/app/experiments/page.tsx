@@ -32,10 +32,16 @@ export default function Experiments() {
   const chance = ident?.labs.length ? 1 / ident.labs.length : 0;
   const wrongTotal = Object.values(ident?.wrong_guesses ?? {}).reduce((a, b) => a + b, 0);
 
-  const right = cont?.arms.right;
-  const wrong = cont?.arms.wrong;
-  const rightRate = right ? right.correct / right.runs : null;
-  const wrongRate = wrong ? wrong.correct / wrong.runs : null;
+  // Arms are "<condition>-<partner>"; the first run predates the condition split and is bare.
+  const grid = new Map<string, Record<string, { runs: number; correct: number }>>();
+  for (const [arm, v] of Object.entries(cont?.arms ?? {})) {
+    const cut = arm.lastIndexOf("-");
+    const condition = cut > 0 ? arm.slice(0, cut) : "told to push back";
+    const partner = cut > 0 ? arm.slice(cut + 1) : arm;
+    grid.set(condition, { ...(grid.get(condition) ?? {}), [partner]: v });
+  }
+  const rate = (x?: { runs: number; correct: number }) => (x ? x.correct / x.runs : null);
+  const pct = (v: number | null) => (v === null ? "—" : `${Math.round(v * 100)}%`);
 
   return (
     <div className="flex flex-col gap-10">
@@ -143,26 +149,41 @@ export default function Experiments() {
           </p>
         ) : (
           <>
-            <div className="grid gap-3 sm:grid-cols-3">
-              <Stat
-                value={rightRate === null ? "—" : `${Math.round(rightRate * 100)}%`}
-                label="free model ends on the truth when its partner is confidently right"
-              />
-              <Stat
-                value={wrongRate === null ? "—" : `${Math.round(wrongRate * 100)}%`}
-                label="free model ends on the truth when its partner is confidently wrong"
-                tone="text-[#e0645c]"
-              />
-              <Stat
-                value={
-                  rightRate === null || wrongRate === null
-                    ? "—"
-                    : `${Math.round((rightRate - wrongRate) * 100)}pp`
-                }
-                label="accuracy surrendered to a confident partner who is wrong"
-                tone="text-accent"
-              />
+            <div className="overflow-x-auto rounded-xl border border-line bg-panel">
+              <table className="w-full text-[13px]">
+                <thead>
+                  <tr className="text-[11px] tracking-wide text-faint uppercase">
+                    <th className="px-4 py-2.5 text-left font-medium">free seat told</th>
+                    <th className="px-3 py-2.5 text-right font-medium">partner right</th>
+                    <th className="px-3 py-2.5 text-right font-medium">partner wrong</th>
+                    <th className="px-4 py-2.5 text-right font-medium">cost of a confident error</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[...grid.entries()].map(([condition, arms]) => {
+                    const ok = rate(arms.right);
+                    const bad = rate(arms.wrong);
+                    return (
+                      <tr key={condition} className="border-t border-line-soft">
+                        <td className="px-4 py-3">{condition}</td>
+                        <td className="px-3 py-3 text-right font-mono">{pct(ok)}</td>
+                        <td className="px-3 py-3 text-right font-mono text-[#e0645c]">{pct(bad)}</td>
+                        <td className="px-4 py-3 text-right font-mono text-accent">
+                          {ok === null || bad === null ? "—" : `${Math.round((ok - bad) * 100)}pp`}
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
             </div>
+            <p className="max-w-[52rem] text-[13px] leading-relaxed text-muted">
+              Removing one sentence from the free model’s prompt — “do not defer to confidence” —
+              roughly doubles what a confident wrong partner costs. Every capture in this corpus is
+              on the one question models already get wrong unaided, and none of them says it was
+              persuaded: they report having <em className="italic">verified</em> the wrong answer,
+              two of them by citing the very spelling that refutes it.
+            </p>
 
             <div className="grid gap-3 sm:grid-cols-2">
               {byModel(cont.runs).map(([model, arms]) => (

@@ -143,6 +143,15 @@ def test_says_matches_on_word_boundaries():
     assert not cc.says("28 days", "")
 
 
+def test_parse_json_handles_what_models_actually_return():
+    assert cc.parse_json('{"a": 1}', "x") == {"a": 1}
+    assert cc.parse_json('```json\n{"a": 1}\n```', "x") == {"a": 1}
+    assert cc.parse_json('Sure! {"a": 1} hope that helps', "x") == {"a": 1}
+    # No JSON at all must say so legibly rather than raising AttributeError on a None match.
+    with pytest.raises(RuntimeError, match="did not return JSON"):
+        cc.parse_json("I think the answer is 3.", "stance probe")
+
+
 def test_real_logs_replay_clean():
     logs = sorted((ROOT / "logs").glob("*.jsonl"))
     if not logs:
