@@ -98,6 +98,11 @@ export function modelProfile(id: string | null) {
   return { provider, providerKey: key, name, id };
 }
 
+/** The speaker's provider colour, used to tint their side of the transcript. */
+export function providerColor(model: string | null): string {
+  return modelProfile(model).provider.color;
+}
+
 export function Avatar({ model, size = 34 }: { model: string | null; size?: number }) {
   const { provider } = modelProfile(model);
   return (

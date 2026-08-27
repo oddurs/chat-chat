@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { allFindings, bodyTurns } from "@/lib/logs";
 import { Avatar, modelProfile } from "@/lib/profiles";
+import { ProseLine } from "@/components/prose";
 
 export const dynamic = "force-dynamic";
 
@@ -91,9 +92,11 @@ export default async function Findings({ searchParams }: PageProps<"/findings">)
               </Link>
             </div>
 
-            <p className="mt-2 text-[14px] leading-relaxed text-muted">{f.why}</p>
+            <p className="mt-2 text-[14px] leading-relaxed text-muted">
+              <ProseLine text={f.why} />
+            </p>
             <p className="mt-2.5 border-l-2 border-accent/40 pl-3.5 text-[15px] leading-relaxed text-ink italic">
-              “{f.quote.trim()}”
+              “<ProseLine text={f.quote.trim()} />”
             </p>
 
             <div className="mt-3 flex flex-wrap items-center gap-2 text-[11px] text-faint">

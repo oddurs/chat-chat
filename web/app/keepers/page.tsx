@@ -4,6 +4,7 @@ import { readCuration } from "@/lib/curation";
 import { Avatar, modelProfile } from "@/lib/profiles";
 import { CopyButton } from "@/components/copy";
 import { turnMarkdown } from "@/components/bits";
+import { Prose } from "@/components/prose";
 
 export const dynamic = "force-dynamic";
 
@@ -61,7 +62,7 @@ export default function Keepers() {
                 className="ml-auto"
               />
             </div>
-            <p className="text-[15px] leading-[1.65] whitespace-pre-wrap">{turn!.content.trim()}</p>
+            <Prose text={turn!.content.trim()} className="text-[15px] leading-[1.65]" />
           </article>
         ))}
       </div>

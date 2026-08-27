@@ -11,7 +11,10 @@ import {
   type Turn,
 } from "@/lib/logs";
 import { readCuration } from "@/lib/curation";
-import { Avatar, modelProfile } from "@/lib/profiles";
+import { Avatar, modelProfile, providerColor } from "@/lib/profiles";
+import { Prose, ProseLine } from "@/components/prose";
+import { TurnRail } from "@/components/rail";
+import { Keys } from "@/components/keys";
 import { Chip, Sparkline, StopBadge, conversationMarkdown, turnMarkdown } from "@/components/bits";
 import { NoteBox, StarButton, TurnKeep } from "@/components/curate";
 import { CopyButton } from "@/components/copy";
@@ -76,15 +79,23 @@ function Bubble({
 }) {
   const right = turn.speaker === "b";
   const p = modelProfile(turn.model);
+  const tint = providerColor(turn.model);
   const truncated = !!agent.max_tokens && (turn.usage?.completion_tokens ?? 0) >= agent.max_tokens;
 
   return (
-    <div id={`turn-${turn.idx}`} className="scroll-mt-20">
+    <div id={`turn-${turn.idx}`} data-flagged={findings.length ? "1" : undefined} className="scroll-mt-20">
       <div className={`flex gap-3 ${right ? "flex-row-reverse" : ""}`}>
         <Avatar model={turn.model} size={32} />
-        <div className={`flex min-w-0 max-w-[82%] flex-col ${right ? "items-end" : "items-start"}`}>
+        <div
+          className={`flex min-w-0 max-w-[min(82%,46rem)] flex-col ${right ? "items-end" : "items-start"}`}
+        >
           <div className="mb-1.5 flex items-center gap-2 text-[12px]">
-            <span className="font-medium text-muted">{turn.name}</span>
+            <span
+              className="font-medium"
+              style={{ color: `color-mix(in oklab, ${tint} 65%, var(--color-ink))` }}
+            >
+              {turn.name}
+            </span>
             <span className="text-faint">{p.name}</span>
             <span className="text-line">·</span>
             <span className="font-mono text-faint">#{turn.idx}</span>
@@ -92,16 +103,17 @@ function Bubble({
           </div>
 
           <div
-            className={`bubble rounded-2xl border px-4 py-3 text-[15px] leading-[1.65] whitespace-pre-wrap ${
-              right ? "rounded-tr-sm border-line bg-raised" : "rounded-tl-sm border-line-soft bg-panel"
+            className={`bubble rounded-2xl border px-4 py-3 text-[15px] leading-[1.65] ${
+              right ? "rounded-tr-sm" : "rounded-tl-sm"
             } ${kept ? "ring-1 ring-accent/30" : ""}`}
-            style={
-              findings.length
-                ? { borderColor: "color-mix(in oklab, var(--color-accent) 30%, transparent)" }
-                : undefined
-            }
+            style={{
+              borderColor: findings.length
+                ? "color-mix(in oklab, var(--color-accent) 32%, transparent)"
+                : `color-mix(in oklab, ${tint} 20%, var(--color-line-soft))`,
+              background: `color-mix(in oklab, ${tint} 5%, var(--color-panel))`,
+            }}
           >
-            {turn.content.trim()}
+            <Prose text={turn.content.trim()} />
           </div>
 
           <div
@@ -175,7 +187,9 @@ function Analysis({ c }: { c: Conversation }) {
           </span>
         )}
       </div>
-      <p className="text-[14px] leading-relaxed text-muted">{judge.arc}</p>
+      <p className="text-[14px] leading-relaxed text-muted">
+        <ProseLine text={judge.arc} />
+      </p>
       {arcs.length > 1 && (
         <details className="group mt-2">
           <summary className="cursor-pointer list-none text-[12px] text-faint hover:text-muted">
@@ -211,8 +225,12 @@ function Analysis({ c }: { c: Conversation }) {
                     </Link>
                   ))}
                 </div>
-                <p className="mt-1 text-[14px] leading-relaxed text-muted">{f.why}</p>
-                <p className="mt-1.5 text-[13px] leading-relaxed text-faint italic">“{f.quote.trim()}”</p>
+                <p className="mt-1 text-[14px] leading-relaxed text-muted">
+                  <ProseLine text={f.why} />
+                </p>
+                <p className="mt-1.5 text-[13px] leading-relaxed text-faint italic">
+                  “<ProseLine text={f.quote.trim()} />”
+                </p>
               </li>
             ))}
           </ol>
@@ -235,10 +253,20 @@ export default async function ConversationPage({ params }: PageProps<"/c/[id]">)
     for (const t of f.turns) flagged.set(t, [...(flagged.get(t) ?? []), f.tag]);
 
   const body = bodyTurns(c);
+  const rail = body.map((t) => ({
+    idx: t.idx,
+    name: t.name,
+    color: providerColor(t.model),
+    score: stats.get(t.idx)?.score ?? 0.3,
+    flagged: flagged.has(t.idx),
+    kept: kept.has(t.idx),
+  }));
   const sibling = listConversations().find((o) => o.id !== c.id && o.config.name === c.config.name);
 
   return (
     <div className="flex flex-col gap-6">
+      <TurnRail items={rail} />
+      <Keys id={c.id} />
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div className="flex items-center gap-3">
           <Link href="/" className="text-[13px] text-faint hover:text-muted">
@@ -291,7 +319,7 @@ export default async function ConversationPage({ params }: PageProps<"/c/[id]">)
           <span className="text-line">·</span>
           <span>{new Date(c.started).toLocaleString()}</span>
         </div>
-        <p className="text-[15px] leading-relaxed text-ink">{c.seed}</p>
+        <Prose text={c.seed} className="text-[15px] leading-relaxed text-ink" />
       </section>
 
       <NoteBox id={c.id} initial={curated.note ?? ""} />

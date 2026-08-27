@@ -41,7 +41,24 @@ body {
   border: 3px solid var(--color-bg);
 }
 
-/* Turn linked to from a finding, e.g. /c/id#turn-4 */
-:target > .bubble {
-  box-shadow: 0 0 0 1px color-mix(in oklab, var(--color-accent) 55%, transparent);
+html {
+  scroll-behavior: smooth;
+}
+
+/* Stats sit in columns across cards; proportional digits make them jitter. */
+.font-mono,
+code,
+pre {
+  font-variant-numeric: tabular-nums;
+}
+
+/* The turn a finding, the rail or a keypress jumped to. */
+:target .bubble {
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--color-accent) 50%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }

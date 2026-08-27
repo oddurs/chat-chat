@@ -2,6 +2,7 @@ import Link from "next/link";
 import { listConversations, bodyTurns, LOG_DIR } from "@/lib/logs";
 import { readCuration } from "@/lib/curation";
 import { Avatar, modelProfile } from "@/lib/profiles";
+import { ProseLine } from "@/components/prose";
 import { Sparkline, StopBadge } from "@/components/bits";
 import { StarButton } from "@/components/curate";
 import { LiveRefresh } from "@/components/live";
@@ -96,10 +97,12 @@ export default async function Home({ searchParams }: PageProps<"/">) {
                   <Avatar model={c.config.b.model} size={26} />
                   {c.stopReason === "running" && <LiveRefresh />}
                 </div>
-                <p className="mt-2.5 line-clamp-2 text-[14px] leading-relaxed text-muted">{c.seed}</p>
+                <p className="mt-2.5 line-clamp-2 text-[14px] leading-relaxed text-muted">
+                  <ProseLine text={c.seed} />
+                </p>
                 {curated?.note && (
                   <p className="mt-2 border-l-2 border-accent/40 pl-2.5 text-[13px] text-accent/90 italic">
-                    {curated.note}
+                    <ProseLine text={curated.note} />
                   </p>
                 )}
               </Link>

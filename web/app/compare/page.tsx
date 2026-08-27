@@ -2,6 +2,7 @@ import Link from "next/link";
 import { getConversation, bodyTurns, type Conversation } from "@/lib/logs";
 import { Avatar, modelProfile } from "@/lib/profiles";
 import { StopBadge } from "@/components/bits";
+import { Prose, ProseLine } from "@/components/prose";
 
 export const dynamic = "force-dynamic";
 
@@ -23,7 +24,9 @@ function Column({ c }: { c: Conversation }) {
           <StopBadge reason={c.stopReason} />
           {c.analysis?.mean_interest !== undefined && <span>interest {c.analysis.mean_interest}</span>}
         </div>
-        <p className="mt-2 line-clamp-3 text-[13px] leading-relaxed text-muted">{c.seed}</p>
+        <p className="mt-2 line-clamp-3 text-[13px] leading-relaxed text-muted">
+          <ProseLine text={c.seed} />
+        </p>
         <Link href={`/c/${c.id}`} className="mt-2 inline-block text-[12px] text-faint hover:text-accent">
           open →
         </Link>
@@ -35,7 +38,7 @@ function Column({ c }: { c: Conversation }) {
             <span className="text-muted">{t.name}</span>
             <span className="font-mono">#{t.idx}</span>
           </div>
-          <p className="text-[14px] leading-[1.6] whitespace-pre-wrap">{t.content.trim()}</p>
+          <Prose text={t.content.trim()} className="text-[14px] leading-[1.6]" />
         </div>
       ))}
     </div>
