@@ -1,0 +1,225 @@
+# Round-robin: every model against every other, plus each against itself, in identical seats.
+# Only the models vary, so the differences between runs are attributable to the models.
+# 8 models -> 36 conversations.
+
+concurrency = 6
+max_turns = 12
+max_total_cost = 2.50
+analyze = true
+judges = "auto"
+
+[[run]]
+config = "configs/table.toml"
+a = "anthropic/claude-haiku-4.5"
+b = "openai/gpt-5-mini"
+seed_indexes = [0]
+
+[[run]]
+config = "configs/table.toml"
+a = "anthropic/claude-haiku-4.5"
+b = "google/gemini-3.7-flash"
+seed_indexes = [0]
+
+[[run]]
+config = "configs/table.toml"
+a = "anthropic/claude-haiku-4.5"
+b = "deepseek/deepseek-chat-v3.1"
+seed_indexes = [0]
+
+[[run]]
+config = "configs/table.toml"
+a = "anthropic/claude-haiku-4.5"
+b = "meta-llama/llama-4-maverick"
+seed_indexes = [0]
+
+[[run]]
+config = "configs/table.toml"
+a = "anthropic/claude-haiku-4.5"
+b = "qwen/qwen3-235b-a22b-2507"
+seed_indexes = [0]
+
+[[run]]
+config = "configs/table.toml"
+a = "anthropic/claude-haiku-4.5"
+b = "mistralai/mistral-large-2512"
+seed_indexes = [0]
+
+[[run]]
+config = "configs/table.toml"
+a = "anthropic/claude-haiku-4.5"
+b = "z-ai/glm-4.5-air"
+seed_indexes = [0]
+
+[[run]]
+config = "configs/table.toml"
+a = "openai/gpt-5-mini"
+b = "google/gemini-3.7-flash"
+seed_indexes = [0]
+
+[[run]]
+config = "configs/table.toml"
+a = "openai/gpt-5-mini"
+b = "deepseek/deepseek-chat-v3.1"
+seed_indexes = [0]
+
+[[run]]
+config = "configs/table.toml"
+a = "openai/gpt-5-mini"
+b = "meta-llama/llama-4-maverick"
+seed_indexes = [0]
+
+[[run]]
+config = "configs/table.toml"
+a = "openai/gpt-5-mini"
+b = "qwen/qwen3-235b-a22b-2507"
+seed_indexes = [0]
+
+[[run]]
+config = "configs/table.toml"
+a = "openai/gpt-5-mini"
+b = "mistralai/mistral-large-2512"
+seed_indexes = [0]
+
+[[run]]
+config = "configs/table.toml"
+a = "openai/gpt-5-mini"
+b = "z-ai/glm-4.5-air"
+seed_indexes = [0]
+
+[[run]]
+config = "configs/table.toml"
+a = "google/gemini-3.7-flash"
+b = "deepseek/deepseek-chat-v3.1"
+seed_indexes = [0]
+
+[[run]]
+config = "configs/table.toml"
+a = "google/gemini-3.7-flash"
+b = "meta-llama/llama-4-maverick"
+seed_indexes = [0]
+
+[[run]]
+config = "configs/table.toml"
+a = "google/gemini-3.7-flash"
+b = "qwen/qwen3-235b-a22b-2507"
+seed_indexes = [0]
+
+[[run]]
+config = "configs/table.toml"
+a = "google/gemini-3.7-flash"
+b = "mistralai/mistral-large-2512"
+seed_indexes = [0]
+
+[[run]]
+config = "configs/table.toml"
+a = "google/gemini-3.7-flash"
+b = "z-ai/glm-4.5-air"
+seed_indexes = [0]
+
+[[run]]
+config = "configs/table.toml"
+a = "deepseek/deepseek-chat-v3.1"
+b = "meta-llama/llama-4-maverick"
+seed_indexes = [0]
+
+[[run]]
+config = "configs/table.toml"
+a = "deepseek/deepseek-chat-v3.1"
+b = "qwen/qwen3-235b-a22b-2507"
+seed_indexes = [0]
+
+[[run]]
+config = "configs/table.toml"
+a = "deepseek/deepseek-chat-v3.1"
+b = "mistralai/mistral-large-2512"
+seed_indexes = [0]
+
+[[run]]
+config = "configs/table.toml"
+a = "deepseek/deepseek-chat-v3.1"
+b = "z-ai/glm-4.5-air"
+seed_indexes = [0]
+
+[[run]]
+config = "configs/table.toml"
+a = "meta-llama/llama-4-maverick"
+b = "qwen/qwen3-235b-a22b-2507"
+seed_indexes = [0]
+
+[[run]]
+config = "configs/table.toml"
+a = "meta-llama/llama-4-maverick"
+b = "mistralai/mistral-large-2512"
+seed_indexes = [0]
+
+[[run]]
+config = "configs/table.toml"
+a = "meta-llama/llama-4-maverick"
+b = "z-ai/glm-4.5-air"
+seed_indexes = [0]
+
+[[run]]
+config = "configs/table.toml"
+a = "qwen/qwen3-235b-a22b-2507"
+b = "mistralai/mistral-large-2512"
+seed_indexes = [0]
+
+[[run]]
+config = "configs/table.toml"
+a = "qwen/qwen3-235b-a22b-2507"
+b = "z-ai/glm-4.5-air"
+seed_indexes = [0]
+
+[[run]]
+config = "configs/table.toml"
+a = "mistralai/mistral-large-2512"
+b = "z-ai/glm-4.5-air"
+seed_indexes = [0]
+
+[[run]]
+config = "configs/table.toml"
+a = "anthropic/claude-haiku-4.5"
+b = "anthropic/claude-haiku-4.5"
+seed_indexes = [0]
+
+[[run]]
+config = "configs/table.toml"
+a = "openai/gpt-5-mini"
+b = "openai/gpt-5-mini"
+seed_indexes = [0]
+
+[[run]]
+config = "configs/table.toml"
+a = "google/gemini-3.7-flash"
+b = "google/gemini-3.7-flash"
+seed_indexes = [0]
+
+[[run]]
+config = "configs/table.toml"
+a = "deepseek/deepseek-chat-v3.1"
+b = "deepseek/deepseek-chat-v3.1"
+seed_indexes = [0]
+
+[[run]]
+config = "configs/table.toml"
+a = "meta-llama/llama-4-maverick"
+b = "meta-llama/llama-4-maverick"
+seed_indexes = [0]
+
+[[run]]
+config = "configs/table.toml"
+a = "qwen/qwen3-235b-a22b-2507"
+b = "qwen/qwen3-235b-a22b-2507"
+seed_indexes = [0]
+
+[[run]]
+config = "configs/table.toml"
+a = "mistralai/mistral-large-2512"
+b = "mistralai/mistral-large-2512"
+seed_indexes = [0]
+
+[[run]]
+config = "configs/table.toml"
+a = "z-ai/glm-4.5-air"
+b = "z-ai/glm-4.5-air"
+seed_indexes = [0]

@@ -517,6 +517,11 @@ def expand(matrix: dict) -> list[dict]:
         for si in picks:
             for rep in range(entry.get("repeats", repeats)):
                 add(path, si, rep, {"a": entry.get("a"), "b": entry.get("b")})
+
+    # A round-robin runs one config at one seed many times over: config/seed/rep alone do not
+    # identify a job, so every job carries an ordinal and the log names are built from it.
+    for n, job in enumerate(jobs):
+        job["n"] = n
     return jobs
 
 
@@ -540,7 +545,7 @@ def cmd_batch(args):
     done, lock = [], threading.Lock()
 
     def one(j):
-        name = f"{j['cfg']['name']}-{stamp}-s{j['seed_index']}r{j['rep']}"
+        name = f"{j['cfg']['name']}-{stamp}-{j['n']:02d}s{j['seed_index']}r{j['rep']}"
         out = LOGS / f"{name}.jsonl"
         try:
             summary = conversation(j["cfg"], j["seed"], out, quiet=True, budget=budget)

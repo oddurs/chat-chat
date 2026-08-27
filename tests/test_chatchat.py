@@ -116,6 +116,16 @@ def test_expand_multiplies_configs_seeds_and_repeats(tmp_path):
     assert override[0]["cfg"]["a"]["model"] == "x/1"
 
 
+def test_every_job_gets_a_unique_ordinal(tmp_path):
+    """A round-robin repeats one config at one seed, so config/seed/rep cannot name the log."""
+    cfg = tmp_path / "t.toml"
+    cfg.write_text('name = "t"\nseeds = ["one"]\n[a]\nmodel = "p/1"\n[b]\nmodel = "p/2"\n')
+    jobs = cc.expand({"run": [{"config": str(cfg), "a": f"x/{i}", "b": "y/1", "seed_indexes": [0]}
+                              for i in range(5)]})
+    assert len(jobs) == 5
+    assert len({j["n"] for j in jobs}) == 5
+
+
 def test_real_logs_replay_clean():
     logs = sorted((ROOT / "logs").glob("*.jsonl"))
     if not logs:
