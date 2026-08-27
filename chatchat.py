@@ -346,6 +346,7 @@ def conversation(cfg: dict, seed: str, out: Path, *, max_turns=None, max_seconds
     meter = Meter(stop_cfg.get("collapse_threshold", 0.55), stop_cfg.get("collapse_streak", 3))
     ref_model, ref_every = stop_cfg.get("referee"), stop_cfg.get("referee_every", 4)
     recent: list[dict] = []
+    ref_healthy = False  # referee's most recent verdict, used to skip needless provocations
     cost, stop, interventions, pending_b = 0.0, "max_turns", 0, None
     t0 = time.monotonic()
     who, other = "a", "b"
@@ -399,6 +400,7 @@ def conversation(cfg: dict, seed: str, out: Path, *, max_turns=None, max_seconds
             if ref_model and idx >= 4 and idx % ref_every == 0 and not collapsing:
                 try:
                     verdict, why = referee_says_collapsed(cl, ref_model, recent[-6:])
+                    ref_healthy = not verdict
                     emit({"type": "referee", "after": idx, "collapsed": verdict, "why": why,
                           "model": ref_model})
                     if verdict:
@@ -409,7 +411,8 @@ def conversation(cfg: dict, seed: str, out: Path, *, max_turns=None, max_seconds
 
             # A detected collapse is perturbed if this config has interventions for it,
             # and otherwise ends the run — there is no point paying for mutual admiration.
-            due = bool(iv_every) and idx % iv_every == 0
+            # A scheduled provocation is wasted on a conversation the referee just called healthy.
+            due = bool(iv_every) and idx % iv_every == 0 and not ref_healthy
             perturb = due or (collapsing and iv_on_collapse)
             if perturb and idx < max_turns and interventions < iv_max:
                 p = provocations[interventions % len(provocations)]
@@ -421,6 +424,7 @@ def conversation(cfg: dict, seed: str, out: Path, *, max_turns=None, max_seconds
                       "reason": "collapse" if collapsing else "scheduled",
                       "collapse_score": round(meter.collapse_curve[-1], 3)})
                 say(f"{YELLOW}⟐ {p}{RESET}\n")
+                ref_healthy = False
                 meter.collapse_curve[-1] = 0.0  # give the perturbation a chance before firing again
             elif collapsing:
                 stop = "collapse"
@@ -811,6 +815,11 @@ def cmd_analyze(args):
 
 # ------------------------------------------------------------------ leaderboard
 
+def mean_interest(report: dict) -> float:
+    h = report.get("heuristics") or []
+    return sum(x.get("score", 0) for x in h) / len(h) if h else 0.0
+
+
 def cmd_leaderboard(args):
     rows = []
     for f in sorted(LOGS.glob("*.analysis.json")):
@@ -818,9 +827,14 @@ def cmd_leaderboard(args):
             r = json.loads(f.read_text())
         except json.JSONDecodeError:
             continue
+        # Analyses written by older versions lack config/models; recover them from the log itself.
         meta = load(Path(r["log"]))[0].get("meta", {}) if Path(r["log"]).exists() else {}
-        seed = (meta.get("seed") or meta.get("config", {}).get("seed") or "")[:48]
-        rows.append({**r, "seed": seed, "findings": len((r.get("judge") or {}).get("findings", []))})
+        cfg = meta.get("config", {})
+        seed = (meta.get("seed") or cfg.get("seed") or (cfg.get("seeds") or [""])[0] or "")[:48]
+        models = r.get("models") or {"a": cfg.get("a", {}).get("model"), "b": cfg.get("b", {}).get("model")}
+        rows.append({**r, "config": r.get("config") or cfg.get("name") or Path(r["log"]).stem,
+                     "models": models, "seed": seed,
+                     "findings": len((r.get("judge") or {}).get("findings", []))})
     if not rows:
         sys.exit("no analyses yet — run ./chatchat.py batch matrix.toml")
 
@@ -844,7 +858,7 @@ def cmd_leaderboard(args):
         stats.append({
             "key": k, "runs": n,
             "findings_per_run": finds / n,
-            "interest": sum(r.get("mean_interest", 0) or 0 for r in rs) / n,
+            "interest": sum(r.get("mean_interest") or mean_interest(r) for r in rs) / n,
             "collapse": sum(collapses) / len(collapses) if collapses else None,
             "collapse_rate": len(collapses) / n,
             "cost_per_run": cost / n,
@@ -862,6 +876,76 @@ def cmd_leaderboard(args):
               f"{s['interest']:>8.3f}  {col:>9}  {s['collapse_rate']:>4.0%}  "
               f"${s['cost_per_run']:>5.3f}  {pf:>6}")
     print(f"\n{DIM}{len(rows)} runs · ${sum(r.get('cost', 0) or 0 for r in rows):.3f} total{RESET}")
+
+
+# ------------------------------------------------------------------ calibrate
+
+def cmd_calibrate(args):
+    """Score the free lexical collapse detector against the referee's paid verdicts.
+
+    The referee reads the turns and answers yes/no; the lexical meter guesses from word
+    statistics alone. Sweeping the threshold over every logged referee call says whether the
+    free signal can stand in for the paid one, and at what cutoff.
+    """
+    samples = []  # (rolling lexical score at the checkpoint, referee verdict)
+    for log in sorted(LOGS.glob("*.jsonl")):
+        meta, turns, extra = load(log)
+        checks = {e["after"]: e["collapsed"] for e in extra
+                  if e.get("type") == "referee" and "collapsed" in e}
+        if not checks:
+            continue
+        cfg = meta.get("meta", {}).get("config", {})
+        streak = cfg.get("stop", {}).get("collapse_streak", 3)
+        m = Meter(1.1, streak)  # threshold irrelevant here; we want the curve
+        for t in turns:
+            if t["speaker"] == "seed":
+                continue
+            m.feed(t["speaker"], t["content"])
+            if t["idx"] in checks and len(m.collapse_curve) >= streak:
+                window = m.collapse_curve[-streak:]
+                samples.append((sum(window) / len(window), checks[t["idx"]], log.stem, t["idx"]))
+
+    if not samples:
+        sys.exit("no referee verdicts logged yet — run a batch with [stop] referee = ... first")
+
+    pos = [s for s in samples if s[1]]
+    print(f"{BOLD}{len(samples)} referee checkpoints{RESET} {DIM}· {len(pos)} called collapsed "
+          f"· {len(samples) - len(pos)} not{RESET}")
+    if pos:
+        print(f"  collapsed  lexical score  mean {sum(s[0] for s in pos) / len(pos):.3f}  "
+              f"max {max(s[0] for s in pos):.3f}")
+    neg = [s for s in samples if not s[1]]
+    if neg:
+        print(f"  healthy    lexical score  mean {sum(s[0] for s in neg) / len(neg):.3f}  "
+              f"max {max(s[0] for s in neg):.3f}")
+
+    if not pos or not neg:
+        print(f"\n{YELLOW}Only one class present — the sweep needs both collapsed and healthy "
+              f"checkpoints to mean anything.{RESET}")
+        return
+
+    print(f"\n{BOLD}threshold  precision  recall     f1{RESET}")
+    best = None
+    for i in range(1, 20):
+        th = i / 20
+        tp = sum(1 for sc, y, *_ in samples if sc > th and y)
+        fp = sum(1 for sc, y, *_ in samples if sc > th and not y)
+        fn = sum(1 for sc, y, *_ in samples if sc <= th and y)
+        prec = tp / (tp + fp) if tp + fp else 0.0
+        rec = tp / (tp + fn) if tp + fn else 0.0
+        f1 = 2 * prec * rec / (prec + rec) if prec + rec else 0.0
+        mark = ""
+        if f1 > 0 and (best is None or f1 > best[1]):
+            best, mark = (th, f1), ""
+        print(f"     {th:.2f}      {prec:>5.2f}     {rec:>5.2f}  {f1:>5.2f}{mark}")
+
+    if best and best[1] > 0:
+        print(f"\n{GREEN}best f1 {best[1]:.2f} at threshold {best[0]:.2f}{RESET} — "
+              f"put it in a config's [stop] collapse_threshold")
+    else:
+        print(f"\n{YELLOW}No threshold separates the two classes: on this data the lexical meter "
+              f"cannot stand in for the referee. Keep the referee on, and keep the lexical "
+              f"threshold conservative so it only fires on verbatim looping.{RESET}")
 
 
 # ------------------------------------------------------------------ models
@@ -911,6 +995,9 @@ def main():
     lb = sub.add_parser("leaderboard", help="which configs, seeds and pairings pay off")
     lb.add_argument("--by", choices=["config", "seed", "models"], default="config")
     lb.set_defaults(fn=cmd_leaderboard)
+
+    cal = sub.add_parser("calibrate", help="check the free collapse detector against referee verdicts")
+    cal.set_defaults(fn=cmd_calibrate)
 
     m = sub.add_parser("models", help="list OpenRouter model ids")
     m.add_argument("-q")

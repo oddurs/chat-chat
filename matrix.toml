@@ -1,6 +1,6 @@
 # Screening batch: every config × every seed, on the cheap tier, across as many providers as
 # possible. Read the leaderboard afterwards and promote what worked to matrix-frontier.toml.
-concurrency = 4
+concurrency = 6
 repeats = 1
 max_turns = 14
 max_total_cost = 2.00
@@ -22,5 +22,4 @@ configs = [
 "google/gemini-3.1-pro-preview" = "google/gemini-3.7-flash"
 "x-ai/grok-4.6" = "x-ai/grok-4.20"
 "qwen/qwen3-max" = "qwen/qwen3-235b-a22b-2507"
-"moonshotai/kimi-k2.5" = "z-ai/glm-4.7"
-"mistralai/mistral-large-2512" = "meta-llama/llama-4-maverick"
+"moonshotai/kimi-k2.5" = "deepseek/deepseek-chat-v3.1"

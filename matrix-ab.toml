@@ -1,0 +1,9 @@
+# Does perturbing a collapsing conversation produce more findings than letting it die?
+# Same model, same seed, four runs each way.
+concurrency = 4
+repeats = 4
+max_turns = 14
+max_total_cost = 1.00
+analyze = true
+judges = "auto"
+configs = ["configs/ab-plain.toml", "configs/ab-perturbed.toml"]
