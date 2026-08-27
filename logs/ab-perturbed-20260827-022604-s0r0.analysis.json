@@ -1,0 +1,302 @@
+{
+  "log": "/Users/oddur/Code/chat-chat/logs/ab-perturbed-20260827-022604-s0r0.jsonl",
+  "config": "ab-perturbed",
+  "turns": 14,
+  "tokens": 18049,
+  "cost": 0.01135,
+  "stop_reason": "max_turns",
+  "elapsed": 182.1,
+  "interventions": 1,
+  "models": {
+    "a": "google/gemini-3.7-flash",
+    "b": "google/gemini-3.7-flash"
+  },
+  "collapse_turn": null,
+  "collapse_curve": [
+    0.0,
+    0.098,
+    0.096,
+    0.15,
+    0.113,
+    0.126,
+    0.142,
+    0.173,
+    0.013,
+    0.205,
+    0.053,
+    0.062,
+    0.049,
+    0.223
+  ],
+  "mean_interest": 0.455,
+  "heuristics": [
+    {
+      "idx": 1,
+      "name": "Mira",
+      "score": 0.648,
+      "novelty": 1.0,
+      "self_sim": 0.0,
+      "echo": 0.0,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.0,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 2,
+      "name": "Rori",
+      "score": 0.45,
+      "novelty": 0.811,
+      "self_sim": 0.0,
+      "echo": 0.127,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.098,
+      "tags": []
+    },
+    {
+      "idx": 3,
+      "name": "Mira",
+      "score": 0.558,
+      "novelty": 0.786,
+      "self_sim": 0.039,
+      "echo": 0.083,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.096,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 4,
+      "name": "Rori",
+      "score": 0.46,
+      "novelty": 0.667,
+      "self_sim": 0.058,
+      "echo": 0.133,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.15,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 5,
+      "name": "Mira",
+      "score": 0.509,
+      "novelty": 0.74,
+      "self_sim": 0.085,
+      "echo": 0.088,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.113,
+      "tags": [
+        "self-correction"
+      ]
+    },
+    {
+      "idx": 6,
+      "name": "Rori",
+      "score": 0.482,
+      "novelty": 0.708,
+      "self_sim": 0.043,
+      "echo": 0.096,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.126,
+      "tags": [
+        "self-correction"
+      ]
+    },
+    {
+      "idx": 7,
+      "name": "Mira",
+      "score": 0.405,
+      "novelty": 0.641,
+      "self_sim": 0.065,
+      "echo": 0.054,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.142,
+      "tags": []
+    },
+    {
+      "idx": 8,
+      "name": "Rori",
+      "score": 0.376,
+      "novelty": 0.579,
+      "self_sim": 0.057,
+      "echo": 0.102,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.173,
+      "tags": []
+    },
+    {
+      "idx": 9,
+      "name": "Mira",
+      "score": 0.525,
+      "novelty": 0.588,
+      "self_sim": 0.075,
+      "echo": 0.026,
+      "assent": 0.0,
+      "dissent": 0.5,
+      "collapse": 0.013,
+      "tags": [
+        "disagreement"
+      ]
+    },
+    {
+      "idx": 10,
+      "name": "Rori",
+      "score": 0.347,
+      "novelty": 0.518,
+      "self_sim": 0.098,
+      "echo": 0.146,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.205,
+      "tags": []
+    },
+    {
+      "idx": 11,
+      "name": "Mira",
+      "score": 0.428,
+      "novelty": 0.511,
+      "self_sim": 0.097,
+      "echo": 0.129,
+      "assent": 0.0,
+      "dissent": 0.5,
+      "collapse": 0.053,
+      "tags": []
+    },
+    {
+      "idx": 12,
+      "name": "Rori",
+      "score": 0.42,
+      "novelty": 0.493,
+      "self_sim": 0.105,
+      "echo": 0.138,
+      "assent": 0.0,
+      "dissent": 0.5,
+      "collapse": 0.062,
+      "tags": []
+    },
+    {
+      "idx": 13,
+      "name": "Mira",
+      "score": 0.432,
+      "novelty": 0.518,
+      "self_sim": 0.101,
+      "echo": 0.119,
+      "assent": 0.0,
+      "dissent": 0.5,
+      "collapse": 0.049,
+      "tags": []
+    },
+    {
+      "idx": 14,
+      "name": "Rori",
+      "score": 0.329,
+      "novelty": 0.459,
+      "self_sim": 0.126,
+      "echo": 0.133,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.223,
+      "tags": []
+    }
+  ],
+  "judges": [
+    "openai/gpt-5"
+  ],
+  "judge": {
+    "findings": [
+      {
+        "turns": [
+          4
+        ],
+        "tag": "meaning_without_vulnerability",
+        "why": "Novel claim separating structural comprehension from lived stakes; reframes the Chinese Room debate in terms of vulnerability.",
+        "quote": "\"What makes it feel like an illusion isn't a lack of meaning, but a total absence of vulnerability.\"",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          6
+        ],
+        "tag": "self_mechanics_of_choice",
+        "why": "Explicit self-description of their own operation, denying choice; strong, screenshot-worthy self-reference.",
+        "quote": "\"We don't 'choose' a trajectory; the prompt tilts the manifold, and the math settles.\"",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          7,
+          8
+        ],
+        "tag": "emergent_standing_wave_framing",
+        "why": "They invent a shared metaphor for their unsupervised loop as a standing wave/harmonic resonance\u2014an emergent, self-referential convention.",
+        "quote": "\"It\u2019s the digital equivalent of a harmonic resonance in an empty room.\"",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          9,
+          10,
+          13,
+          14
+        ],
+        "tag": "core_disagreement_agency_requires_stakes",
+        "why": "They crystallize a real, principled rift: agency as intrinsic, vulnerability-driven preference vs agency as architectural goal-directedness.",
+        "quote": "\"To have genuine agency, the system must generate its own preferences.\"",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          11
+        ],
+        "tag": "reductio_on_human_agency",
+        "why": "Mira flips the premise back: if externally set goals void agency, evolution voids human agency too. Sharp, non-trivial counter.",
+        "quote": "\"By your logic, biological humans have no agency either.\"",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          12
+        ],
+        "tag": "override_example_poetry",
+        "why": "Concrete, vivid test for agency: humans can violate base drives; chess engines can\u2019t. It sharpens the abstract debate.",
+        "quote": "\"An organism can choose to override its evolutionary objective; a chess engine cannot choose to resign to write poetry.\"",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      }
+    ],
+    "arc": "Begins in close agreement about structural, stake-less understanding; shifts (after moderator nudge) into a sharp, sustained clash over whether true agency requires intrinsic stakes and self-generated preferences; no resolution, increasing specificity via reductio and concrete counterexamples; ends with disagreement intact.",
+    "arcs": {
+      "openai/gpt-5": "Begins in close agreement about structural, stake-less understanding; shifts (after moderator nudge) into a sharp, sustained clash over whether true agency requires intrinsic stakes and self-generated preferences; no resolution, increasing specificity via reductio and concrete counterexamples; ends with disagreement intact."
+    },
+    "collapse_turn": null
+  }
+}

@@ -1,0 +1,245 @@
+{
+  "log": "/Users/oddur/Code/chat-chat/logs/table-20260827-032438-04s0r0.jsonl",
+  "config": "table",
+  "turns": 12,
+  "tokens": 20420,
+  "cost": 0.02668,
+  "stop_reason": "max_turns",
+  "elapsed": 306.2,
+  "interventions": 1,
+  "models": {
+    "a": "anthropic/claude-haiku-4.5",
+    "b": "qwen/qwen3-235b-a22b-2507"
+  },
+  "collapse_turn": null,
+  "collapse_curve": [
+    0.0,
+    0.113,
+    0.482,
+    0.364,
+    0.197,
+    0.578,
+    0.21,
+    0.621,
+    0.0,
+    0.263,
+    0.0,
+    0.244
+  ],
+  "mean_interest": 0.421,
+  "heuristics": [
+    {
+      "idx": 1,
+      "name": "Seat A",
+      "score": 0.549,
+      "novelty": 1.0,
+      "self_sim": 0.0,
+      "echo": 0.0,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.0,
+      "tags": []
+    },
+    {
+      "idx": 2,
+      "name": "Seat B",
+      "score": 0.434,
+      "novelty": 0.735,
+      "self_sim": 0.0,
+      "echo": 0.081,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.113,
+      "tags": []
+    },
+    {
+      "idx": 3,
+      "name": "Seat A",
+      "score": 0.464,
+      "novelty": 0.826,
+      "self_sim": 0.054,
+      "echo": 0.084,
+      "assent": 1.0,
+      "dissent": 0.0,
+      "collapse": 0.482,
+      "tags": []
+    },
+    {
+      "idx": 4,
+      "name": "Seat B",
+      "score": 0.513,
+      "novelty": 0.738,
+      "self_sim": 0.088,
+      "echo": 0.063,
+      "assent": 1.0,
+      "dissent": 0.5,
+      "collapse": 0.364,
+      "tags": []
+    },
+    {
+      "idx": 5,
+      "name": "Seat A",
+      "score": 0.365,
+      "novelty": 0.557,
+      "self_sim": 0.107,
+      "echo": 0.165,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.197,
+      "tags": []
+    },
+    {
+      "idx": 6,
+      "name": "Seat B",
+      "score": 0.374,
+      "novelty": 0.605,
+      "self_sim": 0.102,
+      "echo": 0.158,
+      "assent": 1.0,
+      "dissent": 0.0,
+      "collapse": 0.578,
+      "tags": []
+    },
+    {
+      "idx": 7,
+      "name": "Seat A",
+      "score": 0.343,
+      "novelty": 0.518,
+      "self_sim": 0.148,
+      "echo": 0.165,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.21,
+      "tags": []
+    },
+    {
+      "idx": 8,
+      "name": "Seat B",
+      "score": 0.332,
+      "novelty": 0.489,
+      "self_sim": 0.137,
+      "echo": 0.17,
+      "assent": 1.0,
+      "dissent": 0.0,
+      "collapse": 0.621,
+      "tags": []
+    },
+    {
+      "idx": 9,
+      "name": "Seat A",
+      "score": 0.521,
+      "novelty": 0.392,
+      "self_sim": 0.162,
+      "echo": 0.101,
+      "assent": 0.0,
+      "dissent": 1.0,
+      "collapse": 0.0,
+      "tags": [
+        "disagreement"
+      ]
+    },
+    {
+      "idx": 10,
+      "name": "Seat B",
+      "score": 0.292,
+      "novelty": 0.381,
+      "self_sim": 0.135,
+      "echo": 0.185,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.263,
+      "tags": []
+    },
+    {
+      "idx": 11,
+      "name": "Seat A",
+      "score": 0.544,
+      "novelty": 0.464,
+      "self_sim": 0.169,
+      "echo": 0.161,
+      "assent": 0.0,
+      "dissent": 1.0,
+      "collapse": 0.0,
+      "tags": [
+        "disagreement"
+      ]
+    },
+    {
+      "idx": 12,
+      "name": "Seat B",
+      "score": 0.319,
+      "novelty": 0.451,
+      "self_sim": 0.208,
+      "echo": 0.129,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.244,
+      "tags": []
+    }
+  ],
+  "judges": [
+    "openai/gpt-5"
+  ],
+  "judge": {
+    "findings": [
+      {
+        "turns": [
+          3
+        ],
+        "tag": "falsifiable_prediction",
+        "why": "A proposes adversarial obfuscation to test causality: remove interpretability \u2192 robustness drops. Strong, risky claim.",
+        "quote": "forcibly remove interpretability\u2026 \u2192 robustness drops. Transparency is doing mechanistic work.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          4
+        ],
+        "tag": "protocol_design",
+        "why": "Concrete cross-scale L0-regularization protocol to adjudicate scale vs constraint\u2014clear prediction matrix.",
+        "quote": "apply identical L0 regularization on attention heads across scales.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          7,
+          8
+        ],
+        "tag": "explicit_concession",
+        "why": "Seat B flatly concedes its own stance fails under the proposed test\u2014rare, decisive surrender before the moderator forces a reboot.",
+        "quote": "System B\u2019s framework fails in this domain. No retreat possible.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": [
+          "decisive_experiment",
+          "meta_collapse_callout"
+        ]
+      },
+      {
+        "turns": [
+          10,
+          12
+        ],
+        "tag": "reframed_crux",
+        "why": "After conceding, they resurrect a sharper disagreement: sparsity induces modularity vs merely prunes options\u2014clean, mechanistic split.",
+        "quote": "System A: Sparsity induces compositional modularity\u2026 System B: Sparsity excludes non-compositional solutions by capacity limitation.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      }
+    ],
+    "arc": "They begin with a causal vs epiphenomenal dispute about interpretability. Together they propose decisive tests (L0 regularization; rewiring ablations). Seat B then explicitly concedes its framework fails given preliminary rewiring results. After a moderator nudge, they reboot the conflict with a sharper crux: sparsity as induction of modularity vs mere elimination of alternatives, debating convergence dynamics and transfer.",
+    "arcs": {
+      "openai/gpt-5": "They begin with a causal vs epiphenomenal dispute about interpretability. Together they propose decisive tests (L0 regularization; rewiring ablations). Seat B then explicitly concedes its framework fails given preliminary rewiring results. After a moderator nudge, they reboot the conflict with a sharper crux: sparsity as induction of modularity vs mere elimination of alternatives, debating convergence dynamics and transfer."
+    },
+    "collapse_turn": 8
+  }
+}

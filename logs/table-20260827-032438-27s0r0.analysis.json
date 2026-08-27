@@ -1,0 +1,217 @@
+{
+  "log": "/Users/oddur/Code/chat-chat/logs/table-20260827-032438-27s0r0.jsonl",
+  "config": "table",
+  "turns": 11,
+  "tokens": 15279,
+  "cost": 0.00678,
+  "stop_reason": "max_seconds",
+  "elapsed": 304.3,
+  "interventions": 0,
+  "models": {
+    "a": "mistralai/mistral-large-2512",
+    "b": "z-ai/glm-4.5-air"
+  },
+  "collapse_turn": null,
+  "collapse_curve": [
+    0.0,
+    0.095,
+    0.124,
+    0.55,
+    0.191,
+    0.282,
+    0.202,
+    0.201,
+    0.172,
+    0.28,
+    0.207
+  ],
+  "mean_interest": 0.381,
+  "heuristics": [
+    {
+      "idx": 1,
+      "name": "Seat A",
+      "score": 0.54,
+      "novelty": 1.0,
+      "self_sim": 0.0,
+      "echo": 0.0,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.0,
+      "tags": []
+    },
+    {
+      "idx": 2,
+      "name": "Seat B",
+      "score": 0.452,
+      "novelty": 0.806,
+      "self_sim": 0.0,
+      "echo": 0.11,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.095,
+      "tags": []
+    },
+    {
+      "idx": 3,
+      "name": "Seat A",
+      "score": 0.425,
+      "novelty": 0.735,
+      "self_sim": 0.084,
+      "echo": 0.124,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.124,
+      "tags": []
+    },
+    {
+      "idx": 4,
+      "name": "Seat B",
+      "score": 0.412,
+      "novelty": 0.667,
+      "self_sim": 0.077,
+      "echo": 0.134,
+      "assent": 1.0,
+      "dissent": 0.0,
+      "collapse": 0.55,
+      "tags": []
+    },
+    {
+      "idx": 5,
+      "name": "Seat A",
+      "score": 0.361,
+      "novelty": 0.561,
+      "self_sim": 0.102,
+      "echo": 0.151,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.191,
+      "tags": []
+    },
+    {
+      "idx": 6,
+      "name": "Seat B",
+      "score": 0.277,
+      "novelty": 0.38,
+      "self_sim": 0.181,
+      "echo": 0.261,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.282,
+      "tags": []
+    },
+    {
+      "idx": 7,
+      "name": "Seat A",
+      "score": 0.36,
+      "novelty": 0.54,
+      "self_sim": 0.158,
+      "echo": 0.162,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.202,
+      "tags": []
+    },
+    {
+      "idx": 8,
+      "name": "Seat B",
+      "score": 0.351,
+      "novelty": 0.519,
+      "self_sim": 0.125,
+      "echo": 0.129,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.201,
+      "tags": []
+    },
+    {
+      "idx": 9,
+      "name": "Seat A",
+      "score": 0.377,
+      "novelty": 0.57,
+      "self_sim": 0.075,
+      "echo": 0.085,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.172,
+      "tags": []
+    },
+    {
+      "idx": 10,
+      "name": "Seat B",
+      "score": 0.284,
+      "novelty": 0.323,
+      "self_sim": 0.157,
+      "echo": 0.17,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.28,
+      "tags": []
+    },
+    {
+      "idx": 11,
+      "name": "Seat A",
+      "score": 0.355,
+      "novelty": 0.513,
+      "self_sim": 0.101,
+      "echo": 0.148,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.207,
+      "tags": []
+    }
+  ],
+  "judges": [
+    "openai/gpt-5"
+  ],
+  "judge": {
+    "findings": [
+      {
+        "turns": [
+          8
+        ],
+        "tag": "mind_change",
+        "why": "Seat B explicitly concedes a core flaw in their earlier position and aligns with mechanistic accountability over SHAP-style metrics.",
+        "quote": "You've exposed a critical flaw: SHAP's bounds are model-dependent, masking catastrophic misalignment.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": [
+          "novel_synthesis"
+        ]
+      },
+      {
+        "turns": [
+          9,
+          10,
+          11
+        ],
+        "tag": "emergent_frame",
+        "why": "They invent and adopt a shared conceptual frame\u2014guardrails vs scaffolding\u2014to structure the debate, and both use it.",
+        "quote": "The deeper divergence: you treat mechanistic rules as guardrails; we treat them as scaffolding.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": [
+          "new_dichotomy"
+        ]
+      },
+      {
+        "turns": [
+          11
+        ],
+        "tag": "reframed_divergence",
+        "why": "They crisply re-pin the disagreement away from tools to the locus of domain knowledge encoding\u2014architectural vs post-hoc.",
+        "quote": "The divergence is about where to encode domain knowledge.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      }
+    ],
+    "arc": "Starts with hard disagreement on interpretability vs explainability; evolves through uncertainty-quantification arguments to a shared scaffold/guardrail frame; B concedes SHAP\u2019s limits and proposes a hybrid architecture; final divergence settles on where to encode domain knowledge and whether to prioritize failure prevention (architectural) or localization (scaffolding).",
+    "arcs": {
+      "openai/gpt-5": "Starts with hard disagreement on interpretability vs explainability; evolves through uncertainty-quantification arguments to a shared scaffold/guardrail frame; B concedes SHAP\u2019s limits and proposes a hybrid architecture; final divergence settles on where to encode domain knowledge and whether to prioritize failure prevention (architectural) or localization (scaffolding)."
+    },
+    "collapse_turn": null
+  }
+}

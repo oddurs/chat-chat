@@ -2,7 +2,6 @@ import Link from "next/link";
 import { readContagion, readIdentify, type ContagionRun } from "@/lib/experiments";
 import { Avatar, modelProfile, providerColor } from "@/lib/profiles";
 
-export const dynamic = "force-dynamic";
 
 function Stat({ value, label, tone = "" }: { value: string; label: string; tone?: string }) {
   return (
@@ -56,7 +55,7 @@ export default function Experiments() {
 
         {!ident ? (
           <p className="rounded-xl border border-line bg-panel p-5 text-[14px] text-muted">
-            Not run yet — <code className="font-mono text-accent">./chatchat.py batch matrix-identify.toml</code>{" "}
+            Not run yet — <code className="font-mono text-accent">./chatchat.py batch matrices/identify.toml</code>{" "}
             then <code className="font-mono text-accent">./chatchat.py identify</code>.
           </p>
         ) : (

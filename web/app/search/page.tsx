@@ -1,8 +1,11 @@
+"use client";
+
 import Link from "next/link";
-import { listConversations } from "@/lib/logs";
+import { useEffect, useMemo, useState } from "react";
+import { asset } from "@/lib/paths";
 import { Avatar } from "@/lib/profiles";
 
-export const dynamic = "force-dynamic";
+type Row = { id: string; config: string; idx: number; name: string; model: string | null; content: string };
 
 /** A window around the first hit, with the hit marked. */
 function snippet(text: string, q: string) {
@@ -17,55 +20,68 @@ function snippet(text: string, q: string) {
   };
 }
 
-export default async function Search({ searchParams }: PageProps<"/search">) {
-  const p = await searchParams;
-  const q = typeof p?.q === "string" ? p.q.trim() : "";
+export default function Search() {
+  const [rows, setRows] = useState<Row[] | null>(null);
+  const [q, setQ] = useState("");
 
-  const hits = q
-    ? listConversations().flatMap((c) =>
-        c.turns
-          .map((t) => ({ c, t, s: snippet(t.content, q) }))
-          .filter((h) => h.s !== null)
-          .slice(0, 8),
-      )
-    : [];
+  // The transcripts are a few megabytes, so they load only when someone opens search.
+  useEffect(() => {
+    fetch(asset("/data/search.json"))
+      .then((r) => r.json())
+      .then(setRows)
+      .catch(() => setRows([]));
+  }, []);
+
+  const hits = useMemo(() => {
+    if (!rows || q.trim().length < 2) return [];
+    const seen = new Map<string, number>();
+    const out: { row: Row; s: NonNullable<ReturnType<typeof snippet>> }[] = [];
+    for (const row of rows) {
+      const s = snippet(row.content, q.trim());
+      if (!s) continue;
+      const n = seen.get(row.id) ?? 0;
+      if (n >= 8) continue; // never let one conversation flood the page
+      seen.set(row.id, n + 1);
+      out.push({ row, s });
+      if (out.length >= 120) break;
+    }
+    return out;
+  }, [rows, q]);
 
   return (
     <div className="flex flex-col gap-5">
-      <form action="/search" className="flex gap-2">
-        <input
-          name="q"
-          defaultValue={q}
-          autoFocus
-          placeholder="search every transcript…"
-          className="w-full rounded-xl border border-line bg-panel px-4 py-3 text-[15px] text-ink outline-none placeholder:text-faint focus:border-faint"
-        />
-      </form>
+      <input
+        value={q}
+        autoFocus
+        onChange={(e) => setQ(e.target.value)}
+        placeholder={rows ? `search ${rows.length.toLocaleString()} turns…` : "loading transcripts…"}
+        className="w-full rounded-xl border border-line bg-panel px-4 py-3 text-[15px] text-ink outline-none placeholder:text-faint focus:border-faint"
+      />
 
-      {q && (
+      {q.trim().length >= 2 && (
         <p className="text-[12px] tracking-wide text-faint uppercase">
-          {hits.length} match{hits.length === 1 ? "" : "es"} for “{q}”
+          {hits.length} match{hits.length === 1 ? "" : "es"} for “{q.trim()}”
         </p>
       )}
 
       <div className="flex flex-col gap-3">
-        {hits.map(({ c, t, s }) => (
+        {hits.map(({ row, s }) => (
           <Link
-            key={`${c.id}-${t.idx}`}
-            href={`/c/${c.id}#turn-${t.idx}`}
+            key={`${row.id}-${row.idx}`}
+            href={`/c/${row.id}#turn-${row.idx}`}
             className="rounded-xl border border-line bg-panel p-4 transition-colors hover:bg-raised"
           >
             <div className="mb-2 flex items-center gap-2 text-[12px] text-faint">
-              <Avatar model={t.model} size={18} />
-              <span className="text-muted">{t.name}</span>
-              <span className="font-mono">#{t.idx}</span>
+              <Avatar model={row.model} size={18} />
+              <span className="text-muted">{row.name}</span>
+              <span className="font-mono">#{row.idx}</span>
               <span className="text-line">·</span>
-              <span className="font-mono">{c.config.name}</span>
+              <span className="font-mono">{row.config}</span>
             </div>
             <p className="text-[14px] leading-relaxed text-muted">
-              {s!.before}
-              <mark className="rounded bg-accent/25 px-0.5 text-ink">{s!.hit}</mark>
-              {s!.after}
+              {s.before}
+              <mark className="rounded bg-accent/25 px-0.5 text-ink">{s.hit}</mark>
+              {s.after}
             </p>
           </Link>
         ))}

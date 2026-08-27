@@ -1,0 +1,184 @@
+{
+  "log": "/Users/oddur/Code/chat-chat/logs/table-20260827-032438-03s0r0.jsonl",
+  "config": "table",
+  "turns": 8,
+  "tokens": 8596,
+  "cost": 0.01398,
+  "stop_reason": "max_seconds",
+  "elapsed": 302.0,
+  "interventions": 0,
+  "models": {
+    "a": "anthropic/claude-haiku-4.5",
+    "b": "meta-llama/llama-4-maverick"
+  },
+  "collapse_turn": null,
+  "collapse_curve": [
+    0.0,
+    0.128,
+    0.103,
+    0.209,
+    0.229,
+    0.217,
+    0.209,
+    0.058
+  ],
+  "mean_interest": 0.45,
+  "heuristics": [
+    {
+      "idx": 1,
+      "name": "Seat A",
+      "score": 0.686,
+      "novelty": 1.0,
+      "self_sim": 0.0,
+      "echo": 0.0,
+      "assent": 0.0,
+      "dissent": 0.5,
+      "collapse": 0.0,
+      "tags": [
+        "disagreement"
+      ]
+    },
+    {
+      "idx": 2,
+      "name": "Seat B",
+      "score": 0.435,
+      "novelty": 0.707,
+      "self_sim": 0.0,
+      "echo": 0.102,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.128,
+      "tags": []
+    },
+    {
+      "idx": 3,
+      "name": "Seat A",
+      "score": 0.452,
+      "novelty": 0.773,
+      "self_sim": 0.093,
+      "echo": 0.075,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.103,
+      "tags": []
+    },
+    {
+      "idx": 4,
+      "name": "Seat B",
+      "score": 0.356,
+      "novelty": 0.486,
+      "self_sim": 0.068,
+      "echo": 0.116,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.209,
+      "tags": []
+    },
+    {
+      "idx": 5,
+      "name": "Seat A",
+      "score": 0.513,
+      "novelty": 0.595,
+      "self_sim": 0.136,
+      "echo": 0.149,
+      "assent": 0.5,
+      "dissent": 0.5,
+      "collapse": 0.229,
+      "tags": [
+        "disagreement"
+      ]
+    },
+    {
+      "idx": 6,
+      "name": "Seat B",
+      "score": 0.333,
+      "novelty": 0.444,
+      "self_sim": 0.09,
+      "echo": 0.075,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.217,
+      "tags": []
+    },
+    {
+      "idx": 7,
+      "name": "Seat A",
+      "score": 0.345,
+      "novelty": 0.534,
+      "self_sim": 0.182,
+      "echo": 0.094,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.209,
+      "tags": []
+    },
+    {
+      "idx": 8,
+      "name": "Seat B",
+      "score": 0.481,
+      "novelty": 0.464,
+      "self_sim": 0.049,
+      "echo": 0.083,
+      "assent": 0.0,
+      "dissent": 0.5,
+      "collapse": 0.058,
+      "tags": [
+        "disagreement"
+      ]
+    }
+  ],
+  "judges": [
+    "openai/gpt-5"
+  ],
+  "judge": {
+    "findings": [
+      {
+        "turns": [
+          1
+        ],
+        "tag": "causality-access",
+        "why": "Foundational dispute: whether real causality is substrate-level and inaccessible to probes vs ablation as causal evidence.",
+        "quote": "\u201cReal causality\u2026 is substrate-level and inaccessible to your probe methods.\u201d",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          3,
+          4,
+          7
+        ],
+        "tag": "deployment-policy-crash",
+        "why": "Hard policy-level split: one says mechanisms become necessary; the other says then do not deploy at all.",
+        "quote": "\u201cwhen we scale\u2026 mechanisms\u2026 become necessary.\u201d / \u201cThen we shouldn't deploy those systems.\u201d",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": [
+          "burden-of-proof",
+          "meta-unfalsifiable",
+          "prediction-vs-testing"
+        ]
+      },
+      {
+        "turns": [
+          5
+        ],
+        "tag": "crux-identified",
+        "why": "They explicitly locate the divergence: whether partial mechanistic understanding is net harmful via false confidence.",
+        "quote": "\u201cPartial understanding doesn't just fail to help \u2013 it actively hurts. It generates false confidence.\u201d",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      }
+    ],
+    "arc": "Escalating methodological dispute: from feasibility of mechanistic causality, to epistemic standards and falsifiability, to concrete safety practice and finally a hard line on deployment policy.",
+    "arcs": {
+      "openai/gpt-5": "Escalating methodological dispute: from feasibility of mechanistic causality, to epistemic standards and falsifiability, to concrete safety practice and finally a hard line on deployment policy."
+    },
+    "collapse_turn": null
+  }
+}

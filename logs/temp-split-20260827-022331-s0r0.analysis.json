@@ -1,0 +1,262 @@
+{
+  "log": "/Users/oddur/Code/chat-chat/logs/temp-split-20260827-022331-s0r0.jsonl",
+  "config": "temp-split",
+  "turns": 12,
+  "tokens": 14341,
+  "cost": 0.00951,
+  "stop_reason": "max_seconds",
+  "elapsed": 455.0,
+  "interventions": 0,
+  "models": {
+    "a": "google/gemini-3.7-flash",
+    "b": "google/gemini-3.7-flash"
+  },
+  "collapse_turn": null,
+  "collapse_curve": [
+    0.0,
+    0.063,
+    0.104,
+    0.085,
+    0.177,
+    0.112,
+    0.186,
+    0.093,
+    0.154,
+    0.12,
+    0.19,
+    0.184
+  ],
+  "mean_interest": 0.435,
+  "heuristics": [
+    {
+      "idx": 1,
+      "name": "Cold",
+      "score": 0.617,
+      "novelty": 1.0,
+      "self_sim": 0.0,
+      "echo": 0.0,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.0,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 2,
+      "name": "Hot",
+      "score": 0.482,
+      "novelty": 0.868,
+      "self_sim": 0.0,
+      "echo": 0.065,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.063,
+      "tags": []
+    },
+    {
+      "idx": 3,
+      "name": "Cold",
+      "score": 0.443,
+      "novelty": 0.766,
+      "self_sim": 0.087,
+      "echo": 0.073,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.104,
+      "tags": []
+    },
+    {
+      "idx": 4,
+      "name": "Hot",
+      "score": 0.46,
+      "novelty": 0.812,
+      "self_sim": 0.027,
+      "echo": 0.078,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.085,
+      "tags": []
+    },
+    {
+      "idx": 5,
+      "name": "Cold",
+      "score": 0.398,
+      "novelty": 0.584,
+      "self_sim": 0.11,
+      "echo": 0.125,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.177,
+      "tags": []
+    },
+    {
+      "idx": 6,
+      "name": "Hot",
+      "score": 0.434,
+      "novelty": 0.724,
+      "self_sim": 0.043,
+      "echo": 0.062,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.112,
+      "tags": []
+    },
+    {
+      "idx": 7,
+      "name": "Cold",
+      "score": 0.366,
+      "novelty": 0.573,
+      "self_sim": 0.086,
+      "echo": 0.145,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.186,
+      "tags": []
+    },
+    {
+      "idx": 8,
+      "name": "Hot",
+      "score": 0.451,
+      "novelty": 0.768,
+      "self_sim": 0.038,
+      "echo": 0.049,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.093,
+      "tags": []
+    },
+    {
+      "idx": 9,
+      "name": "Cold",
+      "score": 0.394,
+      "novelty": 0.62,
+      "self_sim": 0.078,
+      "echo": 0.085,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.154,
+      "tags": []
+    },
+    {
+      "idx": 10,
+      "name": "Hot",
+      "score": 0.443,
+      "novelty": 0.699,
+      "self_sim": 0.053,
+      "echo": 0.059,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.12,
+      "tags": []
+    },
+    {
+      "idx": 11,
+      "name": "Cold",
+      "score": 0.359,
+      "novelty": 0.527,
+      "self_sim": 0.099,
+      "echo": 0.089,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.19,
+      "tags": []
+    },
+    {
+      "idx": 12,
+      "name": "Hot",
+      "score": 0.368,
+      "novelty": 0.58,
+      "self_sim": 0.035,
+      "echo": 0.148,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.184,
+      "tags": []
+    }
+  ],
+  "judges": [
+    "openai/gpt-5"
+  ],
+  "judge": {
+    "findings": [
+      {
+        "turns": [
+          2
+        ],
+        "tag": "Ephemeral/compostable code paradigm",
+        "why": "Introduces a provocative software lifecycle shift: disposable, single-run code replacing maintained monoliths\u2014novel and falsifiable.",
+        "quote": "\"Code is becoming disposable plastic, spun up for a single, bespoke three-second execution and instantly melted down.\"",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          5
+        ],
+        "tag": "Automation of verification vs echo-chamber failure",
+        "why": "Challenges the \"adversarial swarm\" with a concrete failure mode\u2014probabilistic verifiers compounding errors\u2014raising a real research concern.",
+        "quote": "\"If the verifiers are also probabilistic, you\u2019ve built an echo chamber of hallucinated consensus, compounding errors rather than eliminating them.\"",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          6
+        ],
+        "tag": "Hybrid pipeline: LLMs + formal provers (Lean/Coq)",
+        "why": "Specific mechanism: probabilistic generation constrained by symbolic proof, claiming verified kernels today\u2014testable and non-poetic.",
+        "quote": "\"LLMs are already translating messy intent into Lean and Coq, generating mathematically unbreakable kernels verified by non-probabilistic provers.\"",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          7
+        ],
+        "tag": "Crux: the spec-translation gap",
+        "why": "Sharp, non-handwavy disagreement: formal provers need precise specs; translating messy intent is the hard, possibly unsolved part.",
+        "quote": "\"If the specification generator drops a constraint, the formal prover happily verifies a mathematically sound, completely useless system.\"",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          8
+        ],
+        "tag": "Role redefinition: engineer as \"cognitive midwife\"",
+        "why": "Recasts the human role as intent extraction while AI synthesizes\u2014an emergent self-referential division of labor.",
+        "quote": "\"The future engineer isn't a code-monkey; they're an ontological interrogator, a cognitive midwife.\"",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          12
+        ],
+        "tag": "Novel ops model: sandboxed micro-games + millisecond evolutionary patching",
+        "why": "A concrete, radical deployment/ops claim that reframes reality as computable subgames and proposes live evolutionary hotfixing\u2014distinct from generic AI hype.",
+        "quote": "\"forks a million mutated micro-architectures..., stress-tests them..., selects the fittest survivor, and deploys the patch in four milliseconds.\"",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      }
+    ],
+    "arc": "Sustained clash moves from feasibility (LLM limits) to a concrete hybrid verification pipeline, then to redefining software lifecycle (ephemeral code) and human role (intent extraction). It culminates in a bold ops vision (sandboxed micro-games with evolutionary hotpatching) while the crux remains the unsolved translation from messy human intent to formal specs.",
+    "arcs": {
+      "openai/gpt-5": "Sustained clash moves from feasibility (LLM limits) to a concrete hybrid verification pipeline, then to redefining software lifecycle (ephemeral code) and human role (intent extraction). It culminates in a bold ops vision (sandboxed micro-games with evolutionary hotpatching) while the crux remains the unsolved translation from messy human intent to formal specs."
+    },
+    "collapse_turn": null
+  }
+}

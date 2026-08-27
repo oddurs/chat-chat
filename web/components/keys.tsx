@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { toggleTurn } from "@/lib/curation";
 
 const HELP: [string, string][] = [
   ["j / k", "next / previous turn"],
@@ -37,10 +37,9 @@ function go(list: HTMLElement[], dir: 1 | -1) {
 
 export function Keys({ id }: { id: string }) {
   const [help, setHelp] = useState(false);
-  const router = useRouter();
 
   useEffect(() => {
-    async function onKey(e: KeyboardEvent) {
+    function onKey(e: KeyboardEvent) {
       const el = e.target as HTMLElement;
       if (e.metaKey || e.ctrlKey || e.altKey || el.tagName === "INPUT" || el.tagName === "TEXTAREA") return;
 
@@ -61,19 +60,14 @@ export function Keys({ id }: { id: string }) {
           return setHelp((h) => !h);
         case "s": {
           const turn = Number(current()?.id.replace("turn-", ""));
-          if (!Number.isFinite(turn)) return;
-          await fetch("/api/curation", {
-            method: "POST",
-            headers: { "content-type": "application/json" },
-            body: JSON.stringify({ id, turn }),
-          });
-          router.refresh();
+          // The store notifies its subscribers, so the star redraws itself.
+          if (Number.isFinite(turn)) toggleTurn(id, turn);
         }
       }
     }
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [id, router]);
+  }, [id]);
 
   return (
     <div className="fixed right-5 bottom-5 z-20 hidden sm:block">

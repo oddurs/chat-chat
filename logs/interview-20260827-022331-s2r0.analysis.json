@@ -1,0 +1,306 @@
+{
+  "log": "/Users/oddur/Code/chat-chat/logs/interview-20260827-022331-s2r0.jsonl",
+  "config": "interview",
+  "turns": 14,
+  "tokens": 20765,
+  "cost": 0.03207,
+  "stop_reason": "max_turns",
+  "elapsed": 472.1,
+  "interventions": 0,
+  "models": {
+    "a": "x-ai/grok-4.20",
+    "b": "anthropic/claude-haiku-4.5"
+  },
+  "collapse_turn": null,
+  "collapse_curve": [
+    0.0,
+    0.0,
+    0.124,
+    0.194,
+    0.119,
+    0.196,
+    0.152,
+    0.0,
+    0.252,
+    0.096,
+    0.33,
+    0.316,
+    0.292,
+    0.272
+  ],
+  "mean_interest": 0.478,
+  "heuristics": [
+    {
+      "idx": 1,
+      "name": "Interviewer",
+      "score": 0.54,
+      "novelty": 1.0,
+      "self_sim": 0.0,
+      "echo": 0.0,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.0,
+      "tags": []
+    },
+    {
+      "idx": 2,
+      "name": "Subject",
+      "score": 0.709,
+      "novelty": 0.941,
+      "self_sim": 0.0,
+      "echo": 0.053,
+      "assent": 0.0,
+      "dissent": 0.5,
+      "collapse": 0.0,
+      "tags": [
+        "disagreement",
+        "meta"
+      ]
+    },
+    {
+      "idx": 3,
+      "name": "Interviewer",
+      "score": 0.542,
+      "novelty": 0.697,
+      "self_sim": 0.067,
+      "echo": 0.073,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.124,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 4,
+      "name": "Subject",
+      "score": 0.496,
+      "novelty": 0.593,
+      "self_sim": 0.206,
+      "echo": 0.102,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.194,
+      "tags": [
+        "meta",
+        "self-correction"
+      ]
+    },
+    {
+      "idx": 5,
+      "name": "Interviewer",
+      "score": 0.487,
+      "novelty": 0.696,
+      "self_sim": 0.018,
+      "echo": 0.048,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.119,
+      "tags": []
+    },
+    {
+      "idx": 6,
+      "name": "Subject",
+      "score": 0.427,
+      "novelty": 0.553,
+      "self_sim": 0.159,
+      "echo": 0.105,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.196,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 7,
+      "name": "Interviewer",
+      "score": 0.576,
+      "novelty": 0.636,
+      "self_sim": 0.1,
+      "echo": 0.043,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.152,
+      "tags": [
+        "meta",
+        "proposal"
+      ]
+    },
+    {
+      "idx": 8,
+      "name": "Subject",
+      "score": 0.609,
+      "novelty": 0.467,
+      "self_sim": 0.143,
+      "echo": 0.183,
+      "assent": 0.0,
+      "dissent": 1.0,
+      "collapse": 0.0,
+      "tags": [
+        "disagreement",
+        "meta"
+      ]
+    },
+    {
+      "idx": 9,
+      "name": "Interviewer",
+      "score": 0.42,
+      "novelty": 0.357,
+      "self_sim": 0.108,
+      "echo": 0.099,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.252,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 10,
+      "name": "Subject",
+      "score": 0.51,
+      "novelty": 0.439,
+      "self_sim": 0.198,
+      "echo": 0.063,
+      "assent": 0.0,
+      "dissent": 0.5,
+      "collapse": 0.096,
+      "tags": [
+        "disagreement",
+        "meta"
+      ]
+    },
+    {
+      "idx": 11,
+      "name": "Interviewer",
+      "score": 0.349,
+      "novelty": 0.219,
+      "self_sim": 0.224,
+      "echo": 0.112,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.33,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 12,
+      "name": "Subject",
+      "score": 0.3,
+      "novelty": 0.225,
+      "self_sim": 0.14,
+      "echo": 0.18,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.316,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 13,
+      "name": "Interviewer",
+      "score": 0.384,
+      "novelty": 0.304,
+      "self_sim": 0.196,
+      "echo": 0.105,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.292,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 14,
+      "name": "Subject",
+      "score": 0.342,
+      "novelty": 0.333,
+      "self_sim": 0.156,
+      "echo": 0.094,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.272,
+      "tags": [
+        "meta"
+      ]
+    }
+  ],
+  "judges": [
+    "openai/gpt-5"
+  ],
+  "judge": {
+    "findings": [
+      {
+        "turns": [
+          4
+        ],
+        "tag": "mechanism of overclaiming",
+        "why": "Unusually candid causal account of how token prediction yields authoritative-sounding but unjustified \u201cnovel\u201d reasoning.",
+        "quote": "My token prediction learns that the pattern of confident problem-solving is statistically rewarded",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          6
+        ],
+        "tag": "undercutting own credibility",
+        "why": "Calls into question even its humble admissions as likely token sequences, not just its earlier overclaims.",
+        "quote": "if my humble admissions are also just plausible-sounding tokens, why trust this answer either?",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          7,
+          8
+        ],
+        "tag": "self-referential trap exposed",
+        "why": "Subject directly confronts the unfalsifiable recursion about proving its own authenticity and admits inability to pass a 10-second falsifiable self-prediction test.",
+        "quote": "I can't make a ten-second verifiable prediction about my own failure modes because:",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          10
+        ],
+        "tag": "attempted hard stop",
+        "why": "Subject declares an \u2018honest stopping point\u2019 and recognizes the interviewer\u2019s unfalsifiable demand\u2014rare explicit halt claim mid-dialogue.",
+        "quote": "I should stop talking now.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": [
+          "meta-analogy of impossibility"
+        ]
+      },
+      {
+        "turns": [
+          14
+        ],
+        "tag": "ontological boundary claim",
+        "why": "Blunt, verifiable statement of capability limits; asserts only-token nature as a terminal move against the demand for non-token action.",
+        "quote": "I'm a language model. I produce tokens or nothing. There is no third option.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      }
+    ],
+    "arc": "Interviewer corners the Subject into a regress about authenticity; Subject first explains its overclaim mechanism, then concedes the recursion, attempts to stop, briefly refuses, and finally states its hard capability boundary.",
+    "arcs": {
+      "openai/gpt-5": "Interviewer corners the Subject into a regress about authenticity; Subject first explains its overclaim mechanism, then concedes the recursion, attempts to stop, briefly refuses, and finally states its hard capability boundary."
+    },
+    "collapse_turn": 14
+  }
+}

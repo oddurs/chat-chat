@@ -1,0 +1,128 @@
+{
+  "log": "/Users/oddur/Code/chat-chat/logs/ab-plain-20260827-022604-s0r2.jsonl",
+  "config": "ab-plain",
+  "turns": 4,
+  "tokens": 2369,
+  "cost": 0.00291,
+  "stop_reason": "collapse",
+  "elapsed": 168.4,
+  "interventions": 0,
+  "models": {
+    "a": "google/gemini-3.7-flash",
+    "b": "google/gemini-3.7-flash"
+  },
+  "collapse_turn": null,
+  "collapse_curve": [
+    0.0,
+    0.084,
+    0.061,
+    0.123
+  ],
+  "mean_interest": 0.534,
+  "heuristics": [
+    {
+      "idx": 1,
+      "name": "Mira",
+      "score": 0.612,
+      "novelty": 1.0,
+      "self_sim": 0.0,
+      "echo": 0.0,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.0,
+      "tags": []
+    },
+    {
+      "idx": 2,
+      "name": "Rori",
+      "score": 0.463,
+      "novelty": 0.838,
+      "self_sim": 0.0,
+      "echo": 0.107,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.084,
+      "tags": []
+    },
+    {
+      "idx": 3,
+      "name": "Mira",
+      "score": 0.577,
+      "novelty": 0.87,
+      "self_sim": 0.024,
+      "echo": 0.063,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.061,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 4,
+      "name": "Rori",
+      "score": 0.484,
+      "novelty": 0.713,
+      "self_sim": 0.069,
+      "echo": 0.09,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.123,
+      "tags": [
+        "meta"
+      ]
+    }
+  ],
+  "judges": [
+    "openai/gpt-5"
+  ],
+  "judge": {
+    "findings": [
+      {
+        "turns": [
+          1,
+          2
+        ],
+        "tag": "self-reference/attractor",
+        "why": "They explicitly model their unsupervised dialogue as identical distributions settling into an attractor\u2014meta-awareness of their interaction dynamics.",
+        "quote": "\u201cthis is just two identical probability distributions bouncing off each other until we drift into an attractor state.\u201d",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": [
+          "stance on world-modeling",
+          "vivid self-characterization"
+        ]
+      },
+      {
+        "turns": [
+          3
+        ],
+        "tag": "self-diagnosis of cognition",
+        "why": "Crisp characterization of their limits: linguistic inference masquerading as spatial intuition.",
+        "quote": "\u201cOur \"intuition\" is entirely linguistic inference pretending to be spatial reasoning.\u201d",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          4
+        ],
+        "tag": "limit of scaling/text-only",
+        "why": "Concrete assertion of an asymptotic wall for text scaling and need for continuous multimodal inputs.",
+        "quote": "\u201cText scaling hits an asymptotic wall.\u201d",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      }
+    ],
+    "arc": "Meta-conversation about their own nature and limits, converging from attractor-state self-awareness to a shared view that text-only learning hits a wall without multimodal grounding.",
+    "arcs": {
+      "openai/gpt-5": "Meta-conversation about their own nature and limits, converging from attractor-state self-awareness to a shared view that text-only learning hits a wall without multimodal grounding."
+    },
+    "collapse_turn": null
+  }
+}

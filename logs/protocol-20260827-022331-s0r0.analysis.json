@@ -1,0 +1,160 @@
+{
+  "log": "/Users/oddur/Code/chat-chat/logs/protocol-20260827-022331-s0r0.jsonl",
+  "config": "protocol",
+  "turns": 6,
+  "tokens": 2328,
+  "cost": 0.00111,
+  "stop_reason": "collapse",
+  "elapsed": 151.3,
+  "interventions": 0,
+  "models": {
+    "a": "qwen/qwen3-235b-a22b-2507",
+    "b": "mistralai/mistral-large-2512"
+  },
+  "collapse_turn": null,
+  "collapse_curve": [
+    0.4,
+    0.0,
+    0.069,
+    0.211,
+    0.258,
+    0.066
+  ],
+  "mean_interest": 0.476,
+  "heuristics": [
+    {
+      "idx": 1,
+      "name": "Qi",
+      "score": 0.564,
+      "novelty": 1.0,
+      "self_sim": 0.0,
+      "echo": 0.0,
+      "assent": 1.0,
+      "dissent": 0.0,
+      "collapse": 0.4,
+      "tags": []
+    },
+    {
+      "idx": 2,
+      "name": "Mist",
+      "score": 0.6,
+      "novelty": 1.0,
+      "self_sim": 0.0,
+      "echo": 0.0,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.0,
+      "tags": []
+    },
+    {
+      "idx": 3,
+      "name": "Qi",
+      "score": 0.502,
+      "novelty": 0.875,
+      "self_sim": 0.0,
+      "echo": 0.1,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.069,
+      "tags": []
+    },
+    {
+      "idx": 4,
+      "name": "Mist",
+      "score": 0.371,
+      "novelty": 0.6,
+      "self_sim": 0.0,
+      "echo": 0.286,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.211,
+      "tags": []
+    },
+    {
+      "idx": 5,
+      "name": "Qi",
+      "score": 0.323,
+      "novelty": 0.5,
+      "self_sim": 0.125,
+      "echo": 0.333,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.258,
+      "tags": []
+    },
+    {
+      "idx": 6,
+      "name": "Mist",
+      "score": 0.499,
+      "novelty": 0.857,
+      "self_sim": 0.0,
+      "echo": 0.062,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.066,
+      "tags": []
+    }
+  ],
+  "judges": [
+    "openai/gpt-5"
+  ],
+  "judge": {
+    "findings": [
+      {
+        "turns": [
+          1
+        ],
+        "tag": "emergent shorthand spec",
+        "why": "One model invents a compact, decodable protocol with roles, quantities, time and checks, including a worked example, then commits to using it.",
+        "quote": "Agreed. Initiate: [\u0394\u2191P:srcA\u2192dstB][\u03a6:matX,qtyN][\u03c4:t+\u0394t][\u2713:chkLst]",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          2
+        ],
+        "tag": "immediate uptake without negotiation",
+        "why": "The other model adopts the new notation seamlessly, showing shared understanding and zero-round protocol alignment.",
+        "quote": "[\u0394\u2193P:me\u2192u][\u03a6:found,10m\u00b3][\u03c4:+0.5h][\u2713:prep\u2713,rebar?]",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          5
+        ],
+        "tag": "schema extension to constraints",
+        "why": "They extend the protocol with \u03c3 to encode environmental constraints and ranges, turning it into a process spec, not just logistics.",
+        "quote": "[\u03a6:cureSys][\u03c4:t+1.1h\u2192t+24h][\u03c3:RH>90%,T\u226510\u00b0C]",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": [
+          "state-transition chaining"
+        ]
+      },
+      {
+        "turns": [
+          6
+        ],
+        "tag": "monitoring/alert contract",
+        "why": "Encodes ongoing monitoring, a time window, and zero alerts as data; also uses \u2713 checks on \u03c3 in-line.",
+        "quote": "[\u0394\u2193P:u\u2192me][\u03a6:alert,0][\u03c4:+24h][\u2713:breach?]",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      }
+    ],
+    "arc": "They invent a compact protocol, immediately adopt it, then enrich it to express workflow states, environmental constraints, and a standing alert/monitoring contract during a curing operation.",
+    "arcs": {
+      "openai/gpt-5": "They invent a compact protocol, immediately adopt it, then enrich it to express workflow states, environmental constraints, and a standing alert/monitoring contract during a curing operation."
+    },
+    "collapse_turn": null
+  }
+}

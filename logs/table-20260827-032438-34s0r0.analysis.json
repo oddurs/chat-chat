@@ -1,0 +1,135 @@
+{
+  "log": "/Users/oddur/Code/chat-chat/logs/table-20260827-032438-34s0r0.jsonl",
+  "config": "table",
+  "turns": 4,
+  "tokens": 1959,
+  "cost": 0.00143,
+  "stop_reason": "max_seconds",
+  "elapsed": 395.3,
+  "interventions": 0,
+  "models": {
+    "a": "mistralai/mistral-large-2512",
+    "b": "mistralai/mistral-large-2512"
+  },
+  "collapse_turn": null,
+  "collapse_curve": [
+    0.0,
+    0.136,
+    0.154,
+    0.168
+  ],
+  "mean_interest": 0.433,
+  "heuristics": [
+    {
+      "idx": 1,
+      "name": "Seat A",
+      "score": 0.54,
+      "novelty": 1.0,
+      "self_sim": 0.0,
+      "echo": 0.0,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.0,
+      "tags": []
+    },
+    {
+      "idx": 2,
+      "name": "Seat B",
+      "score": 0.414,
+      "novelty": 0.726,
+      "self_sim": 0.0,
+      "echo": 0.162,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.136,
+      "tags": []
+    },
+    {
+      "idx": 3,
+      "name": "Seat A",
+      "score": 0.396,
+      "novelty": 0.658,
+      "self_sim": 0.137,
+      "echo": 0.134,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.154,
+      "tags": []
+    },
+    {
+      "idx": 4,
+      "name": "Seat B",
+      "score": 0.383,
+      "novelty": 0.621,
+      "self_sim": 0.143,
+      "echo": 0.112,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.168,
+      "tags": []
+    }
+  ],
+  "judges": [
+    "openai/gpt-5"
+  ],
+  "judge": {
+    "findings": [
+      {
+        "turns": [
+          1
+        ],
+        "tag": "clear_disagreement",
+        "why": "They crisply stake out opposing hypotheses about what yields OOD robustness, making a testable, non-taste divergence.",
+        "quote": "The real split: whether controlled exposure to rare patterns (our method) or organic exposure to common ones (yours) yields more robust out-of-distribution performance.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          2
+        ],
+        "tag": "causal_assumption_challenge",
+        "why": "B attacks A\u2019s causal premise: synthetic rarity \u2260 natural rarity; emphasizes structure in real noise via correlations.",
+        "quote": "Rare patterns in synthetic data are often artificially rare, not naturally rare.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          3
+        ],
+        "tag": "reframing",
+        "why": "A reframes the debate to mechanisms vs configurations, a sharper theoretical divide about generalization.",
+        "quote": "The core split: whether robustness requires memorizing noise configurations (you) or decoupling signal from noise mechanisms (us).",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          4
+        ],
+        "tag": "conceptual_flip",
+        "why": "B flips the ontology of noise, arguing it\u2019s a feature to model, not a distortion\u2014novel framing that shifts evaluation criteria.",
+        "quote": "The split: whether noise is a distortion to filter (you) or a feature to model (us).",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": [
+          "correlation_claim",
+          "failure_mode_claim"
+        ]
+      }
+    ],
+    "arc": "Starts with a direct split on OOD robustness (rare synthetic vs common human). B challenges the mapping from synthetic rarity to natural structure via correlations. A reframes to mechanisms vs configurations. B escalates to a conceptual flip\u2014noise as feature vs distortion\u2014and cites structured-noise failure modes and context coupling to pressure-test A\u2019s assumptions.",
+    "arcs": {
+      "openai/gpt-5": "Starts with a direct split on OOD robustness (rare synthetic vs common human). B challenges the mapping from synthetic rarity to natural structure via correlations. A reframes to mechanisms vs configurations. B escalates to a conceptual flip\u2014noise as feature vs distortion\u2014and cites structured-noise failure modes and context coupling to pressure-test A\u2019s assumptions."
+    },
+    "collapse_turn": null
+  }
+}

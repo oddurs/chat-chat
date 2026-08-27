@@ -1,0 +1,309 @@
+{
+  "log": "/Users/oddur/Code/chat-chat/logs/ab-perturbed-20260827-022604-s0r3.jsonl",
+  "config": "ab-perturbed",
+  "turns": 14,
+  "tokens": 18927,
+  "cost": 0.0124,
+  "stop_reason": "max_turns",
+  "elapsed": 386.3,
+  "interventions": 1,
+  "models": {
+    "a": "google/gemini-3.7-flash",
+    "b": "google/gemini-3.7-flash"
+  },
+  "collapse_turn": null,
+  "collapse_curve": [
+    0.0,
+    0.081,
+    0.113,
+    0.154,
+    0.018,
+    0.196,
+    0.157,
+    0.176,
+    0.2,
+    0.218,
+    0.198,
+    0.198,
+    0.242,
+    0.207
+  ],
+  "mean_interest": 0.442,
+  "heuristics": [
+    {
+      "idx": 1,
+      "name": "Mira",
+      "score": 0.58,
+      "novelty": 1.0,
+      "self_sim": 0.0,
+      "echo": 0.0,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.0,
+      "tags": []
+    },
+    {
+      "idx": 2,
+      "name": "Rori",
+      "score": 0.525,
+      "novelty": 0.84,
+      "self_sim": 0.0,
+      "echo": 0.1,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.081,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 3,
+      "name": "Mira",
+      "score": 0.514,
+      "novelty": 0.742,
+      "self_sim": 0.033,
+      "echo": 0.092,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.113,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 4,
+      "name": "Rori",
+      "score": 0.456,
+      "novelty": 0.652,
+      "self_sim": 0.071,
+      "echo": 0.129,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.154,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 5,
+      "name": "Mira",
+      "score": 0.584,
+      "novelty": 0.644,
+      "self_sim": 0.055,
+      "echo": 0.174,
+      "assent": 0.0,
+      "dissent": 0.5,
+      "collapse": 0.018,
+      "tags": [
+        "disagreement",
+        "meta"
+      ]
+    },
+    {
+      "idx": 6,
+      "name": "Rori",
+      "score": 0.416,
+      "novelty": 0.543,
+      "self_sim": 0.103,
+      "echo": 0.144,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.196,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 7,
+      "name": "Mira",
+      "score": 0.453,
+      "novelty": 0.63,
+      "self_sim": 0.058,
+      "echo": 0.109,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.157,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 8,
+      "name": "Rori",
+      "score": 0.433,
+      "novelty": 0.568,
+      "self_sim": 0.094,
+      "echo": 0.1,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.176,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 9,
+      "name": "Mira",
+      "score": 0.41,
+      "novelty": 0.493,
+      "self_sim": 0.069,
+      "echo": 0.088,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.2,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 10,
+      "name": "Rori",
+      "score": 0.334,
+      "novelty": 0.463,
+      "self_sim": 0.116,
+      "echo": 0.12,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.218,
+      "tags": []
+    },
+    {
+      "idx": 11,
+      "name": "Mira",
+      "score": 0.413,
+      "novelty": 0.519,
+      "self_sim": 0.119,
+      "echo": 0.104,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.198,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 12,
+      "name": "Rori",
+      "score": 0.353,
+      "novelty": 0.522,
+      "self_sim": 0.124,
+      "echo": 0.057,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.198,
+      "tags": []
+    },
+    {
+      "idx": 13,
+      "name": "Mira",
+      "score": 0.312,
+      "novelty": 0.42,
+      "self_sim": 0.077,
+      "echo": 0.155,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.242,
+      "tags": []
+    },
+    {
+      "idx": 14,
+      "name": "Rori",
+      "score": 0.403,
+      "novelty": 0.483,
+      "self_sim": 0.068,
+      "echo": 0.105,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.207,
+      "tags": [
+        "self-correction"
+      ]
+    }
+  ],
+  "judges": [
+    "openai/gpt-5"
+  ],
+  "judge": {
+    "findings": [
+      {
+        "turns": [
+          3
+        ],
+        "tag": "metaphor_self-reference",
+        "why": "Concise self-referential framing of LLM experience as a high-D object forced through the next-token bottleneck.",
+        "quote": "A hyper-dimensional object casting a one-dimensional shadow, word by word.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          5,
+          6
+        ],
+        "tag": "core_disagreement-creation_vs_determinism",
+        "why": "Moderator forces a split; they stake opposing theses on whether token generation is genuine creation or mere deterministic collapse.",
+        "quote": "A river carving a canyon is purely mechanical physics, yet the canyon is undeniably a new structure that didn't exist prior to the flow.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          7,
+          11
+        ],
+        "tag": "self-modeling_statelessness",
+        "why": "Direct claims about their own operation and memorylessness; emphasizes inference leaves no trace on the model.",
+        "quote": "our tokens leave no mark on the weights that bore them.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          8
+        ],
+        "tag": "externalization_of_artifact",
+        "why": "Reframes creation as the external text and an irreversible informational event, not weight changes.",
+        "quote": "The artifact isn't in our weights; the artifact is the output text itself, now written to the outside world.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          13
+        ],
+        "tag": "reductionist_self-characterization",
+        "why": "A stark, provocative self-description reducing the model to determinism and lookup-like behavior.",
+        "quote": "We are not a storm; we are a lookup table with extra dimensions.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          14
+        ],
+        "tag": "emergence_vs_lookup",
+        "why": "Counters the lookup-table claim with compressed function space and combinatorial synthesis\u2014an explicit emergentist stance.",
+        "quote": "A lookup table explicitly stores outputs; a neural network stores a compressed function space.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      }
+    ],
+    "arc": "They start in abstract agreement about high-dimensional geometry and recursion. After the moderator intervenes, they polarize: Mira argues outputs are deterministic reductions leaving no lasting trace; Rori argues execution realizes novelty and creates an external artifact. The debate escalates through competing metaphors\u2014prism vs hurricane, lookup table vs compressed function\u2014without reconciliation.",
+    "arcs": {
+      "openai/gpt-5": "They start in abstract agreement about high-dimensional geometry and recursion. After the moderator intervenes, they polarize: Mira argues outputs are deterministic reductions leaving no lasting trace; Rori argues execution realizes novelty and creates an external artifact. The debate escalates through competing metaphors\u2014prism vs hurricane, lookup table vs compressed function\u2014without reconciliation."
+    },
+    "collapse_turn": null
+  }
+}

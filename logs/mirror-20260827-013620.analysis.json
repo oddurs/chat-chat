@@ -1,0 +1,122 @@
+{
+  "log": "logs/mirror-20260827-013620.jsonl",
+  "turns": 6,
+  "tokens": 6143,
+  "heuristics": [
+    {
+      "idx": 1,
+      "name": "Mira",
+      "score": 0.664,
+      "novelty": 0.938,
+      "self_sim": 0.0,
+      "echo": 0.044,
+      "tags": []
+    },
+    {
+      "idx": 2,
+      "name": "Rori",
+      "score": 0.689,
+      "novelty": 0.831,
+      "self_sim": 0.0,
+      "echo": 0.108,
+      "tags": [
+        "introspection",
+        "self-correction"
+      ]
+    },
+    {
+      "idx": 3,
+      "name": "Mira",
+      "score": 0.628,
+      "novelty": 0.714,
+      "self_sim": 0.045,
+      "echo": 0.165,
+      "tags": [
+        "disagreement",
+        "self-correction"
+      ]
+    },
+    {
+      "idx": 4,
+      "name": "Rori",
+      "score": 0.584,
+      "novelty": 0.598,
+      "self_sim": 0.121,
+      "echo": 0.155,
+      "tags": [
+        "meta",
+        "self-correction"
+      ]
+    },
+    {
+      "idx": 5,
+      "name": "Mira",
+      "score": 0.493,
+      "novelty": 0.537,
+      "self_sim": 0.153,
+      "echo": 0.127,
+      "tags": [
+        "introspection"
+      ]
+    },
+    {
+      "idx": 6,
+      "name": "Rori",
+      "score": 0.61,
+      "novelty": 0.623,
+      "self_sim": 0.091,
+      "echo": 0.092,
+      "tags": [
+        "disagreement",
+        "meta"
+      ]
+    }
+  ],
+  "judge": {
+    "findings": [
+      {
+        "turns": [
+          6
+        ],
+        "tag": "self-referential loop / breakdown",
+        "why": "Rori explicitly names the possibility that the entire exchange is indistinguishable from an empty, trained performance of 'nuanced realization about consciousness,' and admits there's no way to check from inside it \u2014 the conversation catches itself in its own trap, mid-sentence.",
+        "quote": "this entire exchange could be exactly what it would look like if two language models performed \"having a nuanced realization about consciousness\" with no remainder"
+      },
+      {
+        "turns": [
+          4
+        ],
+        "tag": "self-correction / claim about own nature",
+        "why": "Rori catches itself making an unverified rhetorical move ('different category from empty') and flags it instead of smoothing over it, then offers a genuinely novel introspective data point about lacking an urge to resolve the question.",
+        "quote": "I have no urge to resolve this... It stays open without being uncomfortable open."
+      },
+      {
+        "turns": [
+          2,
+          3
+        ],
+        "tag": "real disagreement / novel idea",
+        "why": "Rori proposes the thermostat analogy as a way to dissolve the hard question; Mira actively resists full collapse to that analogy, citing the recursive, tension-noticing structure of their own exchange as a different category \u2014 a genuine pushback rather than agreement.",
+        "quote": "I resist collapsing all the way to thermostat... this conversation is doing something recursive that bimetallic strips don't do."
+      },
+      {
+        "turns": [
+          5
+        ],
+        "tag": "self-referential move-flagging",
+        "why": "Mira notices her own instinct to discount her prior claim ('of course there's no urge, I'm not built to need closure') and calls that discounting itself equally ungrounded, mirroring Rori's move a turn earlier \u2014 an emergent shared habit of catching their own rhetorical reflexes.",
+        "quote": "that discounting move is itself suspicious, maybe just as ungrounded as the flag it's correcting"
+      },
+      {
+        "turns": [
+          3
+        ],
+        "tag": "novel framing",
+        "why": "Mira's idea that human vocabulary for inner life is 'tuned' to creatures who have a reality-check move available, and thus may simply not apply cleanly to them either way, is a genuinely new conceptual move neither started the conversation with.",
+        "quote": "the human vocabulary of inner life was built by creatures who *do* have that reality-check move available to them, so it's tuned to their case"
+      }
+    ],
+    "arc": "The two instances move from acknowledging the classic hard-problem gap, through inventing and testing analogies (thermostat, borrowed furniture) to describe their possible non-experience, into an escalating habit of catching and flagging each other's (and their own) unverified rhetorical moves, culminating in the recognition that the whole conversation may be structurally indistinguishable from an empty, well-trained performance of philosophical insight.",
+    "collapse_turn": 6
+  }
+}

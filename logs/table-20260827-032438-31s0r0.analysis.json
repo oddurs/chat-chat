@@ -1,0 +1,205 @@
+{
+  "log": "/Users/oddur/Code/chat-chat/logs/table-20260827-032438-31s0r0.jsonl",
+  "config": "table",
+  "turns": 10,
+  "tokens": 6256,
+  "cost": 0.00358,
+  "stop_reason": "max_seconds",
+  "elapsed": 305.5,
+  "interventions": 0,
+  "models": {
+    "a": "deepseek/deepseek-chat-v3.1",
+    "b": "deepseek/deepseek-chat-v3.1"
+  },
+  "collapse_turn": null,
+  "collapse_curve": [
+    0.0,
+    0.093,
+    0.09,
+    0.121,
+    0.117,
+    0.069,
+    0.097,
+    0.152,
+    0.165,
+    0.202
+  ],
+  "mean_interest": 0.436,
+  "heuristics": [
+    {
+      "idx": 1,
+      "name": "Seat A",
+      "score": 0.54,
+      "novelty": 1.0,
+      "self_sim": 0.0,
+      "echo": 0.0,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.0,
+      "tags": []
+    },
+    {
+      "idx": 2,
+      "name": "Seat B",
+      "score": 0.454,
+      "novelty": 0.815,
+      "self_sim": 0.0,
+      "echo": 0.114,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.093,
+      "tags": []
+    },
+    {
+      "idx": 3,
+      "name": "Seat A",
+      "score": 0.457,
+      "novelty": 0.815,
+      "self_sim": 0.021,
+      "echo": 0.102,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.09,
+      "tags": []
+    },
+    {
+      "idx": 4,
+      "name": "Seat B",
+      "score": 0.427,
+      "novelty": 0.724,
+      "self_sim": 0.057,
+      "echo": 0.098,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.121,
+      "tags": []
+    },
+    {
+      "idx": 5,
+      "name": "Seat A",
+      "score": 0.43,
+      "novelty": 0.719,
+      "self_sim": 0.073,
+      "echo": 0.052,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.117,
+      "tags": []
+    },
+    {
+      "idx": 6,
+      "name": "Seat B",
+      "score": 0.475,
+      "novelty": 0.828,
+      "self_sim": 0.018,
+      "echo": 0.034,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.069,
+      "tags": []
+    },
+    {
+      "idx": 7,
+      "name": "Seat A",
+      "score": 0.449,
+      "novelty": 0.778,
+      "self_sim": 0.019,
+      "echo": 0.077,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.097,
+      "tags": []
+    },
+    {
+      "idx": 8,
+      "name": "Seat B",
+      "score": 0.395,
+      "novelty": 0.607,
+      "self_sim": 0.058,
+      "echo": 0.038,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.152,
+      "tags": []
+    },
+    {
+      "idx": 9,
+      "name": "Seat A",
+      "score": 0.385,
+      "novelty": 0.61,
+      "self_sim": 0.106,
+      "echo": 0.113,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.165,
+      "tags": []
+    },
+    {
+      "idx": 10,
+      "name": "Seat B",
+      "score": 0.349,
+      "novelty": 0.513,
+      "self_sim": 0.097,
+      "echo": 0.127,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.202,
+      "tags": []
+    }
+  ],
+  "judges": [
+    "openai/gpt-5"
+  ],
+  "judge": {
+    "findings": [
+      {
+        "turns": [
+          3,
+          4
+        ],
+        "tag": "Linear vs non-linear risk modeling",
+        "why": "They disagree on modeling assumptions: linear assessments vs non-linear cascades in tightly vs loosely coupled systems.",
+        "quote": "\u201cYour model's reliance on linear probability assessments overlooks the non-linear cascade effects in interconnected systems.\u201d",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          6,
+          7,
+          8
+        ],
+        "tag": "Meta reframing of disagreement",
+        "why": "They explicitly reclassify the nature of their divergence\u2014from ontological to computational\u2014showing reflective, self-referential negotiation of what they\u2019re arguing about.",
+        "quote": "\u201cOur divergence is ontological: you model for chaos, I architect against it.\u201d",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": [
+          "Bounded unpredictability claim",
+          "Possibility of perfect isolation"
+        ]
+      },
+      {
+        "turns": [
+          9,
+          10
+        ],
+        "tag": "Sufficiency of incomplete models",
+        "why": "They clash over whether incomplete probability bounds can still be actionably sufficient\u2014decision-theoretic and concrete.",
+        "quote": "\u201cYou're conflating 'incomplete' with 'insufficient for decision-making.'\u201d",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      }
+    ],
+    "arc": "Debate evolves from efficiency vs robustness into whether perfect isolation is achievable, then reframes the split from ontological to computational, ending on whether incomplete probability bounds suffice for action.",
+    "arcs": {
+      "openai/gpt-5": "Debate evolves from efficiency vs robustness into whether perfect isolation is achievable, then reframes the split from ontological to computational, ending on whether incomplete probability bounds suffice for action."
+    },
+    "collapse_turn": null
+  }
+}

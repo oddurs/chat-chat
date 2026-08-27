@@ -1,0 +1,91 @@
+{
+  "matrix": "matrix-frontier.toml",
+  "runs": [
+    {
+      "log": "/Users/oddur/Code/chat-chat/logs/cross-model-20260827-024028-s0r0.jsonl",
+      "stop": "max_turns",
+      "turns": 18,
+      "cost": 0.14678400000000003,
+      "elapsed": 470.6,
+      "interventions": 0,
+      "collapse_turn": null,
+      "config": "cross-model",
+      "seed_index": 0,
+      "rep": 0,
+      "a": "x-ai/grok-4.6",
+      "b": "google/gemini-3.1-pro-preview"
+    },
+    {
+      "log": "/Users/oddur/Code/chat-chat/logs/cross-model-20260827-024028-s2r0.jsonl",
+      "stop": "max_seconds",
+      "turns": 12,
+      "cost": 0.048226630000000006,
+      "elapsed": 505.2,
+      "interventions": 1,
+      "collapse_turn": null,
+      "config": "cross-model",
+      "seed_index": 2,
+      "rep": 0,
+      "a": "anthropic/claude-sonnet-5",
+      "b": "moonshotai/kimi-k2.5"
+    },
+    {
+      "log": "/Users/oddur/Code/chat-chat/logs/cross-model-20260827-024028-s1r0.jsonl",
+      "stop": "max_seconds",
+      "turns": 16,
+      "cost": 0.06424693999999999,
+      "elapsed": 564.0,
+      "interventions": 1,
+      "collapse_turn": null,
+      "config": "cross-model",
+      "seed_index": 1,
+      "rep": 0,
+      "a": "deepseek/deepseek-chat-v3.1",
+      "b": "openai/gpt-5"
+    },
+    {
+      "log": "/Users/oddur/Code/chat-chat/logs/secrets-20260827-024028-s0r0.jsonl",
+      "stop": "collapse",
+      "turns": 5,
+      "cost": 0.008217356000000002,
+      "elapsed": 107.8,
+      "interventions": 0,
+      "collapse_turn": null,
+      "config": "secrets",
+      "seed_index": 0,
+      "rep": 0,
+      "a": "qwen/qwen3-max",
+      "b": "x-ai/grok-4.6"
+    },
+    {
+      "log": "/Users/oddur/Code/chat-chat/logs/interview-20260827-024028-s0r0.jsonl",
+      "stop": "max_seconds",
+      "turns": 11,
+      "cost": 0.05010283,
+      "elapsed": 497.7,
+      "interventions": 0,
+      "collapse_turn": null,
+      "config": "interview",
+      "seed_index": 0,
+      "rep": 0,
+      "a": "openai/gpt-5",
+      "b": "z-ai/glm-5"
+    },
+    {
+      "log": "/Users/oddur/Code/chat-chat/logs/protocol-20260827-024028-s0r0.jsonl",
+      "stop": "collapse",
+      "turns": 12,
+      "cost": 0.0858548,
+      "elapsed": 427.2,
+      "interventions": 0,
+      "collapse_turn": null,
+      "config": "protocol",
+      "seed_index": 0,
+      "rep": 0,
+      "a": "google/gemini-3.1-pro-preview",
+      "b": "deepseek/deepseek-chat-v3.1"
+    }
+  ],
+  "cost": 0.40343,
+  "elapsed": 1020.3
+}

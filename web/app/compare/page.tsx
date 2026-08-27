@@ -1,12 +1,42 @@
+"use client";
+
 import Link from "next/link";
-import { getConversation, bodyTurns, type Conversation } from "@/lib/logs";
+import { Suspense, useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { asset } from "@/lib/paths";
 import { Avatar, modelProfile } from "@/lib/profiles";
+import { Prose } from "@/components/prose";
 import { StopBadge } from "@/components/bits";
-import { Prose, ProseLine } from "@/components/prose";
+import type { Turn, RunConfig, Analysis } from "@/lib/logs";
 
-export const dynamic = "force-dynamic";
+type Loaded = {
+  id: string;
+  config: RunConfig;
+  seed: string;
+  stopReason: string;
+  turns: Turn[];
+  analysis: Analysis | null;
+};
 
-function Column({ c }: { c: Conversation }) {
+function useConversation(id: string | null) {
+  const [loaded, setLoaded] = useState<Loaded | null>(null);
+  useEffect(() => {
+    if (!id) return;
+    let live = true;
+    fetch(asset(`/data/conversations/${id}.json`))
+      .then((r) => (r.ok ? r.json() : null))
+      .then((c) => live && setLoaded(c))
+      .catch(() => live && setLoaded(null));
+    return () => {
+      live = false;
+    };
+  }, [id]);
+  // Derived rather than cleared in the effect, so nothing sets state synchronously.
+  return id && loaded?.id === id ? loaded : null;
+}
+
+function Column({ c }: { c: Loaded }) {
+  const body = c.turns.filter((t) => t.speaker !== "seed");
   return (
     <div className="flex min-w-0 flex-col gap-3">
       <div className="rounded-xl border border-line bg-panel p-4">
@@ -19,20 +49,17 @@ function Column({ c }: { c: Conversation }) {
         </div>
         <div className="mt-2 flex flex-wrap gap-x-3 text-[11px] text-faint">
           <span className="font-mono">{c.config.name}</span>
-          <span>{bodyTurns(c).length} turns</span>
-          <span>${c.cost.toFixed(3)}</span>
+          <span>{body.length} turns</span>
           <StopBadge reason={c.stopReason} />
           {c.analysis?.mean_interest !== undefined && <span>interest {c.analysis.mean_interest}</span>}
         </div>
-        <p className="mt-2 line-clamp-3 text-[13px] leading-relaxed text-muted">
-          <ProseLine text={c.seed} />
-        </p>
+        <p className="mt-2 line-clamp-3 text-[13px] leading-relaxed text-muted">{c.seed}</p>
         <Link href={`/c/${c.id}`} className="mt-2 inline-block text-[12px] text-faint hover:text-accent">
           open →
         </Link>
       </div>
 
-      {bodyTurns(c).map((t) => (
+      {body.map((t) => (
         <div key={t.idx} className="rounded-xl border border-line-soft bg-panel px-4 py-3">
           <div className="mb-1.5 flex items-center gap-2 text-[11px] text-faint">
             <span className="text-muted">{t.name}</span>
@@ -45,10 +72,10 @@ function Column({ c }: { c: Conversation }) {
   );
 }
 
-export default async function Compare({ searchParams }: PageProps<"/compare">) {
-  const p = await searchParams;
-  const a = typeof p?.a === "string" ? getConversation(p.a) : null;
-  const b = typeof p?.b === "string" ? getConversation(p.b) : null;
+function CompareInner() {
+  const params = useSearchParams();
+  const a = useConversation(params.get("a"));
+  const b = useConversation(params.get("b"));
 
   if (!a || !b) {
     return (
@@ -65,5 +92,13 @@ export default async function Compare({ searchParams }: PageProps<"/compare">) {
       <Column c={a} />
       <Column c={b} />
     </div>
+  );
+}
+
+export default function Compare() {
+  return (
+    <Suspense fallback={<p className="text-[14px] text-faint">loading…</p>}>
+      <CompareInner />
+    </Suspense>
   );
 }

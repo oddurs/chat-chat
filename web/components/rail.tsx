@@ -1,4 +1,4 @@
-type Item = { idx: number; name: string; color: string; score: number; flagged: boolean; kept: boolean };
+type Item = { idx: number; name: string; color: string; score: number; flagged: boolean };
 
 /** A vertical index of the whole conversation: one bar per turn, length = interest score,
  *  colour = speaker, ring = a judge flagged it. Anchors only, no client JS. */
@@ -16,7 +16,6 @@ export function TurnRail({ items }: { items: Item[] }) {
           title={`#${it.idx} · ${it.name} · interest ${it.score.toFixed(2)}${it.flagged ? " · flagged" : ""}`}
           className="group flex h-[7px] items-center justify-end"
         >
-          {it.kept && <span className="mr-1 text-[8px] text-accent">★</span>}
           {it.flagged && <span className="mr-1 h-[5px] w-[5px] rounded-full bg-accent" />}
           <span
             className="block h-[3px] rounded-full opacity-45 transition-opacity group-hover:opacity-100"

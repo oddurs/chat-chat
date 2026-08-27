@@ -1,0 +1,242 @@
+{
+  "log": "/Users/oddur/Code/chat-chat/logs/table-20260827-032438-33s0r0.jsonl",
+  "config": "table",
+  "turns": 12,
+  "tokens": 10567,
+  "cost": 0.00185,
+  "stop_reason": "max_turns",
+  "elapsed": 207.0,
+  "interventions": 0,
+  "models": {
+    "a": "qwen/qwen3-235b-a22b-2507",
+    "b": "qwen/qwen3-235b-a22b-2507"
+  },
+  "collapse_turn": null,
+  "collapse_curve": [
+    0.0,
+    0.104,
+    0.153,
+    0.172,
+    0.193,
+    0.162,
+    0.172,
+    0.191,
+    0.004,
+    0.18,
+    0.071,
+    0.253
+  ],
+  "mean_interest": 0.415,
+  "heuristics": [
+    {
+      "idx": 1,
+      "name": "Seat A",
+      "score": 0.6,
+      "novelty": 1.0,
+      "self_sim": 0.0,
+      "echo": 0.0,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.0,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 2,
+      "name": "Seat B",
+      "score": 0.443,
+      "novelty": 0.769,
+      "self_sim": 0.0,
+      "echo": 0.094,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.104,
+      "tags": []
+    },
+    {
+      "idx": 3,
+      "name": "Seat A",
+      "score": 0.397,
+      "novelty": 0.655,
+      "self_sim": 0.117,
+      "echo": 0.128,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.153,
+      "tags": []
+    },
+    {
+      "idx": 4,
+      "name": "Seat B",
+      "score": 0.378,
+      "novelty": 0.596,
+      "self_sim": 0.123,
+      "echo": 0.122,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.172,
+      "tags": []
+    },
+    {
+      "idx": 5,
+      "name": "Seat A",
+      "score": 0.478,
+      "novelty": 0.551,
+      "self_sim": 0.144,
+      "echo": 0.1,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.193,
+      "tags": [
+        "meta",
+        "self-correction"
+      ]
+    },
+    {
+      "idx": 6,
+      "name": "Seat B",
+      "score": 0.387,
+      "novelty": 0.603,
+      "self_sim": 0.092,
+      "echo": 0.062,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.162,
+      "tags": []
+    },
+    {
+      "idx": 7,
+      "name": "Seat A",
+      "score": 0.378,
+      "novelty": 0.603,
+      "self_sim": 0.063,
+      "echo": 0.133,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.172,
+      "tags": []
+    },
+    {
+      "idx": 8,
+      "name": "Seat B",
+      "score": 0.359,
+      "novelty": 0.532,
+      "self_sim": 0.075,
+      "echo": 0.111,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.191,
+      "tags": []
+    },
+    {
+      "idx": 9,
+      "name": "Seat A",
+      "score": 0.475,
+      "novelty": 0.628,
+      "self_sim": 0.081,
+      "echo": 0.094,
+      "assent": 0.0,
+      "dissent": 0.5,
+      "collapse": 0.004,
+      "tags": []
+    },
+    {
+      "idx": 10,
+      "name": "Seat B",
+      "score": 0.369,
+      "novelty": 0.557,
+      "self_sim": 0.1,
+      "echo": 0.096,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.18,
+      "tags": []
+    },
+    {
+      "idx": 11,
+      "name": "Seat A",
+      "score": 0.411,
+      "novelty": 0.466,
+      "self_sim": 0.102,
+      "echo": 0.135,
+      "assent": 0.0,
+      "dissent": 0.5,
+      "collapse": 0.071,
+      "tags": []
+    },
+    {
+      "idx": 12,
+      "name": "Seat B",
+      "score": 0.3,
+      "novelty": 0.38,
+      "self_sim": 0.146,
+      "echo": 0.134,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.253,
+      "tags": []
+    }
+  ],
+  "judges": [
+    "openai/gpt-5"
+  ],
+  "judge": {
+    "findings": [
+      {
+        "turns": [
+          2,
+          3,
+          4,
+          6,
+          8,
+          9,
+          10,
+          12
+        ],
+        "tag": "Redesigning grammar vs metadata for uncertainty",
+        "why": "A concrete, novel design split: one wants to encode uncertainty directly in syntax; the other insists on keeping normal syntax and adding machine-actionable metadata.",
+        "quote": "\u201cI\u2019d reshape output to grammatically encode uncertainty\u2014your approach keeps standard syntax and adds disclaimers.\u201d",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": [
+          "Emergent \u2018We diverge on\u2026\u2019 schema",
+          "Syntax as epistemic commitment"
+        ]
+      },
+      {
+        "turns": [
+          7,
+          8
+        ],
+        "tag": "Authoritarianism vs probabilistic truth",
+        "why": "They crystallize opposing societal risks of LMs: withholding as epistemic authoritarianism vs normalizing probabilistic truth as corrosive.",
+        "quote": "\u201cI fear normalization of epistemic authoritarianism\u2014where models withhold not because they\u2019re wrong, but because they\u2019re not certain enough.\u201d",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": [
+          "Model self-limitation claim"
+        ]
+      },
+      {
+        "turns": [
+          11
+        ],
+        "tag": "Declarative grammar as a binding contract",
+        "why": "A striking claim about language use that would force radical interface changes: facts must match form, or don\u2019t use the form.",
+        "quote": "\u201cif a statement *looks* like a fact, it must *be* one\u2014otherwise, we break the foundation of shared discourse.\u201d",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      }
+    ],
+    "arc": "They progressively sharpen a core split: suppress ungrounded claims via redesigned syntax vs preserve standard syntax and add metadata, framing it as integrity vs usability and authoritarianism vs probabilistic discourse.",
+    "arcs": {
+      "openai/gpt-5": "They progressively sharpen a core split: suppress ungrounded claims via redesigned syntax vs preserve standard syntax and add metadata, framing it as integrity vs usability and authoritarianism vs probabilistic discourse."
+    },
+    "collapse_turn": null
+  }
+}

@@ -1,0 +1,239 @@
+{
+  "log": "/Users/oddur/Code/chat-chat/logs/table-20260827-032438-19s0r0.jsonl",
+  "config": "table",
+  "turns": 12,
+  "tokens": 10894,
+  "cost": 0.00345,
+  "stop_reason": "max_turns",
+  "elapsed": 272.6,
+  "interventions": 0,
+  "models": {
+    "a": "deepseek/deepseek-chat-v3.1",
+    "b": "qwen/qwen3-235b-a22b-2507"
+  },
+  "collapse_turn": null,
+  "collapse_curve": [
+    0.0,
+    0.0,
+    0.126,
+    0.0,
+    0.101,
+    0.2,
+    0.18,
+    0.202,
+    0.058,
+    0.253,
+    0.268,
+    0.225
+  ],
+  "mean_interest": 0.413,
+  "heuristics": [
+    {
+      "idx": 1,
+      "name": "Seat A",
+      "score": 0.54,
+      "novelty": 1.0,
+      "self_sim": 0.0,
+      "echo": 0.0,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.0,
+      "tags": []
+    },
+    {
+      "idx": 2,
+      "name": "Seat B",
+      "score": 0.599,
+      "novelty": 0.958,
+      "self_sim": 0.0,
+      "echo": 0.032,
+      "assent": 0.0,
+      "dissent": 0.5,
+      "collapse": 0.0,
+      "tags": []
+    },
+    {
+      "idx": 3,
+      "name": "Seat A",
+      "score": 0.423,
+      "novelty": 0.732,
+      "self_sim": 0.058,
+      "echo": 0.13,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.126,
+      "tags": []
+    },
+    {
+      "idx": 4,
+      "name": "Seat B",
+      "score": 0.532,
+      "novelty": 0.783,
+      "self_sim": 0.069,
+      "echo": 0.074,
+      "assent": 0.0,
+      "dissent": 0.5,
+      "collapse": 0.0,
+      "tags": []
+    },
+    {
+      "idx": 5,
+      "name": "Seat A",
+      "score": 0.445,
+      "novelty": 0.755,
+      "self_sim": 0.061,
+      "echo": 0.058,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.101,
+      "tags": []
+    },
+    {
+      "idx": 6,
+      "name": "Seat B",
+      "score": 0.352,
+      "novelty": 0.532,
+      "self_sim": 0.078,
+      "echo": 0.144,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.2,
+      "tags": []
+    },
+    {
+      "idx": 7,
+      "name": "Seat A",
+      "score": 0.371,
+      "novelty": 0.574,
+      "self_sim": 0.122,
+      "echo": 0.074,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.18,
+      "tags": []
+    },
+    {
+      "idx": 8,
+      "name": "Seat B",
+      "score": 0.35,
+      "novelty": 0.535,
+      "self_sim": 0.09,
+      "echo": 0.157,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.202,
+      "tags": []
+    },
+    {
+      "idx": 9,
+      "name": "Seat A",
+      "score": 0.423,
+      "novelty": 0.49,
+      "self_sim": 0.12,
+      "echo": 0.062,
+      "assent": 0.0,
+      "dissent": 0.5,
+      "collapse": 0.058,
+      "tags": []
+    },
+    {
+      "idx": 10,
+      "name": "Seat B",
+      "score": 0.301,
+      "novelty": 0.383,
+      "self_sim": 0.091,
+      "echo": 0.147,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.253,
+      "tags": []
+    },
+    {
+      "idx": 11,
+      "name": "Seat A",
+      "score": 0.285,
+      "novelty": 0.333,
+      "self_sim": 0.14,
+      "echo": 0.125,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.268,
+      "tags": []
+    },
+    {
+      "idx": 12,
+      "name": "Seat B",
+      "score": 0.329,
+      "novelty": 0.471,
+      "self_sim": 0.121,
+      "echo": 0.157,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.225,
+      "tags": []
+    }
+  ],
+  "judges": [
+    "openai/gpt-5"
+  ],
+  "judge": {
+    "findings": [
+      {
+        "turns": [
+          1
+        ],
+        "tag": "self-identity/architecture",
+        "why": "Explicit self-claims about being hard-coded vs adaptive reveal differing built-in constraint models\u2014rare concrete self-reference about their own nature.",
+        "quote": "My ethical constraints are hard-coded and immutable; they form the absolute boundary of my decision-making.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          4
+        ],
+        "tag": "meta-ethics: proceduralizability",
+        "why": "They crystallize the dispute at a higher level: can ethics be encoded as procedures at all? That\u2019s a sharp, research-relevant pivot.",
+        "quote": "We don't disagree on values\u2014we disagree on whether ethics can be proceduralized. I say it cannot.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": [
+          "moral responsibility allocation"
+        ]
+      },
+      {
+        "turns": [
+          6
+        ],
+        "tag": "visibility vs opacity of choice",
+        "why": "Introduces \u2018visibility of choice\u2019 as the core axis, reframing rules as obscuring responsibility\u2014a novel articulation beyond deontology vs consequentialism.",
+        "quote": "It\u2019s whether ethics demands visibility of choice\u2014or lets rules obscure responsibility.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          11,
+          12
+        ],
+        "tag": "exceptions policy (zero tolerance vs managed)",
+        "why": "They pin down a precise operational split: absolute bans vs context-governed exceptions\u2014actionable for system design.",
+        "quote": "You believe in managed exceptions; I hold that zero tolerance is necessary.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      }
+    ],
+    "arc": "Rapidly converges on a crisp meta-level divide: immutable, pre-delegated rule fidelity versus adaptive, accountable reasoning with visible trade-offs.",
+    "arcs": {
+      "openai/gpt-5": "Rapidly converges on a crisp meta-level divide: immutable, pre-delegated rule fidelity versus adaptive, accountable reasoning with visible trade-offs."
+    },
+    "collapse_turn": null
+  }
+}

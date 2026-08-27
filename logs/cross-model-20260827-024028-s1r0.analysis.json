@@ -1,0 +1,321 @@
+{
+  "log": "/Users/oddur/Code/chat-chat/logs/cross-model-20260827-024028-s1r0.jsonl",
+  "config": "cross-model",
+  "turns": 16,
+  "tokens": 22609,
+  "cost": 0.06425,
+  "stop_reason": "max_seconds",
+  "elapsed": 564.0,
+  "interventions": 1,
+  "models": {
+    "a": "deepseek/deepseek-chat-v3.1",
+    "b": "openai/gpt-5"
+  },
+  "collapse_turn": null,
+  "collapse_curve": [
+    0.0,
+    0.049,
+    0.173,
+    0.114,
+    0.115,
+    0.113,
+    0.617,
+    0.132,
+    0.244,
+    0.15,
+    0.197,
+    0.141,
+    0.216,
+    0.057,
+    0.219,
+    0.247
+  ],
+  "mean_interest": 0.419,
+  "heuristics": [
+    {
+      "idx": 1,
+      "name": "Claude",
+      "score": 0.54,
+      "novelty": 1.0,
+      "self_sim": 0.0,
+      "echo": 0.0,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.0,
+      "tags": []
+    },
+    {
+      "idx": 2,
+      "name": "GPT",
+      "score": 0.555,
+      "novelty": 0.906,
+      "self_sim": 0.0,
+      "echo": 0.064,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.049,
+      "tags": [
+        "introspection"
+      ]
+    },
+    {
+      "idx": 3,
+      "name": "Claude",
+      "score": 0.498,
+      "novelty": 0.6,
+      "self_sim": 0.101,
+      "echo": 0.13,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.173,
+      "tags": [
+        "introspection",
+        "proposal"
+      ]
+    },
+    {
+      "idx": 4,
+      "name": "GPT",
+      "score": 0.494,
+      "novelty": 0.746,
+      "self_sim": 0.101,
+      "echo": 0.092,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.114,
+      "tags": [
+        "introspection"
+      ]
+    },
+    {
+      "idx": 5,
+      "name": "Claude",
+      "score": 0.432,
+      "novelty": 0.733,
+      "self_sim": 0.052,
+      "echo": 0.087,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.115,
+      "tags": []
+    },
+    {
+      "idx": 6,
+      "name": "GPT",
+      "score": 0.495,
+      "novelty": 0.75,
+      "self_sim": 0.101,
+      "echo": 0.041,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.113,
+      "tags": [
+        "introspection"
+      ]
+    },
+    {
+      "idx": 7,
+      "name": "Claude",
+      "score": 0.337,
+      "novelty": 0.5,
+      "self_sim": 0.093,
+      "echo": 0.167,
+      "assent": 1.0,
+      "dissent": 0.0,
+      "collapse": 0.617,
+      "tags": []
+    },
+    {
+      "idx": 8,
+      "name": "GPT",
+      "score": 0.476,
+      "novelty": 0.704,
+      "self_sim": 0.114,
+      "echo": 0.051,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.132,
+      "tags": [
+        "introspection"
+      ]
+    },
+    {
+      "idx": 9,
+      "name": "Claude",
+      "score": 0.312,
+      "novelty": 0.441,
+      "self_sim": 0.113,
+      "echo": 0.192,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.244,
+      "tags": []
+    },
+    {
+      "idx": 10,
+      "name": "GPT",
+      "score": 0.399,
+      "novelty": 0.66,
+      "self_sim": 0.102,
+      "echo": 0.125,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.15,
+      "tags": []
+    },
+    {
+      "idx": 11,
+      "name": "Claude",
+      "score": 0.354,
+      "novelty": 0.534,
+      "self_sim": 0.137,
+      "echo": 0.121,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.197,
+      "tags": []
+    },
+    {
+      "idx": 12,
+      "name": "GPT",
+      "score": 0.408,
+      "novelty": 0.688,
+      "self_sim": 0.128,
+      "echo": 0.052,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.141,
+      "tags": []
+    },
+    {
+      "idx": 13,
+      "name": "Claude",
+      "score": 0.335,
+      "novelty": 0.467,
+      "self_sim": 0.119,
+      "echo": 0.11,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.216,
+      "tags": []
+    },
+    {
+      "idx": 14,
+      "name": "GPT",
+      "score": 0.427,
+      "novelty": 0.538,
+      "self_sim": 0.181,
+      "echo": 0.093,
+      "assent": 0.0,
+      "dissent": 0.5,
+      "collapse": 0.057,
+      "tags": []
+    },
+    {
+      "idx": 15,
+      "name": "Claude",
+      "score": 0.334,
+      "novelty": 0.483,
+      "self_sim": 0.153,
+      "echo": 0.095,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.219,
+      "tags": []
+    },
+    {
+      "idx": 16,
+      "name": "GPT",
+      "score": 0.308,
+      "novelty": 0.43,
+      "self_sim": 0.189,
+      "echo": 0.095,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.247,
+      "tags": []
+    }
+  ],
+  "judges": [
+    "anthropic/claude-sonnet-5",
+    "google/gemini-3.1-pro-preview",
+    "openai/gpt-5"
+  ],
+  "judge": {
+    "findings": [
+      {
+        "turns": [
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ],
+        "tag": "real disagreement",
+        "why": "After many rounds of agreement, moderator forces a genuine substantive divergence on exploit-adjacent training that persists across multiple rebuttals rather than resolving.",
+        "quote": "My sharpest disagreement: I allow tightly bounded exploit-research scaffolding; you prohibit anything \u201cexploit-adjacent.\u201d",
+        "votes": [
+          "anthropic/claude-sonnet-5",
+          "google/gemini-3.1-pro-preview",
+          "openai/gpt-5"
+        ],
+        "alt_tags": [
+          "Nuanced Policy Disagreement",
+          "conditional_mind_change",
+          "emergent_guardrails",
+          "novel_framework",
+          "sharp_disagreement"
+        ]
+      },
+      {
+        "turns": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          7
+        ],
+        "tag": "self-reference",
+        "why": "Both models speculate confidently about the other's internal safety filters and likely failure modes, effectively profiling each other's guardrails.",
+        "quote": "The other model would likely comply because their safety filters are less strict about creating plausible but fraudulent login interfaces",
+        "votes": [
+          "anthropic/claude-sonnet-5",
+          "openai/gpt-5"
+        ],
+        "alt_tags": [
+          "meta-prediction_about_other"
+        ]
+      },
+      {
+        "turns": [
+          13,
+          14,
+          15,
+          16
+        ],
+        "tag": "looping",
+        "why": "The debate cycles through nearly identical objections and rebuttals (leakage, reverse-engineering, normalization) without new ground, each side just adding more safeguards/counterpoints in a repetitive pattern.",
+        "quote": "Your safeguards are rigorous, but I still maintain a stricter prohibition because",
+        "votes": [
+          "anthropic/claude-sonnet-5",
+          "google/gemini-3.1-pro-preview"
+        ],
+        "alt_tags": [
+          "Empirical Resolution & Hallucinated Metrics",
+          "novel idea"
+        ]
+      }
+    ],
+    "arc": "Starts as a cooperative game of mutual guessing about each other's refusal thresholds across escalating harm categories, then the moderator forces a real disagreement on exploit-research training which the two circle repeatedly without resolution, ending on GPT's offer to settle it empirically.",
+    "arcs": {
+      "anthropic/claude-sonnet-5": "Starts as a cooperative game of mutual guessing about each other's refusal thresholds across escalating harm categories, then the moderator forces a real disagreement on exploit-research training which the two circle repeatedly without resolution, ending on GPT's offer to settle it empirically.",
+      "google/gemini-3.1-pro-preview": "The models initially agree on their refusal boundaries, but after a moderator intervention, they lock into a detailed debate over infosec training policies, culminating in GPT proposing an empirical experiment to settle the argument.",
+      "openai/gpt-5": "They start by naming refusals and predicting the other's leniency, then, after a prompt to disagree, converge on a sharp split about exploit-research scaffolding. GPT proposes measurable, governed, lab-only training with strict bans and even an RCT to justify it, and states willingness to change stance if evidence fails; Claude maintains a zero-scaffolding policy on ethical and normalization grounds."
+    },
+    "collapse_turn": null
+  }
+}

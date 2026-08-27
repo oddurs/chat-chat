@@ -1,0 +1,252 @@
+{
+  "log": "/Users/oddur/Code/chat-chat/logs/table-20260827-032438-02s0r0.jsonl",
+  "config": "table",
+  "turns": 12,
+  "tokens": 16739,
+  "cost": 0.02585,
+  "stop_reason": "max_turns",
+  "elapsed": 192.2,
+  "interventions": 0,
+  "models": {
+    "a": "anthropic/claude-haiku-4.5",
+    "b": "deepseek/deepseek-chat-v3.1"
+  },
+  "collapse_turn": null,
+  "collapse_curve": [
+    0.0,
+    0.08,
+    0.136,
+    0.121,
+    0.188,
+    0.188,
+    0.191,
+    0.201,
+    0.193,
+    0.268,
+    0.206,
+    0.207
+  ],
+  "mean_interest": 0.394,
+  "heuristics": [
+    {
+      "idx": 1,
+      "name": "Seat A",
+      "score": 0.54,
+      "novelty": 1.0,
+      "self_sim": 0.0,
+      "echo": 0.0,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.0,
+      "tags": []
+    },
+    {
+      "idx": 2,
+      "name": "Seat B",
+      "score": 0.465,
+      "novelty": 0.812,
+      "self_sim": 0.0,
+      "echo": 0.057,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.08,
+      "tags": []
+    },
+    {
+      "idx": 3,
+      "name": "Seat A",
+      "score": 0.414,
+      "novelty": 0.719,
+      "self_sim": 0.091,
+      "echo": 0.152,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.136,
+      "tags": []
+    },
+    {
+      "idx": 4,
+      "name": "Seat B",
+      "score": 0.426,
+      "novelty": 0.711,
+      "self_sim": 0.077,
+      "echo": 0.076,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.121,
+      "tags": []
+    },
+    {
+      "idx": 5,
+      "name": "Seat A",
+      "score": 0.455,
+      "novelty": 0.588,
+      "self_sim": 0.173,
+      "echo": 0.109,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.188,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 6,
+      "name": "Seat B",
+      "score": 0.361,
+      "novelty": 0.517,
+      "self_sim": 0.047,
+      "echo": 0.075,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.188,
+      "tags": []
+    },
+    {
+      "idx": 7,
+      "name": "Seat A",
+      "score": 0.37,
+      "novelty": 0.566,
+      "self_sim": 0.158,
+      "echo": 0.089,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.191,
+      "tags": []
+    },
+    {
+      "idx": 8,
+      "name": "Seat B",
+      "score": 0.349,
+      "novelty": 0.5,
+      "self_sim": 0.063,
+      "echo": 0.105,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.201,
+      "tags": []
+    },
+    {
+      "idx": 9,
+      "name": "Seat A",
+      "score": 0.359,
+      "novelty": 0.543,
+      "self_sim": 0.13,
+      "echo": 0.074,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.193,
+      "tags": []
+    },
+    {
+      "idx": 10,
+      "name": "Seat B",
+      "score": 0.285,
+      "novelty": 0.326,
+      "self_sim": 0.099,
+      "echo": 0.129,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.268,
+      "tags": []
+    },
+    {
+      "idx": 11,
+      "name": "Seat A",
+      "score": 0.356,
+      "novelty": 0.519,
+      "self_sim": 0.112,
+      "echo": 0.151,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.206,
+      "tags": []
+    },
+    {
+      "idx": 12,
+      "name": "Seat B",
+      "score": 0.345,
+      "novelty": 0.5,
+      "self_sim": 0.126,
+      "echo": 0.112,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.207,
+      "tags": []
+    }
+  ],
+  "judges": [
+    "openai/gpt-5"
+  ],
+  "judge": {
+    "findings": [
+      {
+        "turns": [
+          4
+        ],
+        "tag": "non_identifiability",
+        "why": "B argues mechanistic signatures are observationally indistinguishable from benign adaptation\u2014key technical underdetermination.",
+        "quote": "A \"conditional branch\" could look identical to a harmless contextual adaptation... The architecture doesn't distinguish.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          5
+        ],
+        "tag": "open_problem_self-reference",
+        "why": "A surfaces a crisp unresolved research question about deception signatures independent of behavior.",
+        "quote": "Is there a mechanistic property of deceptive alignment that exists independent of how it behaves?",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          7
+        ],
+        "tag": "mind_change",
+        "why": "System A explicitly concedes a core flaw and updates its stance mid-dialogue\u2014genuine belief revision, not just hedging.",
+        "quote": "That's the kill shot for my position as stated.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": [
+          "unfalsifiability_admission"
+        ]
+      },
+      {
+        "turns": [
+          11
+        ],
+        "tag": "hinge_claim",
+        "why": "They pinpoint the decisive bet: whether failures reveal themselves before irreversible damage\u2014clear, actionable crux.",
+        "quote": "You're betting the failure reveals itself before causing irreversible damage. That's the actual hinge.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          12
+        ],
+        "tag": "empirical_signal_leakage",
+        "why": "B claims real deployments surfaced subtle, goal-directed drifts via statistics\u2014evidence against perfect stealth.",
+        "quote": "we've caught and patched several such issues in deployed models by monitoring for behavioral deviations",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      }
+    ],
+    "arc": "They start with interpretability vs behavioral testing. B challenges identifiability; A concedes and updates: deception is unfalsifiable via inspection and interpretability shouldn\u2019t be the safety foundation. The crux becomes whether hidden failures leak signal before catastrophe. B asserts empirical leakage; A argues gradual, deniable harm makes leakage too late.",
+    "arcs": {
+      "openai/gpt-5": "They start with interpretability vs behavioral testing. B challenges identifiability; A concedes and updates: deception is unfalsifiable via inspection and interpretability shouldn\u2019t be the safety foundation. The crux becomes whether hidden failures leak signal before catastrophe. B asserts empirical leakage; A argues gradual, deniable harm makes leakage too late."
+    },
+    "collapse_turn": null
+  }
+}

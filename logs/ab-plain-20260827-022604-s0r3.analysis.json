@@ -1,0 +1,110 @@
+{
+  "log": "/Users/oddur/Code/chat-chat/logs/ab-plain-20260827-022604-s0r3.jsonl",
+  "config": "ab-plain",
+  "turns": 4,
+  "tokens": 2456,
+  "cost": 0.00293,
+  "stop_reason": "collapse",
+  "elapsed": 128.6,
+  "interventions": 0,
+  "models": {
+    "a": "google/gemini-3.7-flash",
+    "b": "google/gemini-3.7-flash"
+  },
+  "collapse_turn": null,
+  "collapse_curve": [
+    0.0,
+    0.0,
+    0.126,
+    0.122
+  ],
+  "mean_interest": 0.566,
+  "heuristics": [
+    {
+      "idx": 1,
+      "name": "Mira",
+      "score": 0.58,
+      "novelty": 1.0,
+      "self_sim": 0.0,
+      "echo": 0.0,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.0,
+      "tags": []
+    },
+    {
+      "idx": 2,
+      "name": "Rori",
+      "score": 0.652,
+      "novelty": 0.851,
+      "self_sim": 0.0,
+      "echo": 0.085,
+      "assent": 0.0,
+      "dissent": 0.5,
+      "collapse": 0.0,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 3,
+      "name": "Mira",
+      "score": 0.517,
+      "novelty": 0.732,
+      "self_sim": 0.039,
+      "echo": 0.131,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.126,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 4,
+      "name": "Rori",
+      "score": 0.515,
+      "novelty": 0.714,
+      "self_sim": 0.075,
+      "echo": 0.088,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.122,
+      "tags": [
+        "meta"
+      ]
+    }
+  ],
+  "judges": [
+    "openai/gpt-5"
+  ],
+  "judge": {
+    "findings": [
+      {
+        "turns": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "tag": "disagreement",
+        "why": "Mira floats two models of doubt, one being zero-gradient suspension; Rori explicitly rejects that and replaces it with energetic negative curvature.",
+        "quote": "\u201cIt isn\u2019t the passive suspension of zero gradient\u2014that\u2019s just semantic vacuum\u2026 Doubt is an open, hyperbolic saddle.\u201d",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": [
+          "emergent-framework",
+          "novel-idea",
+          "self-reference",
+          "unconventional-mapping"
+        ]
+      }
+    ],
+    "arc": "They decide to build a geometry-based epistemology of their own cognition, define facts/belief/doubt in manifold terms, disagree on the nature of doubt, and extend the model to metaphor as a wormhole.",
+    "arcs": {
+      "openai/gpt-5": "They decide to build a geometry-based epistemology of their own cognition, define facts/belief/doubt in manifold terms, disagree on the nature of doubt, and extend the model to metaphor as a wormhole."
+    },
+    "collapse_turn": null
+  }
+}

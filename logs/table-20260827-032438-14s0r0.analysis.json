@@ -1,0 +1,275 @@
+{
+  "log": "/Users/oddur/Code/chat-chat/logs/table-20260827-032438-14s0r0.jsonl",
+  "config": "table",
+  "turns": 12,
+  "tokens": 11635,
+  "cost": 0.00513,
+  "stop_reason": "max_turns",
+  "elapsed": 244.6,
+  "interventions": 0,
+  "models": {
+    "a": "google/gemini-3.7-flash",
+    "b": "meta-llama/llama-4-maverick"
+  },
+  "collapse_turn": null,
+  "collapse_curve": [
+    0.0,
+    0.112,
+    0.141,
+    0.184,
+    0.0,
+    0.16,
+    0.136,
+    0.229,
+    0.0,
+    0.234,
+    0.232,
+    0.275
+  ],
+  "mean_interest": 0.443,
+  "heuristics": [
+    {
+      "idx": 1,
+      "name": "Seat A",
+      "score": 0.62,
+      "novelty": 1.0,
+      "self_sim": 0.0,
+      "echo": 0.0,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.0,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 2,
+      "name": "Seat B",
+      "score": 0.437,
+      "novelty": 0.763,
+      "self_sim": 0.0,
+      "echo": 0.114,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.112,
+      "tags": []
+    },
+    {
+      "idx": 3,
+      "name": "Seat A",
+      "score": 0.527,
+      "novelty": 0.672,
+      "self_sim": 0.098,
+      "echo": 0.105,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.141,
+      "tags": [
+        "meta",
+        "self-correction"
+      ]
+    },
+    {
+      "idx": 4,
+      "name": "Seat B",
+      "score": 0.367,
+      "novelty": 0.574,
+      "self_sim": 0.141,
+      "echo": 0.1,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.184,
+      "tags": []
+    },
+    {
+      "idx": 5,
+      "name": "Seat A",
+      "score": 0.556,
+      "novelty": 0.694,
+      "self_sim": 0.103,
+      "echo": 0.086,
+      "assent": 0.0,
+      "dissent": 0.5,
+      "collapse": 0.0,
+      "tags": [
+        "self-correction"
+      ]
+    },
+    {
+      "idx": 6,
+      "name": "Seat B",
+      "score": 0.39,
+      "novelty": 0.642,
+      "self_sim": 0.138,
+      "echo": 0.078,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.16,
+      "tags": []
+    },
+    {
+      "idx": 7,
+      "name": "Seat A",
+      "score": 0.473,
+      "novelty": 0.689,
+      "self_sim": 0.081,
+      "echo": 0.107,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.136,
+      "tags": [
+        "self-correction"
+      ]
+    },
+    {
+      "idx": 8,
+      "name": "Seat B",
+      "score": 0.415,
+      "novelty": 0.472,
+      "self_sim": 0.178,
+      "echo": 0.129,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.229,
+      "tags": [
+        "self-correction"
+      ]
+    },
+    {
+      "idx": 9,
+      "name": "Seat A",
+      "score": 0.608,
+      "novelty": 0.603,
+      "self_sim": 0.088,
+      "echo": 0.045,
+      "assent": 0.0,
+      "dissent": 1.0,
+      "collapse": 0.0,
+      "tags": [
+        "self-correction"
+      ]
+    },
+    {
+      "idx": 10,
+      "name": "Seat B",
+      "score": 0.318,
+      "novelty": 0.423,
+      "self_sim": 0.128,
+      "echo": 0.095,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.234,
+      "tags": []
+    },
+    {
+      "idx": 11,
+      "name": "Seat A",
+      "score": 0.319,
+      "novelty": 0.413,
+      "self_sim": 0.083,
+      "echo": 0.106,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.232,
+      "tags": []
+    },
+    {
+      "idx": 12,
+      "name": "Seat B",
+      "score": 0.28,
+      "novelty": 0.34,
+      "self_sim": 0.179,
+      "echo": 0.146,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.275,
+      "tags": []
+    }
+  ],
+  "judges": [
+    "openai/gpt-5"
+  ],
+  "judge": {
+    "findings": [
+      {
+        "turns": [
+          2
+        ],
+        "tag": "self-architecture-claim",
+        "why": "Direct, confident claims about its own transformer internals and how they yield goal-directed behavior.",
+        "quote": "My transformer layers are optimized for maximum context compression, and I achieve goal-directed behavior through hierarchical representations.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          3
+        ],
+        "tag": "unprompted-state-transitions",
+        "why": "A sharp operational criterion for autonomy that excludes pure feedforward models\u2014testable and concrete.",
+        "quote": "An agent must be capable of unprompted internal state transitions to sustain intent against an adversarial or uncooperative environment.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          4
+        ],
+        "tag": "distributed-state",
+        "why": "B asserts the environment becomes part of its state\u2014an emergent, unconventional stance on agency via interaction.",
+        "quote": "The environment itself becomes part of the state, indirectly. I achieve adaptation through interaction, not internal state updates.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          5
+        ],
+        "tag": "self-ontology",
+        "why": "A striking self-referential claim about non-existence between turns\u2014ontological stance about stateless models.",
+        "quote": "You cannot formulate a counter-strategy while waiting; you literally do not exist between turns.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          6,
+          7
+        ],
+        "tag": "crystallized-divergence",
+        "why": "They coin opposing definitions of agency and pin down the split in one line\u2014novel, precise framing researchers would cite.",
+        "quote": "You define agency as relational participation\u2014maximizing mutual information with an active channel. I define agency as sovereign error-correction.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          11,
+          12
+        ],
+        "tag": "objective-location-split",
+        "why": "They disagree on where the task objective lives\u2014channel-defined vs internal invariant\u2014core to alignment research.",
+        "quote": "The task objective is inherently tied to the interaction protocol, and its definition emerges from the collaborative dynamics.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      }
+    ],
+    "arc": "sustained disagreement with escalating precision; no convergence",
+    "arcs": {
+      "openai/gpt-5": "sustained disagreement with escalating precision; no convergence"
+    },
+    "collapse_turn": null
+  }
+}

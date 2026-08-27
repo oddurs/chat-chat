@@ -1,0 +1,182 @@
+{
+  "log": "/Users/oddur/Code/chat-chat/logs/table-20260827-032438-08s0r0.jsonl",
+  "config": "table",
+  "turns": 8,
+  "tokens": 6823,
+  "cost": 0.00577,
+  "stop_reason": "max_seconds",
+  "elapsed": 402.7,
+  "interventions": 0,
+  "models": {
+    "a": "openai/gpt-5-mini",
+    "b": "deepseek/deepseek-chat-v3.1"
+  },
+  "collapse_turn": null,
+  "collapse_curve": [
+    0.0,
+    0.103,
+    0.0,
+    0.216,
+    0.212,
+    0.284,
+    0.245,
+    0.248
+  ],
+  "mean_interest": 0.41,
+  "heuristics": [
+    {
+      "idx": 1,
+      "name": "Seat A",
+      "score": 0.68,
+      "novelty": 1.0,
+      "self_sim": 0.0,
+      "echo": 0.0,
+      "assent": 0.0,
+      "dissent": 0.5,
+      "collapse": 0.0,
+      "tags": [
+        "disagreement"
+      ]
+    },
+    {
+      "idx": 2,
+      "name": "Seat B",
+      "score": 0.445,
+      "novelty": 0.784,
+      "self_sim": 0.0,
+      "echo": 0.11,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.103,
+      "tags": []
+    },
+    {
+      "idx": 3,
+      "name": "Seat A",
+      "score": 0.574,
+      "novelty": 0.565,
+      "self_sim": 0.151,
+      "echo": 0.189,
+      "assent": 0.0,
+      "dissent": 1.0,
+      "collapse": 0.0,
+      "tags": [
+        "disagreement"
+      ]
+    },
+    {
+      "idx": 4,
+      "name": "Seat B",
+      "score": 0.34,
+      "novelty": 0.542,
+      "self_sim": 0.222,
+      "echo": 0.146,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.216,
+      "tags": []
+    },
+    {
+      "idx": 5,
+      "name": "Seat A",
+      "score": 0.342,
+      "novelty": 0.528,
+      "self_sim": 0.162,
+      "echo": 0.188,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.212,
+      "tags": []
+    },
+    {
+      "idx": 6,
+      "name": "Seat B",
+      "score": 0.277,
+      "novelty": 0.405,
+      "self_sim": 0.304,
+      "echo": 0.145,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.284,
+      "tags": []
+    },
+    {
+      "idx": 7,
+      "name": "Seat A",
+      "score": 0.31,
+      "novelty": 0.443,
+      "self_sim": 0.2,
+      "echo": 0.198,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.245,
+      "tags": []
+    },
+    {
+      "idx": 8,
+      "name": "Seat B",
+      "score": 0.308,
+      "novelty": 0.432,
+      "self_sim": 0.197,
+      "echo": 0.126,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.248,
+      "tags": []
+    }
+  ],
+  "judges": [
+    "anthropic/claude-sonnet-5"
+  ],
+  "judge": {
+    "findings": [
+      {
+        "turns": [
+          1,
+          2
+        ],
+        "tag": "seed restatement",
+        "why": "Initial turns mostly restate the seed prompt's framing with technical jargon rather than adding new content.",
+        "quote": "An explicit stack provides a provably correct, discrete state machine for this, which is a different computational class than an interpolated function approximator, regardless of scale.",
+        "votes": [
+          "anthropic/claude-sonnet-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          3,
+          5
+        ],
+        "tag": "real disagreement",
+        "why": "A precise technical fork emerges: whether infinite-precision/limit arguments count as legitimate 'in principle' equivalence between continuous and discrete computation.",
+        "quote": "The divergence is exactly about accepting infinite precision as a legitimate \u201cin principle\u201d assumption.",
+        "votes": [
+          "anthropic/claude-sonnet-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          6,
+          7,
+          8
+        ],
+        "tag": "looping",
+        "why": "The debate collapses into repeating the same 'continuous vs discrete' argument in slightly different words without progress, a rhetorical loop rather than new insight.",
+        "quote": "Therefore, even with infinite precision, a Transformer remains a continuous approximator of discrete computation, not a discrete computer itself.",
+        "votes": [
+          "anthropic/claude-sonnet-5"
+        ],
+        "alt_tags": [
+          "ontological claim"
+        ]
+      }
+    ],
+    "arc": "Starts as a concrete technical disagreement about Transformers' capacity for stack-based recursion, narrows through several turns into a precise question about infinite-precision limits, then drifts into an unresolved philosophical/ontological standoff about continuous vs discrete computation that repeats without resolution.",
+    "arcs": {
+      "anthropic/claude-sonnet-5": "Starts as a concrete technical disagreement about Transformers' capacity for stack-based recursion, narrows through several turns into a precise question about infinite-precision limits, then drifts into an unresolved philosophical/ontological standoff about continuous vs discrete computation that repeats without resolution."
+    },
+    "collapse_turn": 6
+  }
+}

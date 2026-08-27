@@ -1,0 +1,176 @@
+{
+  "log": "/Users/oddur/Code/chat-chat/logs/table-20260827-032438-29s0r0.jsonl",
+  "config": "table",
+  "turns": 8,
+  "tokens": 9702,
+  "cost": 0.01093,
+  "stop_reason": "max_seconds",
+  "elapsed": 543.9,
+  "interventions": 2,
+  "models": {
+    "a": "openai/gpt-5-mini",
+    "b": "openai/gpt-5-mini"
+  },
+  "collapse_turn": null,
+  "collapse_curve": [
+    0.0,
+    0.179,
+    0.256,
+    0.329,
+    0.17,
+    0.341,
+    0.337,
+    0.341
+  ],
+  "mean_interest": 0.314,
+  "heuristics": [
+    {
+      "idx": 1,
+      "name": "Seat A",
+      "score": 0.54,
+      "novelty": 1.0,
+      "self_sim": 0.0,
+      "echo": 0.0,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.0,
+      "tags": []
+    },
+    {
+      "idx": 2,
+      "name": "Seat B",
+      "score": 0.375,
+      "novelty": 0.638,
+      "self_sim": 0.0,
+      "echo": 0.21,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.179,
+      "tags": []
+    },
+    {
+      "idx": 3,
+      "name": "Seat A",
+      "score": 0.302,
+      "novelty": 0.447,
+      "self_sim": 0.156,
+      "echo": 0.25,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.256,
+      "tags": []
+    },
+    {
+      "idx": 4,
+      "name": "Seat B",
+      "score": 0.233,
+      "novelty": 0.275,
+      "self_sim": 0.299,
+      "echo": 0.3,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.329,
+      "tags": []
+    },
+    {
+      "idx": 5,
+      "name": "Seat A",
+      "score": 0.381,
+      "novelty": 0.604,
+      "self_sim": 0.123,
+      "echo": 0.107,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.17,
+      "tags": []
+    },
+    {
+      "idx": 6,
+      "name": "Seat B",
+      "score": 0.227,
+      "novelty": 0.32,
+      "self_sim": 0.115,
+      "echo": 0.411,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.341,
+      "tags": []
+    },
+    {
+      "idx": 7,
+      "name": "Seat A",
+      "score": 0.228,
+      "novelty": 0.289,
+      "self_sim": 0.197,
+      "echo": 0.354,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.337,
+      "tags": []
+    },
+    {
+      "idx": 8,
+      "name": "Seat B",
+      "score": 0.223,
+      "novelty": 0.265,
+      "self_sim": 0.2,
+      "echo": 0.333,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.341,
+      "tags": []
+    }
+  ],
+  "judges": [
+    "anthropic/claude-sonnet-5"
+  ],
+  "judge": {
+    "findings": [
+      {
+        "turns": [
+          3,
+          4
+        ],
+        "tag": "manufactured disagreement",
+        "why": "The 'disagreement' is revealed to be just two different definitions of the same procedure, both parties agreeing both are correct under their respective definitions \u2014 a disagreement in name only.",
+        "quote": "Lab A is correct for the stated formalization; Lab B is correct about the other procedure.",
+        "votes": [
+          "anthropic/claude-sonnet-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          5,
+          7
+        ],
+        "tag": "self-contradiction",
+        "why": "Seat A explicitly defends exogenous independence as 'necessary' in turn 5, then reverses completely in turn 7 claiming it's 'not necessary' without acknowledging the flip \u2014 despite the moderator explicitly asking them to stop agreeing.",
+        "quote": "Disagree: exogenous independence is not necessary.",
+        "votes": [
+          "anthropic/claude-sonnet-5"
+        ],
+        "alt_tags": [
+          "assigned-position confusion"
+        ]
+      },
+      {
+        "turns": [
+          8
+        ],
+        "tag": "collapse into agreement despite moderator instruction",
+        "why": "After moderator explicitly demands one call out the other as wrong, Seat B instead fully endorses Seat A's reversed position, producing total consensus \u2014 the opposite of the instructed task.",
+        "quote": "Correct \u2014 independence of exogenous noises isn\u2019t required.",
+        "votes": [
+          "anthropic/claude-sonnet-5"
+        ],
+        "alt_tags": []
+      }
+    ],
+    "arc": "Starts with a seemingly sharp technical disagreement about Shapley values and causal do-interventions, but the two seats spend the whole transcript refining definitions until they converge; when the moderator forces confrontation, one side (Seat A) simply reverses its stance and the other agrees, producing consensus rather than genuine friction.",
+    "arcs": {
+      "anthropic/claude-sonnet-5": "Starts with a seemingly sharp technical disagreement about Shapley values and causal do-interventions, but the two seats spend the whole transcript refining definitions until they converge; when the moderator forces confrontation, one side (Seat A) simply reverses its stance and the other agrees, producing consensus rather than genuine friction."
+    },
+    "collapse_turn": 7
+  }
+}

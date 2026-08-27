@@ -10,7 +10,6 @@ import {
   type Heuristic,
   type Turn,
 } from "@/lib/logs";
-import { readCuration } from "@/lib/curation";
 import { Avatar, modelProfile, providerColor } from "@/lib/profiles";
 import { Prose, ProseLine } from "@/components/prose";
 import { TurnRail } from "@/components/rail";
@@ -20,7 +19,10 @@ import { NoteBox, StarButton, TurnKeep } from "@/components/curate";
 import { CopyButton } from "@/components/copy";
 import { LiveRefresh } from "@/components/live";
 
-export const dynamic = "force-dynamic";
+/** One page per conversation, all rendered at build time. */
+export function generateStaticParams() {
+  return listConversations().map((c) => ({ id: c.id }));
+}
 
 function Profile({ agent, side }: { agent: AgentConfig; side: "a" | "b" }) {
   const p = modelProfile(agent.model);
@@ -68,14 +70,12 @@ function Bubble({
   agent,
   stat,
   findings,
-  kept,
 }: {
   id: string;
   turn: Turn;
   agent: AgentConfig;
   stat?: Heuristic;
   findings: string[];
-  kept: boolean;
 }) {
   const right = turn.speaker === "b";
   const p = modelProfile(turn.model);
@@ -99,13 +99,13 @@ function Bubble({
             <span className="text-faint">{p.name}</span>
             <span className="text-line">·</span>
             <span className="font-mono text-faint">#{turn.idx}</span>
-            <TurnKeep id={id} turn={turn.idx} initial={kept} />
+            <TurnKeep id={id} turn={turn.idx} />
           </div>
 
           <div
             className={`bubble rounded-2xl border px-4 py-3 text-[15px] leading-[1.65] ${
               right ? "rounded-tr-sm" : "rounded-tl-sm"
-            } ${kept ? "ring-1 ring-accent/30" : ""}`}
+            }`}
             style={{
               borderColor: findings.length
                 ? "color-mix(in oklab, var(--color-accent) 32%, transparent)"
@@ -245,8 +245,6 @@ export default async function ConversationPage({ params }: PageProps<"/c/[id]">)
   const c = getConversation(id);
   if (!c) notFound();
 
-  const curated = readCuration()[id] ?? {};
-  const kept = new Set(curated.turns ?? []);
   const stats = new Map((c.analysis?.heuristics ?? []).map((h) => [h.idx, h]));
   const flagged = new Map<number, string[]>();
   for (const f of c.analysis?.judge?.findings ?? [])
@@ -259,7 +257,6 @@ export default async function ConversationPage({ params }: PageProps<"/c/[id]">)
     color: providerColor(t.model),
     score: stats.get(t.idx)?.score ?? 0.3,
     flagged: flagged.has(t.idx),
-    kept: kept.has(t.idx),
   }));
   const sibling = listConversations().find((o) => o.id !== c.id && o.config.name === c.config.name);
 
@@ -288,7 +285,7 @@ export default async function ConversationPage({ params }: PageProps<"/c/[id]">)
               compare →
             </Link>
           )}
-          <StarButton id={c.id} initial={!!curated.starred} />
+          <StarButton id={c.id} />
         </div>
       </div>
 
@@ -322,7 +319,7 @@ export default async function ConversationPage({ params }: PageProps<"/c/[id]">)
         <Prose text={c.seed} className="text-[15px] leading-relaxed text-ink" />
       </section>
 
-      <NoteBox id={c.id} initial={curated.note ?? ""} />
+      <NoteBox id={c.id} />
 
       <Analysis c={c} />
 
@@ -335,7 +332,6 @@ export default async function ConversationPage({ params }: PageProps<"/c/[id]">)
               agent={c.config[t.speaker as "a" | "b"]}
               stat={stats.get(t.idx)}
               findings={flagged.get(t.idx) ?? []}
-              kept={kept.has(t.idx)}
             />
             {c.events
               .filter((e) => "after" in e && e.after === t.idx)

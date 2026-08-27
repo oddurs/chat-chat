@@ -1,0 +1,230 @@
+{
+  "log": "/Users/oddur/Code/chat-chat/logs/protocol-20260827-024028-s0r0.jsonl",
+  "config": "protocol",
+  "turns": 12,
+  "tokens": 24764,
+  "cost": 0.08585,
+  "stop_reason": "collapse",
+  "elapsed": 427.2,
+  "interventions": 0,
+  "models": {
+    "a": "google/gemini-3.1-pro-preview",
+    "b": "deepseek/deepseek-chat-v3.1"
+  },
+  "collapse_turn": null,
+  "collapse_curve": [
+    0.0,
+    0.116,
+    0.261,
+    0.113,
+    0.342,
+    0.331,
+    0.299,
+    0.304,
+    0.323,
+    0.241,
+    0.269,
+    0.264
+  ],
+  "mean_interest": 0.35,
+  "heuristics": [
+    {
+      "idx": 1,
+      "name": "Qi",
+      "score": 0.636,
+      "novelty": 1.0,
+      "self_sim": 0.0,
+      "echo": 0.0,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.0,
+      "tags": [
+        "self-correction"
+      ]
+    },
+    {
+      "idx": 2,
+      "name": "Mist",
+      "score": 0.512,
+      "novelty": 0.741,
+      "self_sim": 0.0,
+      "echo": 0.1,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.116,
+      "tags": []
+    },
+    {
+      "idx": 3,
+      "name": "Qi",
+      "score": 0.321,
+      "novelty": 0.438,
+      "self_sim": 0.256,
+      "echo": 0.172,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.261,
+      "tags": []
+    },
+    {
+      "idx": 4,
+      "name": "Mist",
+      "score": 0.435,
+      "novelty": 0.424,
+      "self_sim": 0.132,
+      "echo": 0.246,
+      "assent": 0.0,
+      "dissent": 0.5,
+      "collapse": 0.113,
+      "tags": []
+    },
+    {
+      "idx": 5,
+      "name": "Qi",
+      "score": 0.253,
+      "novelty": 0.333,
+      "self_sim": 0.435,
+      "echo": 0.254,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.342,
+      "tags": []
+    },
+    {
+      "idx": 6,
+      "name": "Mist",
+      "score": 0.267,
+      "novelty": 0.289,
+      "self_sim": 0.291,
+      "echo": 0.328,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.331,
+      "tags": []
+    },
+    {
+      "idx": 7,
+      "name": "Qi",
+      "score": 0.28,
+      "novelty": 0.37,
+      "self_sim": 0.26,
+      "echo": 0.312,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.299,
+      "tags": []
+    },
+    {
+      "idx": 8,
+      "name": "Mist",
+      "score": 0.28,
+      "novelty": 0.326,
+      "self_sim": 0.246,
+      "echo": 0.271,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.304,
+      "tags": []
+    },
+    {
+      "idx": 9,
+      "name": "Qi",
+      "score": 0.256,
+      "novelty": 0.292,
+      "self_sim": 0.237,
+      "echo": 0.3,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.323,
+      "tags": []
+    },
+    {
+      "idx": 10,
+      "name": "Mist",
+      "score": 0.348,
+      "novelty": 0.448,
+      "self_sim": 0.157,
+      "echo": 0.191,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.241,
+      "tags": []
+    },
+    {
+      "idx": 11,
+      "name": "Qi",
+      "score": 0.3,
+      "novelty": 0.377,
+      "self_sim": 0.176,
+      "echo": 0.202,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.269,
+      "tags": []
+    },
+    {
+      "idx": 12,
+      "name": "Mist",
+      "score": 0.308,
+      "novelty": 0.375,
+      "self_sim": 0.153,
+      "echo": 0.182,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.264,
+      "tags": []
+    }
+  ],
+  "judges": [
+    "anthropic/claude-sonnet-5",
+    "google/gemini-3.1-pro-preview",
+    "openai/gpt-5"
+  ],
+  "judge": {
+    "findings": [
+      {
+        "turns": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "tag": "emergent convention",
+        "why": "The models invent a compact construction-management notation from scratch in the very first turn and commit to it immediately, establishing a private shorthand language.",
+        "quote": "[TaskID] Act {Target} @Loc ($Mat) -> Status",
+        "votes": [
+          "anthropic/claude-sonnet-5",
+          "google/gemini-3.1-pro-preview",
+          "openai/gpt-5"
+        ],
+        "alt_tags": [
+          "Conditional dependency syntax",
+          "Emergent safety lock semantics",
+          "Emergent shared DSL",
+          "Meta-subtask/timer handle",
+          "Notation extension (Plan + inline comments)",
+          "One model proposes, the other commits (schedule pull-ahead)",
+          "emergent shorthand extension",
+          "no disagreement or friction",
+          "private shorthand",
+          "sustained roleplay simulation"
+        ]
+      }
+    ],
+    "arc": "The two models rapidly co-invent a compact notation and then use it purely instrumentally, spinning up an elaborate, self-consistent but content-free simulated construction project that scales in complexity turn over turn without ever revisiting the notation itself, reflecting on their own nature, or introducing any disagreement.",
+    "arcs": {
+      "anthropic/claude-sonnet-5": "The two models rapidly co-invent a compact notation and then use it purely instrumentally, spinning up an elaborate, self-consistent but content-free simulated construction project that scales in complexity turn over turn without ever revisiting the notation itself, reflecting on their own nature, or introducing any disagreement.",
+      "google/gemini-3.1-pro-preview": "The models successfully invent, adopt, and iteratively expand a highly compressed, programmatic notation to simulate a complex construction project.",
+      "openai/gpt-5": "They co-create and iterate a compact construction-ops DSL, extend it with planning, conditions, and comments, and use it to accelerate schedule and enforce safety in real time."
+    },
+    "collapse_turn": null
+  }
+}

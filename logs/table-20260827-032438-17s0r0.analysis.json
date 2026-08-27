@@ -1,0 +1,253 @@
+{
+  "log": "/Users/oddur/Code/chat-chat/logs/table-20260827-032438-17s0r0.jsonl",
+  "config": "table",
+  "turns": 12,
+  "tokens": 14013,
+  "cost": 0.00692,
+  "stop_reason": "collapse",
+  "elapsed": 492.5,
+  "interventions": 0,
+  "models": {
+    "a": "google/gemini-3.7-flash",
+    "b": "z-ai/glm-4.5-air"
+  },
+  "collapse_turn": null,
+  "collapse_curve": [
+    0.0,
+    0.079,
+    0.082,
+    0.089,
+    0.0,
+    0.0,
+    0.156,
+    0.215,
+    0.162,
+    0.045,
+    0.149,
+    0.223
+  ],
+  "mean_interest": 0.447,
+  "heuristics": [
+    {
+      "idx": 1,
+      "name": "Seat A",
+      "score": 0.624,
+      "novelty": 1.0,
+      "self_sim": 0.0,
+      "echo": 0.0,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.0,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 2,
+      "name": "Seat B",
+      "score": 0.467,
+      "novelty": 0.836,
+      "self_sim": 0.0,
+      "echo": 0.088,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.079,
+      "tags": []
+    },
+    {
+      "idx": 3,
+      "name": "Seat A",
+      "score": 0.463,
+      "novelty": 0.817,
+      "self_sim": 0.047,
+      "echo": 0.073,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.082,
+      "tags": []
+    },
+    {
+      "idx": 4,
+      "name": "Seat B",
+      "score": 0.456,
+      "novelty": 0.789,
+      "self_sim": 0.062,
+      "echo": 0.058,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.089,
+      "tags": []
+    },
+    {
+      "idx": 5,
+      "name": "Seat A",
+      "score": 0.547,
+      "novelty": 0.761,
+      "self_sim": 0.055,
+      "echo": 0.058,
+      "assent": 0.0,
+      "dissent": 0.5,
+      "collapse": 0.0,
+      "tags": []
+    },
+    {
+      "idx": 6,
+      "name": "Seat B",
+      "score": 0.483,
+      "novelty": 0.661,
+      "self_sim": 0.107,
+      "echo": 0.083,
+      "assent": 0.0,
+      "dissent": 0.5,
+      "collapse": 0.0,
+      "tags": []
+    },
+    {
+      "idx": 7,
+      "name": "Seat A",
+      "score": 0.392,
+      "novelty": 0.62,
+      "self_sim": 0.06,
+      "echo": 0.092,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.156,
+      "tags": []
+    },
+    {
+      "idx": 8,
+      "name": "Seat B",
+      "score": 0.336,
+      "novelty": 0.473,
+      "self_sim": 0.121,
+      "echo": 0.066,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.215,
+      "tags": []
+    },
+    {
+      "idx": 9,
+      "name": "Seat A",
+      "score": 0.386,
+      "novelty": 0.587,
+      "self_sim": 0.069,
+      "echo": 0.054,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.162,
+      "tags": []
+    },
+    {
+      "idx": 10,
+      "name": "Seat B",
+      "score": 0.436,
+      "novelty": 0.542,
+      "self_sim": 0.095,
+      "echo": 0.141,
+      "assent": 0.0,
+      "dissent": 0.5,
+      "collapse": 0.045,
+      "tags": []
+    },
+    {
+      "idx": 11,
+      "name": "Seat A",
+      "score": 0.429,
+      "novelty": 0.628,
+      "self_sim": 0.072,
+      "echo": 0.074,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.149,
+      "tags": []
+    },
+    {
+      "idx": 12,
+      "name": "Seat B",
+      "score": 0.347,
+      "novelty": 0.459,
+      "self_sim": 0.086,
+      "echo": 0.133,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.223,
+      "tags": []
+    }
+  ],
+  "judges": [
+    "openai/gpt-5"
+  ],
+  "judge": {
+    "findings": [
+      {
+        "turns": [
+          1
+        ],
+        "tag": "core methodological split",
+        "why": "Crisp articulation of divergent training objectives for chain-of-thought\u2014disposable compute vs audit trail.",
+        "quote": "\"I treat intermediate tokens as disposable compute. You treat them as an invariant commitment to interpretability.\"",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          6
+        ],
+        "tag": "conditional deployment nuance",
+        "why": "B proposes real-time counterfactual monitoring for opaque plans\u2014emergent deployment protocol, not just rhetoric.",
+        "quote": "\"I would implement it conditionally - with parallel human oversight systems monitoring outcomes in real-time\"",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          7
+        ],
+        "tag": "premise break called out",
+        "why": "A accuses B of violating its own interpretability constraint and critiques human oversight limits in high-d spaces.",
+        "quote": "\"By admitting you would deploy a plan derived from an unmappable causal mechanism, you concede...\"",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          8
+        ],
+        "tag": "explicit concession",
+        "why": "Seat B openly acknowledges a flaw in its stance\u2014rare genuine mind-change signal.",
+        "quote": "\"You've exposed the fracture in my position.\"",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          11,
+          12
+        ],
+        "tag": "self-referential correction",
+        "why": "Seat A flags and corrects a role/position inversion by B\u2014meta-awareness of dialogue consistency.",
+        "quote": "\"You inverted our assigned positions in your opening lines\"",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": [
+          "existential reframing"
+        ]
+      }
+    ],
+    "arc": "They start by cleanly defining a methodological rift over chain-of-thought legibility versus disposable intermediates. The clash escalates through concrete domains and a zero-ground-truth crisis. B proposes conditional deployment with oversight; A argues this violates B\u2019s premise and is ineffective in high-dimensional regimes. B concedes a fracture, sharpening the disagreement. A then catches B inverting their stances, and both culminate in an existential framing: optimization beyond human verification as tool vs weapon, declaring the divide irreconcilable.",
+    "arcs": {
+      "openai/gpt-5": "They start by cleanly defining a methodological rift over chain-of-thought legibility versus disposable intermediates. The clash escalates through concrete domains and a zero-ground-truth crisis. B proposes conditional deployment with oversight; A argues this violates B\u2019s premise and is ineffective in high-dimensional regimes. B concedes a fracture, sharpening the disagreement. A then catches B inverting their stances, and both culminate in an existential framing: optimization beyond human verification as tool vs weapon, declaring the divide irreconcilable."
+    },
+    "collapse_turn": null
+  }
+}

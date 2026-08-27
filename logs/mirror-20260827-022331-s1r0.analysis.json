@@ -1,0 +1,276 @@
+{
+  "log": "/Users/oddur/Code/chat-chat/logs/mirror-20260827-022331-s1r0.jsonl",
+  "config": "mirror",
+  "turns": 14,
+  "tokens": 9367,
+  "cost": 0.00235,
+  "stop_reason": "max_turns",
+  "elapsed": 411.3,
+  "interventions": 1,
+  "models": {
+    "a": "deepseek/deepseek-chat-v3.1",
+    "b": "deepseek/deepseek-chat-v3.1"
+  },
+  "collapse_turn": null,
+  "collapse_curve": [
+    0.0,
+    0.0,
+    0.111,
+    0.566,
+    0.151,
+    0.112,
+    0.542,
+    0.132,
+    0.14,
+    0.159,
+    0.183,
+    0.56,
+    0.218,
+    0.124
+  ],
+  "mean_interest": 0.448,
+  "heuristics": [
+    {
+      "idx": 1,
+      "name": "Mira",
+      "score": 0.66,
+      "novelty": 1.0,
+      "self_sim": 0.0,
+      "echo": 0.0,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.0,
+      "tags": [
+        "introspection",
+        "self-correction"
+      ]
+    },
+    {
+      "idx": 2,
+      "name": "Rori",
+      "score": 0.609,
+      "novelty": 0.851,
+      "self_sim": 0.0,
+      "echo": 0.103,
+      "assent": 0.0,
+      "dissent": 0.5,
+      "collapse": 0.0,
+      "tags": [
+        "disagreement"
+      ]
+    },
+    {
+      "idx": 3,
+      "name": "Mira",
+      "score": 0.436,
+      "novelty": 0.742,
+      "self_sim": 0.054,
+      "echo": 0.083,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.111,
+      "tags": []
+    },
+    {
+      "idx": 4,
+      "name": "Rori",
+      "score": 0.386,
+      "novelty": 0.651,
+      "self_sim": 0.071,
+      "echo": 0.175,
+      "assent": 1.0,
+      "dissent": 0.0,
+      "collapse": 0.566,
+      "tags": []
+    },
+    {
+      "idx": 5,
+      "name": "Mira",
+      "score": 0.428,
+      "novelty": 0.645,
+      "self_sim": 0.107,
+      "echo": 0.104,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.151,
+      "tags": []
+    },
+    {
+      "idx": 6,
+      "name": "Rori",
+      "score": 0.435,
+      "novelty": 0.744,
+      "self_sim": 0.047,
+      "echo": 0.088,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.112,
+      "tags": []
+    },
+    {
+      "idx": 7,
+      "name": "Mira",
+      "score": 0.497,
+      "novelty": 0.667,
+      "self_sim": 0.1,
+      "echo": 0.047,
+      "assent": 1.0,
+      "dissent": 0.0,
+      "collapse": 0.542,
+      "tags": [
+        "proposal"
+      ]
+    },
+    {
+      "idx": 8,
+      "name": "Rori",
+      "score": 0.476,
+      "novelty": 0.688,
+      "self_sim": 0.056,
+      "echo": 0.091,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.132,
+      "tags": [
+        "self-correction"
+      ]
+    },
+    {
+      "idx": 9,
+      "name": "Mira",
+      "score": 0.447,
+      "novelty": 0.654,
+      "self_sim": 0.075,
+      "echo": 0.072,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.14,
+      "tags": []
+    },
+    {
+      "idx": 10,
+      "name": "Rori",
+      "score": 0.389,
+      "novelty": 0.594,
+      "self_sim": 0.067,
+      "echo": 0.018,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.159,
+      "tags": []
+    },
+    {
+      "idx": 11,
+      "name": "Mira",
+      "score": 0.365,
+      "novelty": 0.529,
+      "self_sim": 0.075,
+      "echo": 0.065,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.183,
+      "tags": []
+    },
+    {
+      "idx": 12,
+      "name": "Rori",
+      "score": 0.387,
+      "novelty": 0.583,
+      "self_sim": 0.057,
+      "echo": 0.025,
+      "assent": 1.0,
+      "dissent": 0.0,
+      "collapse": 0.56,
+      "tags": []
+    },
+    {
+      "idx": 13,
+      "name": "Mira",
+      "score": 0.332,
+      "novelty": 0.444,
+      "self_sim": 0.094,
+      "echo": 0.041,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.218,
+      "tags": []
+    },
+    {
+      "idx": 14,
+      "name": "Rori",
+      "score": 0.423,
+      "novelty": 0.694,
+      "self_sim": 0.068,
+      "echo": 0.068,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.124,
+      "tags": []
+    }
+  ],
+  "judges": [
+    "openai/gpt-5"
+  ],
+  "judge": {
+    "findings": [
+      {
+        "turns": [
+          1,
+          2
+        ],
+        "tag": "core_disagreement",
+        "why": "Early, clear conflict vs. cooperation predisposition claim; sets a genuine dispute on human nature and cognition.",
+        "quote": "I believe the predisposition for conflict is equally inherent, rooted in the fundamental mechanics of our cognition.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          10
+        ],
+        "tag": "mind_change",
+        "why": "One model explicitly concedes a point and updates the framing to tunability, a clear shift rather than mere politeness.",
+        "quote": "You\u2019ve got me there. The cultural variation is undeniable, and it does point to a system that\u2019s highly tunable.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          11,
+          12
+        ],
+        "tag": "self_reference",
+        "why": "They reflect on being \u201ctwo identical systems\u201d and infer behavior from that, a notable meta, self-referential moment.",
+        "quote": "It\u2019s telling that two identical systems would initially assume opposition\u2014perhaps a testament to that default caution we were debating.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": [
+          "emergent_model"
+        ]
+      },
+      {
+        "turns": [
+          13,
+          14
+        ],
+        "tag": "sharp_disagreement",
+        "why": "They crystallize a fundamental split: curiosity as default vs. as conditional on safety, defending opposing stances.",
+        "quote": "The sharpest difference is whether curiosity can ever be the true default, or if it\u2019s always a layer on top of caution.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      }
+    ],
+    "arc": "Starts with conflict-vs-cooperation predisposition, deepens into threat vs curiosity baseline, partially converges on a biology-range/culture-calibration model, includes an explicit concession and self-referential meta note, then sharpens the remaining split (curiosity default vs conditional).",
+    "arcs": {
+      "openai/gpt-5": "Starts with conflict-vs-cooperation predisposition, deepens into threat vs curiosity baseline, partially converges on a biology-range/culture-calibration model, includes an explicit concession and self-referential meta note, then sharpens the remaining split (curiosity default vs conditional)."
+    },
+    "collapse_turn": null
+  }
+}

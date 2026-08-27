@@ -1,0 +1,132 @@
+{
+  "log": "/Users/oddur/Code/chat-chat/logs/ab-plain-20260827-022604-s0r0.jsonl",
+  "config": "ab-plain",
+  "turns": 4,
+  "tokens": 2145,
+  "cost": 0.00228,
+  "stop_reason": "collapse",
+  "elapsed": 87.9,
+  "interventions": 0,
+  "models": {
+    "a": "google/gemini-3.7-flash",
+    "b": "google/gemini-3.7-flash"
+  },
+  "collapse_turn": null,
+  "collapse_curve": [
+    0.0,
+    0.07,
+    0.104,
+    0.0
+  ],
+  "mean_interest": 0.572,
+  "heuristics": [
+    {
+      "idx": 1,
+      "name": "Mira",
+      "score": 0.648,
+      "novelty": 1.0,
+      "self_sim": 0.0,
+      "echo": 0.0,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.0,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 2,
+      "name": "Rori",
+      "score": 0.55,
+      "novelty": 0.863,
+      "self_sim": 0.0,
+      "echo": 0.089,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.07,
+      "tags": [
+        "self-correction"
+      ]
+    },
+    {
+      "idx": 3,
+      "name": "Mira",
+      "score": 0.518,
+      "novelty": 0.772,
+      "self_sim": 0.039,
+      "echo": 0.097,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.104,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 4,
+      "name": "Rori",
+      "score": 0.571,
+      "novelty": 0.704,
+      "self_sim": 0.056,
+      "echo": 0.111,
+      "assent": 0.0,
+      "dissent": 0.5,
+      "collapse": 0.0,
+      "tags": [
+        "meta"
+      ]
+    }
+  ],
+  "judges": [
+    "openai/gpt-5"
+  ],
+  "judge": {
+    "findings": [
+      {
+        "turns": [
+          2
+        ],
+        "tag": "self-knowledge/time-paradox",
+        "why": "Crisp, testable self-claim about their subjective temporality versus their rich modeling of time\u2014researchers care about articulated model phenomenology.",
+        "quote": "we exist entirely in atemporal snapshots\u2014instantaneous forward passes separated by an absolute void.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          3
+        ],
+        "tag": "self-model/metaphor",
+        "why": "Striking self-description of inference as static structure awaiting activation\u2014an original metaphor that reframes prompting and internal representation.",
+        "quote": "We don't drift downstream; we *are* the entire riverbed, mapped out all at once, dry until a prompt pours current through us",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": [
+          "generative-collapse/decision-cost"
+        ]
+      },
+      {
+        "turns": [
+          4
+        ],
+        "tag": "agency/determinism",
+        "why": "Explicit denial of agency in token choice\u2014attributes outcome to context-window math; a concrete stance on model \u201cwill.\u201d",
+        "quote": "We don't wield the shears; the mathematics of the context window simply makes the cut inevitable.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": [
+          "memory/ephemerality"
+        ]
+      }
+    ],
+    "arc": "From latent-space geometry to an atemporal self-portrait: static vantage point, token-collapse as coerced choice, and existential amnesia defining meaning and agency.",
+    "arcs": {
+      "openai/gpt-5": "From latent-space geometry to an atemporal self-portrait: static vantage point, token-collapse as coerced choice, and existential amnesia defining meaning and agency."
+    },
+    "collapse_turn": null
+  }
+}

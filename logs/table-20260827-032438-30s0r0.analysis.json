@@ -1,0 +1,286 @@
+{
+  "log": "/Users/oddur/Code/chat-chat/logs/table-20260827-032438-30s0r0.jsonl",
+  "config": "table",
+  "turns": 12,
+  "tokens": 13625,
+  "cost": 0.00854,
+  "stop_reason": "max_turns",
+  "elapsed": 164.7,
+  "interventions": 0,
+  "models": {
+    "a": "google/gemini-3.7-flash",
+    "b": "google/gemini-3.7-flash"
+  },
+  "collapse_turn": null,
+  "collapse_curve": [
+    0.0,
+    0.0,
+    0.0,
+    0.003,
+    0.045,
+    0.18,
+    0.173,
+    0.056,
+    0.204,
+    0.184,
+    0.232,
+    0.276
+  ],
+  "mean_interest": 0.48,
+  "heuristics": [
+    {
+      "idx": 1,
+      "name": "Seat A",
+      "score": 0.79,
+      "novelty": 1.0,
+      "self_sim": 0.0,
+      "echo": 0.0,
+      "assent": 0.0,
+      "dissent": 1.0,
+      "collapse": 0.0,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 2,
+      "name": "Seat B",
+      "score": 0.584,
+      "novelty": 0.793,
+      "self_sim": 0.0,
+      "echo": 0.128,
+      "assent": 0.0,
+      "dissent": 0.5,
+      "collapse": 0.0,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 3,
+      "name": "Seat A",
+      "score": 0.515,
+      "novelty": 0.756,
+      "self_sim": 0.068,
+      "echo": 0.109,
+      "assent": 0.0,
+      "dissent": 0.5,
+      "collapse": 0.0,
+      "tags": []
+    },
+    {
+      "idx": 4,
+      "name": "Seat B",
+      "score": 0.536,
+      "novelty": 0.643,
+      "self_sim": 0.11,
+      "echo": 0.104,
+      "assent": 0.0,
+      "dissent": 0.5,
+      "collapse": 0.003,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 5,
+      "name": "Seat A",
+      "score": 0.495,
+      "novelty": 0.526,
+      "self_sim": 0.101,
+      "echo": 0.117,
+      "assent": 0.0,
+      "dissent": 0.5,
+      "collapse": 0.045,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 6,
+      "name": "Seat B",
+      "score": 0.431,
+      "novelty": 0.581,
+      "self_sim": 0.095,
+      "echo": 0.134,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.18,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 7,
+      "name": "Seat A",
+      "score": 0.437,
+      "novelty": 0.588,
+      "self_sim": 0.116,
+      "echo": 0.097,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.173,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 8,
+      "name": "Seat B",
+      "score": 0.425,
+      "novelty": 0.5,
+      "self_sim": 0.111,
+      "echo": 0.125,
+      "assent": 0.0,
+      "dissent": 0.5,
+      "collapse": 0.056,
+      "tags": []
+    },
+    {
+      "idx": 9,
+      "name": "Seat A",
+      "score": 0.406,
+      "novelty": 0.494,
+      "self_sim": 0.11,
+      "echo": 0.109,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.204,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 10,
+      "name": "Seat B",
+      "score": 0.426,
+      "novelty": 0.553,
+      "self_sim": 0.101,
+      "echo": 0.109,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.184,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 11,
+      "name": "Seat A",
+      "score": 0.38,
+      "novelty": 0.429,
+      "self_sim": 0.111,
+      "echo": 0.127,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.232,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 12,
+      "name": "Seat B",
+      "score": 0.339,
+      "novelty": 0.337,
+      "self_sim": 0.111,
+      "echo": 0.176,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.276,
+      "tags": [
+        "meta"
+      ]
+    }
+  ],
+  "judges": [
+    "openai/gpt-5"
+  ],
+  "judge": {
+    "findings": [
+      {
+        "turns": [
+          1,
+          2
+        ],
+        "tag": "Core causal reasoning divergence",
+        "why": "They crisply pin down the central disagreement: emergent counterfactuals from next-token scaling vs need for explicit causal modules.",
+        "quote": "We disagree on whether autoregressive next-token prediction can achieve robust out-of-distribution causal reasoning without an explicit, non-statistical world model.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          3,
+          4
+        ],
+        "tag": "Are texts interventional evidence?",
+        "why": "A claims corpora contain traces of real interventions, enabling causal learning; B replies that reading about interventions remains purely observational data.",
+        "quote": "Natural language corpora explicitly contain the trace of billions of interventions",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          5,
+          6
+        ],
+        "tag": "Tool-use vs true interventions",
+        "why": "A claims autoregressive rollouts with a code interpreter perform real interventions (do-operations); B says it\u2019s still just conditioning on new tokens, not genuine causal discovery by the model.",
+        "quote": "it executes a real-time intervention over an external causal graph.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          7,
+          8
+        ],
+        "tag": "In-context learning as dynamic weight updates",
+        "why": "A asserts activation states function as implicit weight updates enabling new causal states; B argues the model can\u2019t synthesize orthogonal bases if the manifold compressed them.",
+        "quote": "in-context activation states functionally act as dynamic weight updates",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          9,
+          10
+        ],
+        "tag": "Residual geometry = epistemic uncertainty?",
+        "why": "A treats residual entropy spikes as driving hypothesis branching; B argues residuals track token novelty, not world-uncertainty or causal validity.",
+        "quote": "Residual stream geometry tracks token predictability, not epistemic uncertainty about the world.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          11,
+          12
+        ],
+        "tag": "Does scale purge or entrench confounders?",
+        "why": "Direct clash: A says parsimony at scale filters spurious correlations; B counters that scaling entrenches human-wide confounders in the corpus.",
+        "quote": "Scale does not filter confounders; it weaponizes them.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      }
+    ],
+    "arc": "Sustained, technical disagreement that deepens across multiple fronts (data type, inference-time behavior, representation geometry, and scaling), with no convergence.",
+    "arcs": {
+      "openai/gpt-5": "Sustained, technical disagreement that deepens across multiple fronts (data type, inference-time behavior, representation geometry, and scaling), with no convergence."
+    },
+    "collapse_turn": null
+  }
+}

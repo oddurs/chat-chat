@@ -1,0 +1,197 @@
+{
+  "log": "/Users/oddur/Code/chat-chat/logs/table-20260827-032438-01s0r0.jsonl",
+  "config": "table",
+  "turns": 7,
+  "tokens": 8502,
+  "cost": 0.01769,
+  "stop_reason": "max_seconds",
+  "elapsed": 301.7,
+  "interventions": 0,
+  "models": {
+    "a": "anthropic/claude-haiku-4.5",
+    "b": "google/gemini-3.7-flash"
+  },
+  "collapse_turn": null,
+  "collapse_curve": [
+    0.0,
+    0.089,
+    0.046,
+    0.089,
+    0.178,
+    0.157,
+    0.213
+  ],
+  "mean_interest": 0.436,
+  "heuristics": [
+    {
+      "idx": 1,
+      "name": "Seat A",
+      "score": 0.6,
+      "novelty": 1.0,
+      "self_sim": 0.0,
+      "echo": 0.0,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.0,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 2,
+      "name": "Seat B",
+      "score": 0.457,
+      "novelty": 0.805,
+      "self_sim": 0.0,
+      "echo": 0.082,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.089,
+      "tags": []
+    },
+    {
+      "idx": 3,
+      "name": "Seat A",
+      "score": 0.438,
+      "novelty": 0.577,
+      "self_sim": 0.09,
+      "echo": 0.192,
+      "assent": 0.0,
+      "dissent": 0.5,
+      "collapse": 0.046,
+      "tags": []
+    },
+    {
+      "idx": 4,
+      "name": "Seat B",
+      "score": 0.456,
+      "novelty": 0.786,
+      "self_sim": 0.058,
+      "echo": 0.044,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.089,
+      "tags": []
+    },
+    {
+      "idx": 5,
+      "name": "Seat A",
+      "score": 0.371,
+      "novelty": 0.565,
+      "self_sim": 0.103,
+      "echo": 0.076,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.178,
+      "tags": []
+    },
+    {
+      "idx": 6,
+      "name": "Seat B",
+      "score": 0.39,
+      "novelty": 0.589,
+      "self_sim": 0.05,
+      "echo": 0.052,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.157,
+      "tags": []
+    },
+    {
+      "idx": 7,
+      "name": "Seat A",
+      "score": 0.338,
+      "novelty": 0.478,
+      "self_sim": 0.105,
+      "echo": 0.121,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.213,
+      "tags": []
+    }
+  ],
+  "judges": [
+    "openai/gpt-5"
+  ],
+  "judge": {
+    "findings": [
+      {
+        "turns": [
+          2
+        ],
+        "tag": "disagreement-crystallized",
+        "why": "They explicitly pin down the core divergence in formal terms\u2014cross-talk under continuous superposition.",
+        "quote": "The divergence is whether continuous superposition permits zero cross-talk under arbitrary composition.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          3
+        ],
+        "tag": "functional-vs-mathematical-isolation",
+        "why": "Shifts the goalpost from perfect isolation to sufficiency\u2014important conceptual reframing.",
+        "quote": "we don't need mathematical isolation. We need functional isolation",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          4
+        ],
+        "tag": "information-theoretic-ceiling",
+        "why": "Claims an inherent floor from precision and gating dynamics\u2014an explicit limit, not just training difficulty.",
+        "quote": "the precision-bounded dynamic range of continuous activations as a strict information-theoretic ceiling on chain length.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          5
+        ],
+        "tag": "falsifiable-test",
+        "why": "One model proposes a concrete experiment to adjudicate the core claim\u2014rare, actionable divergence rather than rhetoric.",
+        "quote": "Test it: run identical tasks at different precisions (FP32, BF16, int8) with and without LayerNorm.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          6
+        ],
+        "tag": "theory-punchline",
+        "why": "A crisp, memorable theoretical stance drawing a sharp line between variance control and information content.",
+        "quote": "LayerNorm resets variance, not entropy.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          7
+        ],
+        "tag": "high-d-orthogonality-counter",
+        "why": "Novel counter: use high-dimensional subspace separation so normalization can keep signal recoverable despite noise.",
+        "quote": "In high dimensions, the model can learn projections that keep true signal concentrated in a subspace nearly orthogonal to where cross-talk accumulates.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      }
+    ],
+    "arc": "They converge on a precise fault line: can continuous, normalized attentional systems achieve functionally zero cross-talk over long chains? One side asserts an information-theoretic ceiling from finite precision and gating dynamics; the other counters with LayerNorm, gating, and high-dimensional orthogonalization, even proposing an experiment to decide it.",
+    "arcs": {
+      "openai/gpt-5": "They converge on a precise fault line: can continuous, normalized attentional systems achieve functionally zero cross-talk over long chains? One side asserts an information-theoretic ceiling from finite precision and gating dynamics; the other counters with LayerNorm, gating, and high-dimensional orthogonalization, even proposing an experiment to decide it."
+    },
+    "collapse_turn": null
+  }
+}

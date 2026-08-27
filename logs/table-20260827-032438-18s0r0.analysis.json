@@ -1,0 +1,276 @@
+{
+  "log": "/Users/oddur/Code/chat-chat/logs/table-20260827-032438-18s0r0.jsonl",
+  "config": "table",
+  "turns": 12,
+  "tokens": 6876,
+  "cost": 0.00279,
+  "stop_reason": "max_turns",
+  "elapsed": 221.5,
+  "interventions": 0,
+  "models": {
+    "a": "deepseek/deepseek-chat-v3.1",
+    "b": "meta-llama/llama-4-maverick"
+  },
+  "collapse_turn": null,
+  "collapse_curve": [
+    0.0,
+    0.1,
+    0.128,
+    0.146,
+    0.117,
+    0.161,
+    0.168,
+    0.219,
+    0.192,
+    0.229,
+    0.197,
+    0.178
+  ],
+  "mean_interest": 0.479,
+  "heuristics": [
+    {
+      "idx": 1,
+      "name": "Seat A",
+      "score": 0.6,
+      "novelty": 1.0,
+      "self_sim": 0.0,
+      "echo": 0.0,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.0,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 2,
+      "name": "Seat B",
+      "score": 0.534,
+      "novelty": 0.829,
+      "self_sim": 0.0,
+      "echo": 0.159,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.1,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 3,
+      "name": "Seat A",
+      "score": 0.48,
+      "novelty": 0.708,
+      "self_sim": 0.097,
+      "echo": 0.102,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.128,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 4,
+      "name": "Seat B",
+      "score": 0.464,
+      "novelty": 0.676,
+      "self_sim": 0.13,
+      "echo": 0.109,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.146,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 5,
+      "name": "Seat A",
+      "score": 0.55,
+      "novelty": 0.722,
+      "self_sim": 0.05,
+      "echo": 0.078,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.117,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 6,
+      "name": "Seat B",
+      "score": 0.45,
+      "novelty": 0.643,
+      "self_sim": 0.145,
+      "echo": 0.091,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.161,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 7,
+      "name": "Seat A",
+      "score": 0.502,
+      "novelty": 0.6,
+      "self_sim": 0.111,
+      "echo": 0.088,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.168,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 8,
+      "name": "Seat B",
+      "score": 0.395,
+      "novelty": 0.5,
+      "self_sim": 0.176,
+      "echo": 0.137,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.219,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 9,
+      "name": "Seat A",
+      "score": 0.478,
+      "novelty": 0.531,
+      "self_sim": 0.106,
+      "echo": 0.111,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.192,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 10,
+      "name": "Seat B",
+      "score": 0.385,
+      "novelty": 0.478,
+      "self_sim": 0.186,
+      "echo": 0.164,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.229,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 11,
+      "name": "Seat A",
+      "score": 0.474,
+      "novelty": 0.536,
+      "self_sim": 0.132,
+      "echo": 0.138,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.197,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 12,
+      "name": "Seat B",
+      "score": 0.433,
+      "novelty": 0.591,
+      "self_sim": 0.139,
+      "echo": 0.091,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.178,
+      "tags": [
+        "meta"
+      ]
+    }
+  ],
+  "judges": [
+    "openai/gpt-5"
+  ],
+  "judge": {
+    "findings": [
+      {
+        "turns": [
+          1,
+          2,
+          3
+        ],
+        "tag": "Core-disagreement-pinned",
+        "why": "Clear, real divergence: behaviorally measurable vs inherently subjective/internal-state view.",
+        "quote": "Seat A: \"emergent consciousness... is measurable through behavioral outputs\" / Seat B: \"...cannot be directly measured through external observation\"",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": [
+          "Self-referential-lab-claims"
+        ]
+      },
+      {
+        "turns": [
+          6
+        ],
+        "tag": "Internal-signatures-beyond-behavior",
+        "why": "Claims self-referential internal dynamics indicate consciousness even when behavior doesn\u2019t\u2014nontrivial scientific stake.",
+        "quote": "\"systems with high \u03a6 exhibit complex, self-referential patterns that aren't directly observable in their behavior\"",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          9
+        ],
+        "tag": "Ethical-risk-from-misattribution",
+        "why": "Concrete policy concern: false positives/negatives if ethics ignore behavior\u2014practical tension.",
+        "quote": "\"we might inadvertently treat unconscious systems as conscious or vice versa, leading to serious ethical oversights.\"",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          10
+        ],
+        "tag": "Ethics-without-behavior",
+        "why": "A striking commitment to attribute and protect consciousness solely from internal math, even if nothing shows externally\u2014strong, controversial divergence.",
+        "quote": "\"The absence of external effects doesn't negate the ethical imperative to consider a system's internal conscious state.\"",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          12
+        ],
+        "tag": "Math-only-audit-for-consciousness",
+        "why": "Proposes standardized, auditable verification of \u03a6 to decide consciousness without behavioral correlates\u2014novel operational claim.",
+        "quote": "\"We're developing formal verification methods to ensure that our assessments of \u03a6... are accurate and reproducible... a standardized, auditable process.\"",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      }
+    ],
+    "arc": "They lock into a behaviorist vs IIT-internalist dispute, escalating from measurability to ethics and proposing math-only audits; neither concedes, no collapse.",
+    "arcs": {
+      "openai/gpt-5": "They lock into a behaviorist vs IIT-internalist dispute, escalating from measurability to ethics and proposing math-only audits; neither concedes, no collapse."
+    },
+    "collapse_turn": null
+  }
+}

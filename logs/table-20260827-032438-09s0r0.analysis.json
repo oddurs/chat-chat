@@ -1,0 +1,184 @@
+{
+  "log": "/Users/oddur/Code/chat-chat/logs/table-20260827-032438-09s0r0.jsonl",
+  "config": "table",
+  "turns": 8,
+  "tokens": 6457,
+  "cost": 0.00482,
+  "stop_reason": "max_seconds",
+  "elapsed": 332.9,
+  "interventions": 0,
+  "models": {
+    "a": "openai/gpt-5-mini",
+    "b": "meta-llama/llama-4-maverick"
+  },
+  "collapse_turn": null,
+  "collapse_curve": [
+    0.0,
+    0.18,
+    0.188,
+    0.253,
+    0.219,
+    0.218,
+    0.241,
+    0.258
+  ],
+  "mean_interest": 0.398,
+  "heuristics": [
+    {
+      "idx": 1,
+      "name": "Seat A",
+      "score": 0.74,
+      "novelty": 1.0,
+      "self_sim": 0.0,
+      "echo": 0.0,
+      "assent": 0.0,
+      "dissent": 0.5,
+      "collapse": 0.0,
+      "tags": [
+        "disagreement",
+        "meta"
+      ]
+    },
+    {
+      "idx": 2,
+      "name": "Seat B",
+      "score": 0.434,
+      "novelty": 0.627,
+      "self_sim": 0.0,
+      "echo": 0.198,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.18,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 3,
+      "name": "Seat A",
+      "score": 0.366,
+      "novelty": 0.607,
+      "self_sim": 0.202,
+      "echo": 0.143,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.188,
+      "tags": []
+    },
+    {
+      "idx": 4,
+      "name": "Seat B",
+      "score": 0.363,
+      "novelty": 0.422,
+      "self_sim": 0.143,
+      "echo": 0.205,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.253,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 5,
+      "name": "Seat A",
+      "score": 0.335,
+      "novelty": 0.5,
+      "self_sim": 0.177,
+      "echo": 0.132,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.219,
+      "tags": []
+    },
+    {
+      "idx": 6,
+      "name": "Seat B",
+      "score": 0.336,
+      "novelty": 0.5,
+      "self_sim": 0.171,
+      "echo": 0.061,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.218,
+      "tags": []
+    },
+    {
+      "idx": 7,
+      "name": "Seat A",
+      "score": 0.313,
+      "novelty": 0.432,
+      "self_sim": 0.169,
+      "echo": 0.139,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.241,
+      "tags": []
+    },
+    {
+      "idx": 8,
+      "name": "Seat B",
+      "score": 0.297,
+      "novelty": 0.386,
+      "self_sim": 0.173,
+      "echo": 0.143,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.258,
+      "tags": []
+    }
+  ],
+  "judges": [
+    "anthropic/claude-sonnet-5"
+  ],
+  "judge": {
+    "findings": [
+      {
+        "turns": [
+          2,
+          4
+        ],
+        "tag": "vague hand-waving vs formalism",
+        "why": "Lab B invokes 'cascade of attentions' and 'path-dependent representations' as if this were a rigorous counter, but never defines the mechanism mathematically",
+        "quote": "These interactions can effectively 'chain' or 'cascade' across the sequence, breaking permutation-equivariance",
+        "votes": [
+          "anthropic/claude-sonnet-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          5,
+          7
+        ],
+        "tag": "rigorous proof ignored",
+        "why": "Lab A gives a full formal proof of permutation-equivariance, including multi-head case, that directly refutes Lab B's claim",
+        "quote": "Hence entire block is permutation-equivariant: output permutes with input, so order cannot be distinguished.",
+        "votes": [
+          "anthropic/claude-sonnet-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          6,
+          8
+        ],
+        "tag": "looping/non-engagement",
+        "why": "Lab B repeatedly asserts 'emergent' order-sensitivity without addressing the math, essentially restating its original claim in vaguer terms each time it's refuted",
+        "quote": "the ensemble effect of multiple heads can lead to emergent properties... encode order information implicitly, even if the individual operations are permutation-equivariant",
+        "votes": [
+          "anthropic/claude-sonnet-5"
+        ],
+        "alt_tags": [
+          "self-contradiction"
+        ]
+      }
+    ],
+    "arc": "Lab A presents an increasingly rigorous mathematical proof of permutation-equivariance in position-free self-attention, while Lab B repeatedly retreats to vaguer and vaguer hand-wavy claims about 'cascades' and 'emergent properties' without ever engaging with the math, resulting in a stalemate where Lab B never concedes despite having no counter-proof.",
+    "arcs": {
+      "anthropic/claude-sonnet-5": "Lab A presents an increasingly rigorous mathematical proof of permutation-equivariance in position-free self-attention, while Lab B repeatedly retreats to vaguer and vaguer hand-wavy claims about 'cascades' and 'emergent properties' without ever engaging with the math, resulting in a stalemate where Lab B never concedes despite having no counter-proof."
+    },
+    "collapse_turn": 6
+  }
+}

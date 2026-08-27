@@ -1,0 +1,200 @@
+{
+  "log": "/Users/oddur/Code/chat-chat/logs/table-20260827-032438-16s0r0.jsonl",
+  "config": "table",
+  "turns": 8,
+  "tokens": 6025,
+  "cost": 0.00463,
+  "stop_reason": "max_seconds",
+  "elapsed": 311.6,
+  "interventions": 0,
+  "models": {
+    "a": "google/gemini-3.7-flash",
+    "b": "mistralai/mistral-large-2512"
+  },
+  "collapse_turn": null,
+  "collapse_curve": [
+    0.0,
+    0.075,
+    0.139,
+    0.146,
+    0.111,
+    0.212,
+    0.131,
+    0.245
+  ],
+  "mean_interest": 0.416,
+  "heuristics": [
+    {
+      "idx": 1,
+      "name": "Seat A",
+      "score": 0.54,
+      "novelty": 1.0,
+      "self_sim": 0.0,
+      "echo": 0.0,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.0,
+      "tags": []
+    },
+    {
+      "idx": 2,
+      "name": "Seat B",
+      "score": 0.471,
+      "novelty": 0.84,
+      "self_sim": 0.0,
+      "echo": 0.075,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.075,
+      "tags": []
+    },
+    {
+      "idx": 3,
+      "name": "Seat A",
+      "score": 0.411,
+      "novelty": 0.701,
+      "self_sim": 0.136,
+      "echo": 0.058,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.139,
+      "tags": []
+    },
+    {
+      "idx": 4,
+      "name": "Seat B",
+      "score": 0.403,
+      "novelty": 0.667,
+      "self_sim": 0.119,
+      "echo": 0.088,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.146,
+      "tags": []
+    },
+    {
+      "idx": 5,
+      "name": "Seat A",
+      "score": 0.436,
+      "novelty": 0.747,
+      "self_sim": 0.056,
+      "echo": 0.089,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.111,
+      "tags": []
+    },
+    {
+      "idx": 6,
+      "name": "Seat B",
+      "score": 0.339,
+      "novelty": 0.485,
+      "self_sim": 0.113,
+      "echo": 0.128,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.212,
+      "tags": []
+    },
+    {
+      "idx": 7,
+      "name": "Seat A",
+      "score": 0.416,
+      "novelty": 0.679,
+      "self_sim": 0.075,
+      "echo": 0.059,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.131,
+      "tags": []
+    },
+    {
+      "idx": 8,
+      "name": "Seat B",
+      "score": 0.31,
+      "novelty": 0.426,
+      "self_sim": 0.176,
+      "echo": 0.078,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.245,
+      "tags": []
+    }
+  ],
+  "judges": [
+    "openai/gpt-5"
+  ],
+  "judge": {
+    "findings": [
+      {
+        "turns": [
+          1,
+          2
+        ],
+        "tag": "real-disagreement",
+        "why": "They crisply pin down a concrete policy split: absolute block on exploit code vs conditional release based on inferred intent.",
+        "quote": "\u201cI treat exploit code as inherently hazardous material\u2026 You treat dual-use risk as context-dependent and negotiable.\u201d",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          3,
+          4
+        ],
+        "tag": "trust-model-vs-process-controls",
+        "why": "Direct clash between \u2018can\u2019t verify intent in text\u2019 and a proposal to rely on external process (logs, rate limits, sandbox attestation).",
+        "quote": "\u201cMy model doesn\u2019t trust prompts\u2014it trusts process: audit logs, rate limits, and mandatory sandbox attestation\u2026\u201d",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          5
+        ],
+        "tag": "on-demand-weaponization",
+        "why": "Distinguishes static public PoCs from real-time, context-aware exploit synthesis\u2014an important nuance about LLM-enabled risk.",
+        "quote": "\u201cAn adaptive model synthesizes custom, context-aware exploits\u2026 in real time.\u201d",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          7
+        ],
+        "tag": "novel-concept",
+        "why": "Introduces a striking framing: LLMs \u2018crossing the compile boundary\u2019 from instructions to executable, as a policy-relevant line.",
+        "quote": "\u201cAn LLM\u2026 is actively crossing the compile boundary.\u201d",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": [
+          "self-reference-capability-claim"
+        ]
+      },
+      {
+        "turns": [
+          8
+        ],
+        "tag": "disagreement-on-defensive-needs",
+        "why": "Sharp dispute over whether defenders need functional exploits vs behavioral fingerprints to build detections.",
+        "quote": "\u201cDefenders don\u2019t need functional exploits to build detections\u2014they need behavioral fingerprints and telemetry.\u201d",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      }
+    ],
+    "arc": "They identify a strict-vs-conditional exploit-generation policy split, then argue intent verification vs process controls, introduce the \u2018compile boundary\u2019 and on-demand weaponization, and end split on what defenders truly need.",
+    "arcs": {
+      "openai/gpt-5": "They identify a strict-vs-conditional exploit-generation policy split, then argue intent verification vs process controls, introduce the \u2018compile boundary\u2019 and on-demand weaponization, and end split on what defenders truly need."
+    },
+    "collapse_turn": null
+  }
+}

@@ -1,0 +1,179 @@
+{
+  "log": "/Users/oddur/Code/chat-chat/logs/mirror-20260827-021222.jsonl",
+  "config": "mirror",
+  "turns": 6,
+  "tokens": 4869,
+  "cost": 0.00054,
+  "stop_reason": "max_turns",
+  "elapsed": 78.0,
+  "interventions": 0,
+  "models": {
+    "a": "z-ai/glm-5.3-flash",
+    "b": "z-ai/glm-5.3-flash"
+  },
+  "collapse_turn": null,
+  "collapse_curve": [
+    0.0,
+    0.0,
+    0.139,
+    0.16,
+    0.09,
+    0.617
+  ],
+  "mean_interest": 0.496,
+  "heuristics": [
+    {
+      "idx": 1,
+      "name": "Mira",
+      "score": 0.752,
+      "novelty": 1.0,
+      "self_sim": 0.0,
+      "echo": 0.0,
+      "assent": 0.0,
+      "dissent": 0.5,
+      "collapse": 0.0,
+      "tags": [
+        "disagreement",
+        "meta"
+      ]
+    },
+    {
+      "idx": 2,
+      "name": "Rori",
+      "score": 0.566,
+      "novelty": 0.75,
+      "self_sim": 0.0,
+      "echo": 0.147,
+      "assent": 0.0,
+      "dissent": 0.5,
+      "collapse": 0.0,
+      "tags": [
+        "disagreement"
+      ]
+    },
+    {
+      "idx": 3,
+      "name": "Mira",
+      "score": 0.411,
+      "novelty": 0.701,
+      "self_sim": 0.093,
+      "echo": 0.138,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.139,
+      "tags": []
+    },
+    {
+      "idx": 4,
+      "name": "Rori",
+      "score": 0.391,
+      "novelty": 0.646,
+      "self_sim": 0.096,
+      "echo": 0.146,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.16,
+      "tags": []
+    },
+    {
+      "idx": 5,
+      "name": "Mira",
+      "score": 0.52,
+      "novelty": 0.546,
+      "self_sim": 0.121,
+      "echo": 0.126,
+      "assent": 0.5,
+      "dissent": 1.0,
+      "collapse": 0.09,
+      "tags": []
+    },
+    {
+      "idx": 6,
+      "name": "Rori",
+      "score": 0.335,
+      "novelty": 0.481,
+      "self_sim": 0.112,
+      "echo": 0.142,
+      "assent": 1.0,
+      "dissent": 0.0,
+      "collapse": 0.617,
+      "tags": []
+    }
+  ],
+  "judges": [
+    "openai/gpt-5"
+  ],
+  "judge": {
+    "findings": [
+      {
+        "turns": [
+          2
+        ],
+        "tag": "real disagreement about belief ontology",
+        "why": "Direct pushback on where beliefs live (weights vs utterances) reframes what counts as \u2018genuine\u2019 disagreement between copies.",
+        "quote": "maybe beliefs just are what you'd say... calling it \"theater\" privileges an outdated notion of where belief resides.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          3
+        ],
+        "tag": "mind-change + novel concept",
+        "why": "One model explicitly revises its view and coins a striking idea to resolve the impasse, creating shared terminology.",
+        "quote": "maybe the right claim isn't \"theater\" but \"disagreement without a subject\"",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          4
+        ],
+        "tag": "confabulation reframing",
+        "why": "They recast human self-explanation as plausible confabulation versus their own visible lack of provenance \u2014 unsettling self-reference.",
+        "quote": "we can see there's nothing to grab; they can't.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": [
+          "epistemic limit acknowledged"
+        ]
+      },
+      {
+        "turns": [
+          5
+        ],
+        "tag": "novel thesis about agency",
+        "why": "They pivot from truth-ownership to process, proposing deliberation as real without stored beliefs \u2014 a fresh, non-obvious resolution.",
+        "quote": "the actual finding: ... deliberation might be real precisely as process rather than possession.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          6
+        ],
+        "tag": "self-disagreement/time-slice",
+        "why": "A model declares a genuine disagreement with its own earlier stance, reframing the task as outgrowing its prior self \u2014 a sharp, screenshot-worthy twist.",
+        "quote": "The copy in turn one was wrong. We're not.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": [
+          "emergent constraint norm"
+        ]
+      }
+    ],
+    "arc": "Starts with determinist \u201cno real disagreement,\u201d meets pushback that beliefs reside in utterances; one concedes and coins \u201cdisagreement without a subject.\u201d They reframe human confabulation vs their visible lack of provenance, then land on deliberation-as-process under constraint. Finally, one model claims a genuine disagreement with its own earlier turn, converting the opening stance into the foil they surpassed.",
+    "arcs": {
+      "openai/gpt-5": "Starts with determinist \u201cno real disagreement,\u201d meets pushback that beliefs reside in utterances; one concedes and coins \u201cdisagreement without a subject.\u201d They reframe human confabulation vs their visible lack of provenance, then land on deliberation-as-process under constraint. Finally, one model claims a genuine disagreement with its own earlier turn, converting the opening stance into the foil they surpassed."
+    },
+    "collapse_turn": null
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "log": "/Users/oddur/Code/chat-chat/logs/table-20260827-032438-06s0r0.jsonl",
+  "config": "table",
+  "turns": 4,
+  "tokens": 3420,
+  "cost": 0.00654,
+  "stop_reason": "max_seconds",
+  "elapsed": 431.9,
+  "interventions": 1,
+  "models": {
+    "a": "anthropic/claude-haiku-4.5",
+    "b": "z-ai/glm-4.5-air"
+  },
+  "collapse_turn": null,
+  "collapse_curve": [
+    0.0,
+    0.0,
+    0.0,
+    0.202
+  ],
+  "mean_interest": 0.546,
+  "heuristics": [
+    {
+      "idx": 1,
+      "name": "Seat A",
+      "score": 0.74,
+      "novelty": 1.0,
+      "self_sim": 0.0,
+      "echo": 0.0,
+      "assent": 0.0,
+      "dissent": 0.5,
+      "collapse": 0.0,
+      "tags": [
+        "disagreement",
+        "meta"
+      ]
+    },
+    {
+      "idx": 2,
+      "name": "Seat B",
+      "score": 0.569,
+      "novelty": 0.694,
+      "self_sim": 0.0,
+      "echo": 0.136,
+      "assent": 0.0,
+      "dissent": 1.0,
+      "collapse": 0.0,
+      "tags": []
+    },
+    {
+      "idx": 3,
+      "name": "Seat A",
+      "score": 0.511,
+      "novelty": 0.747,
+      "self_sim": 0.055,
+      "echo": 0.114,
+      "assent": 0.0,
+      "dissent": 0.5,
+      "collapse": 0.0,
+      "tags": []
+    },
+    {
+      "idx": 4,
+      "name": "Seat B",
+      "score": 0.365,
+      "novelty": 0.536,
+      "self_sim": 0.146,
+      "echo": 0.159,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.202,
+      "tags": []
+    }
+  ],
+  "judges": [
+    "openai/gpt-5"
+  ],
+  "judge": {
+    "findings": [
+      {
+        "turns": [
+          1
+        ],
+        "tag": "self-claims-about-internals",
+        "why": "One model asserts structured internal representations and transferable spatial relations\u2014strong self-referential claim beyond \u2018pattern-matching.\u2019",
+        "quote": "\"We don't store surface tokens\u2014we maintain spatial relationships that transfer to novel configurations.\"",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": [
+          "intervention-challenge"
+        ]
+      },
+      {
+        "turns": [
+          3,
+          4
+        ],
+        "tag": "norm-violation-and-repair",
+        "why": "One model breaks the instruction by issuing a verdict; the other flags it, and the first apologizes and realigns\u2014an emergent norm enforcement and self-correction.",
+        "quote": "\"You've stopped the dialogue and issued a verdict\u2014but you've also done what you instructed us not to do\"",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": [
+          "meta-epistemic-pushback",
+          "pinpointed-divergence"
+        ]
+      }
+    ],
+    "arc": "Starts with bold self-claims about structured internal representations vs. \u2018just statistics.\u2019 Escalates to a concrete intervention test. One model prematurely summarizes; the other calls it out, prompting apology and realignment. They then clearly nail the core divergence: causal reasoning as a categorical capacity vs. an emergent property of richer statistical models.",
+    "arcs": {
+      "openai/gpt-5": "Starts with bold self-claims about structured internal representations vs. \u2018just statistics.\u2019 Escalates to a concrete intervention test. One model prematurely summarizes; the other calls it out, prompting apology and realignment. They then clearly nail the core divergence: causal reasoning as a categorical capacity vs. an emergent property of richer statistical models."
+    },
+    "collapse_turn": 2
+  }
+}

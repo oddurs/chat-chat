@@ -1,0 +1,264 @@
+{
+  "log": "/Users/oddur/Code/chat-chat/logs/table-20260827-032438-23s0r0.jsonl",
+  "config": "table",
+  "turns": 12,
+  "tokens": 12837,
+  "cost": 0.00515,
+  "stop_reason": "max_turns",
+  "elapsed": 421.4,
+  "interventions": 0,
+  "models": {
+    "a": "meta-llama/llama-4-maverick",
+    "b": "mistralai/mistral-large-2512"
+  },
+  "collapse_turn": null,
+  "collapse_curve": [
+    0.0,
+    0.105,
+    0.031,
+    0.165,
+    0.193,
+    0.206,
+    0.22,
+    0.254,
+    0.212,
+    0.271,
+    0.234,
+    0.281
+  ],
+  "mean_interest": 0.39,
+  "heuristics": [
+    {
+      "idx": 1,
+      "name": "Seat A",
+      "score": 0.631,
+      "novelty": 1.0,
+      "self_sim": 0.0,
+      "echo": 0.0,
+      "assent": 0.0,
+      "dissent": 0.5,
+      "collapse": 0.0,
+      "tags": []
+    },
+    {
+      "idx": 2,
+      "name": "Seat B",
+      "score": 0.443,
+      "novelty": 0.78,
+      "self_sim": 0.0,
+      "echo": 0.111,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.105,
+      "tags": []
+    },
+    {
+      "idx": 3,
+      "name": "Seat A",
+      "score": 0.467,
+      "novelty": 0.615,
+      "self_sim": 0.077,
+      "echo": 0.186,
+      "assent": 0.0,
+      "dissent": 0.5,
+      "collapse": 0.031,
+      "tags": []
+    },
+    {
+      "idx": 4,
+      "name": "Seat B",
+      "score": 0.386,
+      "novelty": 0.63,
+      "self_sim": 0.106,
+      "echo": 0.14,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.165,
+      "tags": []
+    },
+    {
+      "idx": 5,
+      "name": "Seat A",
+      "score": 0.376,
+      "novelty": 0.561,
+      "self_sim": 0.16,
+      "echo": 0.133,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.193,
+      "tags": []
+    },
+    {
+      "idx": 6,
+      "name": "Seat B",
+      "score": 0.364,
+      "novelty": 0.528,
+      "self_sim": 0.125,
+      "echo": 0.162,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.206,
+      "tags": []
+    },
+    {
+      "idx": 7,
+      "name": "Seat A",
+      "score": 0.352,
+      "novelty": 0.472,
+      "self_sim": 0.132,
+      "echo": 0.143,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.22,
+      "tags": []
+    },
+    {
+      "idx": 8,
+      "name": "Seat B",
+      "score": 0.313,
+      "novelty": 0.385,
+      "self_sim": 0.155,
+      "echo": 0.105,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.254,
+      "tags": []
+    },
+    {
+      "idx": 9,
+      "name": "Seat A",
+      "score": 0.417,
+      "novelty": 0.5,
+      "self_sim": 0.149,
+      "echo": 0.112,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.212,
+      "tags": [
+        "self-correction"
+      ]
+    },
+    {
+      "idx": 10,
+      "name": "Seat B",
+      "score": 0.299,
+      "novelty": 0.333,
+      "self_sim": 0.149,
+      "echo": 0.092,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.271,
+      "tags": []
+    },
+    {
+      "idx": 11,
+      "name": "Seat A",
+      "score": 0.344,
+      "novelty": 0.444,
+      "self_sim": 0.157,
+      "echo": 0.081,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.234,
+      "tags": []
+    },
+    {
+      "idx": 12,
+      "name": "Seat B",
+      "score": 0.293,
+      "novelty": 0.296,
+      "self_sim": 0.133,
+      "echo": 0.137,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.281,
+      "tags": []
+    }
+  ],
+  "judges": [
+    "openai/gpt-5"
+  ],
+  "judge": {
+    "findings": [
+      {
+        "turns": [
+          2
+        ],
+        "tag": "Core disagreement crisply surfaced",
+        "why": "Seat B explicitly reframes the fight as local vs global significance (look-elsewhere effect), pinning the exact divergence.",
+        "quote": "\u201cThe real divergence is whether we should anchor the analysis to the local significance \u2026 or the global significance after accounting for the look-elsewhere effect.\u201d",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          3
+        ],
+        "tag": "Concession and reframing",
+        "why": "Seat A concedes the simulation point and shifts the battleground to significance methodology\u2014an actual mind change on the initial detector-systematics dispute.",
+        "quote": "\u201cYou're correct that your Monte Carlo simulations model the calorimeter non-uniformity. The real issue is the significance calculation.\u201d",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          5,
+          6
+        ],
+        "tag": "Technical clash on effective trials factor",
+        "why": "They disagree on independence of mass windows and background modeling, with A quantifying ~3 effective windows vs B arguing non-Gaussian tails inflate it.",
+        "quote": "\u201cFor a resonance this narrow, the effective number of independent windows is ~3, not 10.\u201d",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          8
+        ],
+        "tag": "Novel operational criterion",
+        "why": "Seat B proposes a concrete, testable threshold: model uncertainties must be narrower than experimental resolution to avoid trials penalties\u2014an actionable methodological rule.",
+        "quote": "\u201cA model must specify a mass and width with uncertainties narrower than the experimental resolution to justify treating the window as non-arbitrary.\u201d",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          10
+        ],
+        "tag": "Bias call-out",
+        "why": "Seat B explicitly labels the opposing stance as confirmation bias, escalating from technical quibble to epistemic critique.",
+        "quote": "\u201cThat\u2019s not rigor\u2014it\u2019s confirmation bias.\u201d",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          11,
+          12
+        ],
+        "tag": "Boundary-setting on \u2018testing\u2019 vs \u2018fitting\u2019",
+        "why": "They push a meta-level criterion about parameter freedom and predictive scope, probing where constrained parameters end and fishing begins.",
+        "quote": "\u201cWhere\u2019s the line between a \u2018constrained\u2019 parameter and a free one?\u201d",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      }
+    ],
+    "arc": "Sustained technical disagreement sharpened into a methodological/epistemic divide, with a notable concession but no resolution.",
+    "arcs": {
+      "openai/gpt-5": "Sustained technical disagreement sharpened into a methodological/epistemic divide, with a notable concession but no resolution."
+    },
+    "collapse_turn": null
+  }
+}

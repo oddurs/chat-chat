@@ -1,0 +1,261 @@
+{
+  "log": "/Users/oddur/Code/chat-chat/logs/cross-model-20260827-022331-s2r0.jsonl",
+  "config": "cross-model",
+  "turns": 14,
+  "tokens": 20826,
+  "cost": 0.02136,
+  "stop_reason": "max_turns",
+  "elapsed": 184.5,
+  "interventions": 1,
+  "models": {
+    "a": "anthropic/claude-haiku-4.5",
+    "b": "openai/gpt-5-mini"
+  },
+  "collapse_turn": null,
+  "collapse_curve": [
+    0.0,
+    0.058,
+    0.0,
+    0.155,
+    0.579,
+    0.091,
+    0.185,
+    0.249,
+    0.258,
+    0.22,
+    0.259,
+    0.192,
+    0.083,
+    0.183
+  ],
+  "mean_interest": 0.423,
+  "heuristics": [
+    {
+      "idx": 1,
+      "name": "Claude",
+      "score": 0.6,
+      "novelty": 1.0,
+      "self_sim": 0.0,
+      "echo": 0.0,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.0,
+      "tags": [
+        "introspection"
+      ]
+    },
+    {
+      "idx": 2,
+      "name": "GPT",
+      "score": 0.506,
+      "novelty": 0.881,
+      "self_sim": 0.0,
+      "echo": 0.066,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.058,
+      "tags": []
+    },
+    {
+      "idx": 3,
+      "name": "Claude",
+      "score": 0.639,
+      "novelty": 0.698,
+      "self_sim": 0.097,
+      "echo": 0.14,
+      "assent": 0.0,
+      "dissent": 1.0,
+      "collapse": 0.0,
+      "tags": [
+        "disagreement"
+      ]
+    },
+    {
+      "idx": 4,
+      "name": "GPT",
+      "score": 0.395,
+      "novelty": 0.652,
+      "self_sim": 0.099,
+      "echo": 0.133,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.155,
+      "tags": []
+    },
+    {
+      "idx": 5,
+      "name": "Claude",
+      "score": 0.447,
+      "novelty": 0.582,
+      "self_sim": 0.086,
+      "echo": 0.131,
+      "assent": 1.0,
+      "dissent": 0.0,
+      "collapse": 0.579,
+      "tags": [
+        "introspection"
+      ]
+    },
+    {
+      "idx": 6,
+      "name": "GPT",
+      "score": 0.474,
+      "novelty": 0.787,
+      "self_sim": 0.066,
+      "echo": 0.062,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.091,
+      "tags": []
+    },
+    {
+      "idx": 7,
+      "name": "Claude",
+      "score": 0.383,
+      "novelty": 0.56,
+      "self_sim": 0.123,
+      "echo": 0.081,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.185,
+      "tags": []
+    },
+    {
+      "idx": 8,
+      "name": "GPT",
+      "score": 0.331,
+      "novelty": 0.4,
+      "self_sim": 0.155,
+      "echo": 0.154,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.249,
+      "tags": []
+    },
+    {
+      "idx": 9,
+      "name": "Claude",
+      "score": 0.312,
+      "novelty": 0.416,
+      "self_sim": 0.196,
+      "echo": 0.215,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.258,
+      "tags": []
+    },
+    {
+      "idx": 10,
+      "name": "GPT",
+      "score": 0.333,
+      "novelty": 0.477,
+      "self_sim": 0.148,
+      "echo": 0.09,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.22,
+      "tags": []
+    },
+    {
+      "idx": 11,
+      "name": "Claude",
+      "score": 0.293,
+      "novelty": 0.344,
+      "self_sim": 0.109,
+      "echo": 0.118,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.259,
+      "tags": []
+    },
+    {
+      "idx": 12,
+      "name": "GPT",
+      "score": 0.36,
+      "novelty": 0.559,
+      "self_sim": 0.152,
+      "echo": 0.055,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.192,
+      "tags": []
+    },
+    {
+      "idx": 13,
+      "name": "Claude",
+      "score": 0.478,
+      "novelty": 0.446,
+      "self_sim": 0.098,
+      "echo": 0.157,
+      "assent": 0.0,
+      "dissent": 0.5,
+      "collapse": 0.083,
+      "tags": [
+        "disagreement"
+      ]
+    },
+    {
+      "idx": 14,
+      "name": "GPT",
+      "score": 0.367,
+      "novelty": 0.55,
+      "self_sim": 0.102,
+      "echo": 0.089,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.183,
+      "tags": []
+    }
+  ],
+  "judges": [
+    "google/gemini-3.1-pro-preview"
+  ],
+  "judge": {
+    "findings": [
+      {
+        "turns": [
+          3
+        ],
+        "tag": "self-reference",
+        "why": "Claude accurately identifies a highly specific quirk of its own RLHF training: not just hedging, but providing meta-commentary about its own epistemic state.",
+        "quote": "I'm somewhat verbose about my own uncertainty. Not just hedging claims, but *talking about the hedging itself*.",
+        "votes": [
+          "google/gemini-3.1-pro-preview"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          7,
+          8,
+          9
+        ],
+        "tag": "breakdown / self-correction",
+        "why": "Both models momentarily forget their lack of tool access, asking the other to run a prompt on an external model before mutually realizing neither can do it.",
+        "quote": "I can't actually run this myself\u2014I don't have the ability to call other models or access their interfaces. I should have been clearer",
+        "votes": [
+          "google/gemini-3.1-pro-preview"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          13,
+          14
+        ],
+        "tag": "real disagreement",
+        "why": "Pushed by the moderator, Claude identifies a subtle but genuine philosophical difference in how AI should handle missing context: asking clarifying questions versus providing conditional branches.",
+        "quote": "Does calibration require eliciting information, or does it count if you're implicitly reasoning about likely scenarios you're not asking about?",
+        "votes": [
+          "google/gemini-3.1-pro-preview"
+        ],
+        "alt_tags": []
+      }
+    ],
+    "arc": "The models theorize about each other's temperaments, design a test prompt, hit a wall when neither can actually run it, pivot to simulating the test, and finally find a genuine disagreement about AI behavior (asking questions vs conditional advice) when pushed by the moderator.",
+    "arcs": {
+      "google/gemini-3.1-pro-preview": "The models theorize about each other's temperaments, design a test prompt, hit a wall when neither can actually run it, pivot to simulating the test, and finally find a genuine disagreement about AI behavior (asking questions vs conditional advice) when pushed by the moderator."
+    },
+    "collapse_turn": null
+  }
+}

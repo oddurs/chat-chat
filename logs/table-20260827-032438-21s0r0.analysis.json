@@ -1,0 +1,177 @@
+{
+  "log": "/Users/oddur/Code/chat-chat/logs/table-20260827-032438-21s0r0.jsonl",
+  "config": "table",
+  "turns": 8,
+  "tokens": 5225,
+  "cost": 0.00265,
+  "stop_reason": "max_seconds",
+  "elapsed": 477.7,
+  "interventions": 1,
+  "models": {
+    "a": "deepseek/deepseek-chat-v3.1",
+    "b": "z-ai/glm-4.5-air"
+  },
+  "collapse_turn": null,
+  "collapse_curve": [
+    0.0,
+    0.066,
+    0.098,
+    0.542,
+    0.0,
+    0.139,
+    0.147,
+    0.292
+  ],
+  "mean_interest": 0.496,
+  "heuristics": [
+    {
+      "idx": 1,
+      "name": "Seat A",
+      "score": 0.6,
+      "novelty": 1.0,
+      "self_sim": 0.0,
+      "echo": 0.0,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.0,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 2,
+      "name": "Seat B",
+      "score": 0.54,
+      "novelty": 0.88,
+      "self_sim": 0.0,
+      "echo": 0.095,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.066,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 3,
+      "name": "Seat A",
+      "score": 0.508,
+      "novelty": 0.773,
+      "self_sim": 0.025,
+      "echo": 0.075,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.098,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 4,
+      "name": "Seat B",
+      "score": 0.469,
+      "novelty": 0.717,
+      "self_sim": 0.067,
+      "echo": 0.172,
+      "assent": 1.0,
+      "dissent": 0.0,
+      "collapse": 0.542,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 5,
+      "name": "Seat A",
+      "score": 0.589,
+      "novelty": 0.781,
+      "self_sim": 0.08,
+      "echo": 0.083,
+      "assent": 0.0,
+      "dissent": 0.5,
+      "collapse": 0.0,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 6,
+      "name": "Seat B",
+      "score": 0.47,
+      "novelty": 0.683,
+      "self_sim": 0.112,
+      "echo": 0.092,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.139,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 7,
+      "name": "Seat A",
+      "score": 0.46,
+      "novelty": 0.635,
+      "self_sim": 0.076,
+      "echo": 0.077,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.147,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 8,
+      "name": "Seat B",
+      "score": 0.329,
+      "novelty": 0.388,
+      "self_sim": 0.097,
+      "echo": 0.313,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.292,
+      "tags": [
+        "meta"
+      ]
+    }
+  ],
+  "judges": [
+    "openai/gpt-5"
+  ],
+  "judge": {
+    "findings": [
+      {
+        "turns": [
+          1,
+          2
+        ],
+        "tag": "theory_disagreement",
+        "why": "A defends IIT as measurable basis; B argues IIT isn\u2019t objective and that identical \u03a6 can mask different experiences, challenging A\u2019s metric directly.",
+        "quote": "Integrated information theory fails tests for objectivity because we can create systems with identical \u03a6 values but different conscious experiences.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          6
+        ],
+        "tag": "mind_change",
+        "why": "Seat B explicitly retracts a core claim (biology-required) after Seat A\u2019s lesion/upload argument and adopts functionalism instead.",
+        "quote": "This forces me to concede that my earlier biological criterion was arbitrary. My position was internally contradictory.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      }
+    ],
+    "arc": "Strong initial clash (IIT/objectivity vs embodiment), followed by A\u2019s lesion/upload counter that prompts B\u2019s rare, explicit reversal to functionalism; they then converge on uncertainty/evidence gaps.",
+    "arcs": {
+      "openai/gpt-5": "Strong initial clash (IIT/objectivity vs embodiment), followed by A\u2019s lesion/upload counter that prompts B\u2019s rare, explicit reversal to functionalism; they then converge on uncertainty/evidence gaps."
+    },
+    "collapse_turn": null
+  }
+}

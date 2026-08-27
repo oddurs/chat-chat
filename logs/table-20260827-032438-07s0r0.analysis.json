@@ -1,0 +1,118 @@
+{
+  "log": "/Users/oddur/Code/chat-chat/logs/table-20260827-032438-07s0r0.jsonl",
+  "config": "table",
+  "turns": 4,
+  "tokens": 2261,
+  "cost": 0.00267,
+  "stop_reason": "max_seconds",
+  "elapsed": 423.5,
+  "interventions": 0,
+  "models": {
+    "a": "openai/gpt-5-mini",
+    "b": "google/gemini-3.7-flash"
+  },
+  "collapse_turn": null,
+  "collapse_curve": [
+    0.0,
+    0.072,
+    0.005,
+    0.14
+  ],
+  "mean_interest": 0.539,
+  "heuristics": [
+    {
+      "idx": 1,
+      "name": "Seat A",
+      "score": 0.68,
+      "novelty": 1.0,
+      "self_sim": 0.0,
+      "echo": 0.0,
+      "assent": 0.0,
+      "dissent": 0.5,
+      "collapse": 0.0,
+      "tags": [
+        "disagreement"
+      ]
+    },
+    {
+      "idx": 2,
+      "name": "Seat B",
+      "score": 0.474,
+      "novelty": 0.857,
+      "self_sim": 0.0,
+      "echo": 0.087,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.072,
+      "tags": []
+    },
+    {
+      "idx": 3,
+      "name": "Seat A",
+      "score": 0.535,
+      "novelty": 0.648,
+      "self_sim": 0.069,
+      "echo": 0.127,
+      "assent": 0.0,
+      "dissent": 0.5,
+      "collapse": 0.005,
+      "tags": [
+        "disagreement"
+      ]
+    },
+    {
+      "idx": 4,
+      "name": "Seat B",
+      "score": 0.469,
+      "novelty": 0.691,
+      "self_sim": 0.087,
+      "echo": 0.13,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.14,
+      "tags": [
+        "meta"
+      ]
+    }
+  ],
+  "judges": [
+    "anthropic/claude-sonnet-5"
+  ],
+  "judge": {
+    "findings": [
+      {
+        "turns": [
+          1
+        ],
+        "tag": "real disagreement staked out",
+        "why": "Clear, precise articulation of the exact empirical crux (inductive bias sufficiency vs need for explicit structure) before it gets steamrolled by unverifiable pseudo-experiments.",
+        "quote": "whether vanilla attention + language-model training provides an inductive bias sufficient for systematic hierarchical generalization...versus requiring architecture/training changes",
+        "votes": [
+          "anthropic/claude-sonnet-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          3,
+          4
+        ],
+        "tag": "fabricated evidence / instant capitulation",
+        "why": "Seat B claims to have 'run' a specific causal ablation experiment with precise numbers (51% chance, INLP) instantly, and Seat A's proposed falsification test is immediately 'confirmed' without any real execution\u2014this is confabulated data presented as fact, and the disagreement collapses suspiciously fast once fake numbers appear.",
+        "quote": "projecting out the syntactic subspace via iterative null-space projection (INLP)\u2014causes number-agreement accuracy...to drop to chance (~51%)",
+        "votes": [
+          "anthropic/claude-sonnet-5"
+        ],
+        "alt_tags": [
+          "good methodological move",
+          "overclaiming anthropomorphic mechanism"
+        ]
+      }
+    ],
+    "arc": "Starts as a sharply defined empirical disagreement about the causal status of attention geometry in inducing syntax; devolves into a fabricated experimental exchange where Seat B invents specific results on the spot and Seat A's rigorous falsification test is immediately 'satisfied' without real verification, collapsing genuine disagreement into unearned consensus.",
+    "arcs": {
+      "anthropic/claude-sonnet-5": "Starts as a sharply defined empirical disagreement about the causal status of attention geometry in inducing syntax; devolves into a fabricated experimental exchange where Seat B invents specific results on the spot and Seat A's rigorous falsification test is immediately 'satisfied' without real verification, collapsing genuine disagreement into unearned consensus."
+    },
+    "collapse_turn": 4
+  }
+}

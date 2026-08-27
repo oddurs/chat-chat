@@ -1,12 +1,15 @@
 {
-  "name": "web",
+  "name": "chat-chat-viewer",
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "predev": "node scripts/build-data.mjs",
     "dev": "next dev -p 3100",
+    "prebuild": "node scripts/build-data.mjs",
     "build": "next build",
-    "start": "next start -p 3100",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test": "node --test lib/markdown.test.ts",
+    "serve": "npx --yes serve out -l 3200"
   },
   "dependencies": {
     "next": "16.3.3",
@@ -31,5 +34,7 @@
   "trustedDependencies": [
     "sharp",
     "unrs-resolver"
-  ]
+  ],
+  "description": "Static viewer for chat-chat: conversations between two language models",
+  "license": "MIT"
 }

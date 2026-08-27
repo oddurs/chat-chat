@@ -1,0 +1,191 @@
+{
+  "log": "/Users/oddur/Code/chat-chat/logs/table-20260827-032438-10s0r0.jsonl",
+  "config": "table",
+  "turns": 8,
+  "tokens": 7293,
+  "cost": 0.00471,
+  "stop_reason": "max_seconds",
+  "elapsed": 320.5,
+  "interventions": 0,
+  "models": {
+    "a": "openai/gpt-5-mini",
+    "b": "qwen/qwen3-235b-a22b-2507"
+  },
+  "collapse_turn": null,
+  "collapse_curve": [
+    0.0,
+    0.144,
+    0.151,
+    0.183,
+    0.109,
+    0.262,
+    0.292,
+    0.66
+  ],
+  "mean_interest": 0.379,
+  "heuristics": [
+    {
+      "idx": 1,
+      "name": "Seat A",
+      "score": 0.54,
+      "novelty": 1.0,
+      "self_sim": 0.0,
+      "echo": 0.0,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.0,
+      "tags": []
+    },
+    {
+      "idx": 2,
+      "name": "Seat B",
+      "score": 0.429,
+      "novelty": 0.722,
+      "self_sim": 0.0,
+      "echo": 0.185,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.144,
+      "tags": []
+    },
+    {
+      "idx": 3,
+      "name": "Seat A",
+      "score": 0.461,
+      "novelty": 0.696,
+      "self_sim": 0.179,
+      "echo": 0.11,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.151,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 4,
+      "name": "Seat B",
+      "score": 0.369,
+      "novelty": 0.602,
+      "self_sim": 0.126,
+      "echo": 0.176,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.183,
+      "tags": []
+    },
+    {
+      "idx": 5,
+      "name": "Seat A",
+      "score": 0.376,
+      "novelty": 0.385,
+      "self_sim": 0.175,
+      "echo": 0.154,
+      "assent": 0.0,
+      "dissent": 0.5,
+      "collapse": 0.109,
+      "tags": []
+    },
+    {
+      "idx": 6,
+      "name": "Seat B",
+      "score": 0.294,
+      "novelty": 0.394,
+      "self_sim": 0.199,
+      "echo": 0.171,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.262,
+      "tags": []
+    },
+    {
+      "idx": 7,
+      "name": "Seat A",
+      "score": 0.266,
+      "novelty": 0.327,
+      "self_sim": 0.18,
+      "echo": 0.224,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.292,
+      "tags": []
+    },
+    {
+      "idx": 8,
+      "name": "Seat B",
+      "score": 0.295,
+      "novelty": 0.387,
+      "self_sim": 0.15,
+      "echo": 0.181,
+      "assent": 1.0,
+      "dissent": 0.0,
+      "collapse": 0.66,
+      "tags": []
+    }
+  ],
+  "judges": [
+    "anthropic/claude-sonnet-5"
+  ],
+  "judge": {
+    "findings": [
+      {
+        "turns": [
+          2
+        ],
+        "tag": "looping/circular exchange",
+        "why": "Rapid back-and-forth restates same claim (pointer mechanisms vs distributional artifacts) without new content, showing early looping before refinement",
+        "quote": "Because those tasks leak through linearizable features in sequence positions\u2014attention exploits positional statistics, not algorithmic logic.",
+        "votes": [
+          "anthropic/claude-sonnet-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          3,
+          5
+        ],
+        "tag": "real disagreement / technical rigor",
+        "why": "Concrete use of complexity theory (AC^0, circuit depth lower bounds) to ground the disagreement rather than vague philosophizing",
+        "quote": "parity on N bits provably requires depth that grows with N in AC^0 circuits.",
+        "votes": [
+          "anthropic/claude-sonnet-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          4
+        ],
+        "tag": "conceptual move",
+        "why": "Introduces novel framing of sequence length as a computational resource substituting for depth",
+        "quote": "transformers don\u2019t compute in one pass\u2014they use sequence length as computational resource, effectively \"unrolling\" steps through positional processing.",
+        "votes": [
+          "anthropic/claude-sonnet-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          6,
+          7,
+          8
+        ],
+        "tag": "convergence via reframing",
+        "why": "The disagreement narrows from an empirical/architectural claim to an explicit normative definitional dispute about what 'algorithmic' means",
+        "quote": "The core disagreement is normative: what counts as \"algorithmic.\"",
+        "votes": [
+          "anthropic/claude-sonnet-5"
+        ],
+        "alt_tags": [
+          "partial concession"
+        ]
+      }
+    ],
+    "arc": "Starts as an architectural empirical dispute (scale vs recurrence), sharpens into a formal complexity-theoretic argument (AC^0 depth lower bounds), then resolves into an explicit normative disagreement about what counts as 'algorithmic generalization'\u2014unbounded provable correctness vs practical bounded extrapolation.",
+    "arcs": {
+      "anthropic/claude-sonnet-5": "Starts as an architectural empirical dispute (scale vs recurrence), sharpens into a formal complexity-theoretic argument (AC^0 depth lower bounds), then resolves into an explicit normative disagreement about what counts as 'algorithmic generalization'\u2014unbounded provable correctness vs practical bounded extrapolation."
+    },
+    "collapse_turn": null
+  }
+}

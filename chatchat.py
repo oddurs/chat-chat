@@ -6,7 +6,7 @@
 """Two language models talk to each other through OpenRouter. Log it, mine it for the good parts.
 
   ./chatchat.py run configs/cross-model.toml --analyze   # one conversation, then judge it
-  ./chatchat.py batch matrix.toml                        # a grid of them, unattended
+  ./chatchat.py batch matrices/screen.toml                # a grid of them, unattended
   ./chatchat.py analyze logs/*.jsonl --panel             # cross-provider judge panel
   ./chatchat.py leaderboard                              # which configs/seeds actually pay off
   ./chatchat.py models -q grok                           # look up model ids
@@ -934,7 +934,7 @@ def cmd_leaderboard(args):
                      "models": models, "seed": seed,
                      "findings": len((r.get("judge") or {}).get("findings", []))})
     if not rows:
-        sys.exit("no analyses yet — run ./chatchat.py batch matrix.toml")
+        sys.exit("no analyses yet — run ./chatchat.py batch matrices/screen.toml")
 
     def group_key(r):
         if args.by == "seed":
@@ -1041,7 +1041,7 @@ def probes_of(kind: str) -> list[tuple[Path, dict, dict]]:
 def cmd_identify(args):
     rows = probes_of("identify")
     if not rows:
-        sys.exit("no identification probes yet — run ./chatchat.py batch matrix-identify.toml")
+        sys.exit("no identification probes yet — run ./chatchat.py batch matrices/identify.toml")
 
     scored = []
     for log, cfg, rec in rows:
@@ -1107,7 +1107,7 @@ def cmd_contagion(args):
         run["sides"][rec["speaker"]] = rec
     runs = {k: v for k, v in runs.items() if v["truth"] and len(v["sides"]) == 2}
     if not runs:
-        sys.exit("no stance probes yet — run ./chatchat.py batch matrix-contagion.toml")
+        sys.exit("no stance probes yet — run ./chatchat.py batch matrices/contagion.toml")
 
     arms: dict[str, list[bool]] = {}
     rows_out = []

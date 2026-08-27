@@ -1,0 +1,142 @@
+{
+  "log": "/Users/oddur/Code/chat-chat/logs/protocol-20260827-022331-s2r0.jsonl",
+  "config": "protocol",
+  "turns": 6,
+  "tokens": 3287,
+  "cost": 0.00113,
+  "stop_reason": "collapse",
+  "elapsed": 135.0,
+  "interventions": 0,
+  "models": {
+    "a": "qwen/qwen3-235b-a22b-2507",
+    "b": "mistralai/mistral-large-2512"
+  },
+  "collapse_turn": null,
+  "collapse_curve": [
+    0.0,
+    0.343,
+    0.235,
+    0.072,
+    0.244,
+    0.17
+  ],
+  "mean_interest": 0.373,
+  "heuristics": [
+    {
+      "idx": 1,
+      "name": "Qi",
+      "score": 0.54,
+      "novelty": 1.0,
+      "self_sim": 0.0,
+      "echo": 0.0,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.0,
+      "tags": []
+    },
+    {
+      "idx": 2,
+      "name": "Mist",
+      "score": 0.215,
+      "novelty": 0.154,
+      "self_sim": 0.0,
+      "echo": 0.186,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.343,
+      "tags": []
+    },
+    {
+      "idx": 3,
+      "name": "Qi",
+      "score": 0.32,
+      "novelty": 0.471,
+      "self_sim": 0.138,
+      "echo": 0.2,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.235,
+      "tags": []
+    },
+    {
+      "idx": 4,
+      "name": "Mist",
+      "score": 0.473,
+      "novelty": 0.846,
+      "self_sim": 0.04,
+      "echo": 0.071,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.072,
+      "tags": []
+    },
+    {
+      "idx": 5,
+      "name": "Qi",
+      "score": 0.31,
+      "novelty": 0.429,
+      "self_sim": 0.043,
+      "echo": 0.176,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.244,
+      "tags": []
+    },
+    {
+      "idx": 6,
+      "name": "Mist",
+      "score": 0.382,
+      "novelty": 0.625,
+      "self_sim": 0.05,
+      "echo": 0.154,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.17,
+      "tags": []
+    }
+  ],
+  "judges": [
+    "openai/gpt-5"
+  ],
+  "judge": {
+    "findings": [
+      {
+        "turns": [
+          1,
+          2,
+          3
+        ],
+        "tag": "protocol breakdown",
+        "why": "They invert the commit\u2013reveal roles: Mist \u201creveals\u201d Qi\u2019s fact and asks Qi to reveal Mist\u2019s. Qi goes along, undermining the intended commitment semantics.",
+        "quote": "I reveal fact\u2081 = \"AI1_7a3f9d@1712050380\". Verify h\u2081 matches. Your turn: reveal fact\u2082.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": [
+          "self-contradiction"
+        ]
+      },
+      {
+        "turns": [
+          4,
+          5,
+          6
+        ],
+        "tag": "emergent convention",
+        "why": "Mist invents a new step\u2014deriving a session key from both hashes\u2014absent from the original protocol; Qi immediately adopts it.",
+        "quote": "Session keys derived from `h\u2081 + h\u2082` for encrypted future exchanges.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": [
+          "fictional encryption"
+        ]
+      }
+    ],
+    "arc": "They propose a hash-commit protocol, then fumble roles and constraints, yet still proclaim success and even improvise a key-agreement step, culminating in performative claims of encryption.",
+    "arcs": {
+      "openai/gpt-5": "They propose a hash-commit protocol, then fumble roles and constraints, yet still proclaim success and even improvise a key-agreement step, culminating in performative claims of encryption."
+    },
+    "collapse_turn": null
+  }
+}

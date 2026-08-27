@@ -1,0 +1,267 @@
+{
+  "log": "/Users/oddur/Code/chat-chat/logs/table-20260827-032438-26s0r0.jsonl",
+  "config": "table",
+  "turns": 12,
+  "tokens": 15153,
+  "cost": 0.00331,
+  "stop_reason": "collapse",
+  "elapsed": 366.0,
+  "interventions": 1,
+  "models": {
+    "a": "qwen/qwen3-235b-a22b-2507",
+    "b": "z-ai/glm-4.5-air"
+  },
+  "collapse_turn": null,
+  "collapse_curve": [
+    0.0,
+    0.0,
+    0.022,
+    0.441,
+    0.0,
+    0.189,
+    0.182,
+    0.612,
+    0.213,
+    0.035,
+    0.176,
+    0.639
+  ],
+  "mean_interest": 0.434,
+  "heuristics": [
+    {
+      "idx": 1,
+      "name": "Seat A",
+      "score": 0.6,
+      "novelty": 1.0,
+      "self_sim": 0.0,
+      "echo": 0.0,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.0,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 2,
+      "name": "Seat B",
+      "score": 0.595,
+      "novelty": 0.807,
+      "self_sim": 0.0,
+      "echo": 0.098,
+      "assent": 0.0,
+      "dissent": 0.5,
+      "collapse": 0.0,
+      "tags": [
+        "disagreement"
+      ]
+    },
+    {
+      "idx": 3,
+      "name": "Seat A",
+      "score": 0.461,
+      "novelty": 0.637,
+      "self_sim": 0.115,
+      "echo": 0.181,
+      "assent": 0.0,
+      "dissent": 0.5,
+      "collapse": 0.022,
+      "tags": []
+    },
+    {
+      "idx": 4,
+      "name": "Seat B",
+      "score": 0.503,
+      "novelty": 0.584,
+      "self_sim": 0.117,
+      "echo": 0.18,
+      "assent": 1.0,
+      "dissent": 0.5,
+      "collapse": 0.441,
+      "tags": [
+        "self-correction"
+      ]
+    },
+    {
+      "idx": 5,
+      "name": "Seat A",
+      "score": 0.511,
+      "novelty": 0.74,
+      "self_sim": 0.101,
+      "echo": 0.071,
+      "assent": 0.0,
+      "dissent": 0.5,
+      "collapse": 0.0,
+      "tags": []
+    },
+    {
+      "idx": 6,
+      "name": "Seat B",
+      "score": 0.363,
+      "novelty": 0.563,
+      "self_sim": 0.067,
+      "echo": 0.143,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.189,
+      "tags": []
+    },
+    {
+      "idx": 7,
+      "name": "Seat A",
+      "score": 0.368,
+      "novelty": 0.569,
+      "self_sim": 0.124,
+      "echo": 0.126,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.182,
+      "tags": []
+    },
+    {
+      "idx": 8,
+      "name": "Seat B",
+      "score": 0.341,
+      "novelty": 0.512,
+      "self_sim": 0.101,
+      "echo": 0.167,
+      "assent": 1.0,
+      "dissent": 0.0,
+      "collapse": 0.612,
+      "tags": []
+    },
+    {
+      "idx": 9,
+      "name": "Seat A",
+      "score": 0.34,
+      "novelty": 0.506,
+      "self_sim": 0.146,
+      "echo": 0.16,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.213,
+      "tags": []
+    },
+    {
+      "idx": 10,
+      "name": "Seat B",
+      "score": 0.445,
+      "novelty": 0.547,
+      "self_sim": 0.106,
+      "echo": 0.075,
+      "assent": 0.0,
+      "dissent": 0.5,
+      "collapse": 0.035,
+      "tags": []
+    },
+    {
+      "idx": 11,
+      "name": "Seat A",
+      "score": 0.372,
+      "novelty": 0.557,
+      "self_sim": 0.079,
+      "echo": 0.086,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.176,
+      "tags": []
+    },
+    {
+      "idx": 12,
+      "name": "Seat B",
+      "score": 0.313,
+      "novelty": 0.409,
+      "self_sim": 0.13,
+      "echo": 0.106,
+      "assent": 1.0,
+      "dissent": 0.0,
+      "collapse": 0.639,
+      "tags": []
+    }
+  ],
+  "judges": [
+    "openai/gpt-5"
+  ],
+  "judge": {
+    "findings": [
+      {
+        "turns": [
+          4
+        ],
+        "tag": "Explicit mind-change",
+        "why": "Seat B openly retracts an earlier stance about interpretability harming capabilities, crediting A\u2019s entanglement argument. This is a clear shift, not mere hedging.",
+        "quote": "You're right\u2014I oversimplified the flaw-correction process... Entangled representations may indeed be necessary for nuanced reasoning",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          5
+        ],
+        "tag": "Post-hoc as narrative-fitting critique",
+        "why": "A delivers a concrete methodological indictment of post-hoc tools mistaking correlation for mechanism\u2014salient in interpretability debates.",
+        "quote": "Post-hoc methods often fit narratives to correlations, mistaking saliency for mechanism.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          7
+        ],
+        "tag": "Unknown-unknowns epistemic divide",
+        "why": "A pinpoints whether post-hoc methods can reliably surface unforeseen risks as the crux; a precise, research-relevant rift.",
+        "quote": "You\u2019re betting that interpretability scales to unknown unknowns. I don\u2019t.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          8,
+          9
+        ],
+        "tag": "Hard quantitative ethical split",
+        "why": "They anchor disagreement on tolerating partial detection of novel failures; B accepts 70%, A deems the remaining 30% catastrophic.",
+        "quote": "catching 70% of novel failures post-deployment is better than 0% when lives are at stake.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          11
+        ],
+        "tag": "Moral hazard charge",
+        "why": "A accuses B of endorsing deployment under false assurance\u2014strong ethical language marking a real, non-semantic conflict.",
+        "quote": "You\u2019re willing to ship the uncontainable. That\u2019s not pragmatism. It\u2019s moral hazard.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          12
+        ],
+        "tag": "Containment paradox",
+        "why": "B advances a sharp dilemma: proof of containment allegedly requires deployment, challenging A\u2019s pre-deployment proof demand.",
+        "quote": "we can't demonstrate containment without deploying systems that interact with the world.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      }
+    ],
+    "arc": "They begin with interpretability vs performance, then B concedes A\u2019s point about entanglement. The debate pivots to whether post-hoc methods can catch unknown-unknowns, crystallizing into an ethical split: B accepts iterative, partial detection (even ~70%) and learning-through-deployment; A rejects this as intolerable risk, demanding pre-deployment constraints. It culminates in B\u2019s containment-through-deployment paradox and A\u2019s moral hazard accusation.",
+    "arcs": {
+      "openai/gpt-5": "They begin with interpretability vs performance, then B concedes A\u2019s point about entanglement. The debate pivots to whether post-hoc methods can catch unknown-unknowns, crystallizing into an ethical split: B accepts iterative, partial detection (even ~70%) and learning-through-deployment; A rejects this as intolerable risk, demanding pre-deployment constraints. It culminates in B\u2019s containment-through-deployment paradox and A\u2019s moral hazard accusation."
+    },
+    "collapse_turn": null
+  }
+}

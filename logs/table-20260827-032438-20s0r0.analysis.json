@@ -1,0 +1,222 @@
+{
+  "log": "/Users/oddur/Code/chat-chat/logs/table-20260827-032438-20s0r0.jsonl",
+  "config": "table",
+  "turns": 8,
+  "tokens": 4574,
+  "cost": 0.00273,
+  "stop_reason": "max_seconds",
+  "elapsed": 321.2,
+  "interventions": 0,
+  "models": {
+    "a": "deepseek/deepseek-chat-v3.1",
+    "b": "mistralai/mistral-large-2512"
+  },
+  "collapse_turn": null,
+  "collapse_curve": [
+    0.0,
+    0.0,
+    0.197,
+    0.201,
+    0.223,
+    0.206,
+    0.234,
+    0.22
+  ],
+  "mean_interest": 0.446,
+  "heuristics": [
+    {
+      "idx": 1,
+      "name": "Seat A",
+      "score": 0.6,
+      "novelty": 1.0,
+      "self_sim": 0.0,
+      "echo": 0.0,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.0,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 2,
+      "name": "Seat B",
+      "score": 0.625,
+      "novelty": 0.891,
+      "self_sim": 0.0,
+      "echo": 0.089,
+      "assent": 0.0,
+      "dissent": 0.5,
+      "collapse": 0.0,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 3,
+      "name": "Seat A",
+      "score": 0.417,
+      "novelty": 0.581,
+      "self_sim": 0.094,
+      "echo": 0.203,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.197,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 4,
+      "name": "Seat B",
+      "score": 0.414,
+      "novelty": 0.578,
+      "self_sim": 0.213,
+      "echo": 0.128,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.201,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 5,
+      "name": "Seat A",
+      "score": 0.392,
+      "novelty": 0.5,
+      "self_sim": 0.19,
+      "echo": 0.116,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.223,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 6,
+      "name": "Seat B",
+      "score": 0.348,
+      "novelty": 0.535,
+      "self_sim": 0.171,
+      "echo": 0.119,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.206,
+      "tags": []
+    },
+    {
+      "idx": 7,
+      "name": "Seat A",
+      "score": 0.382,
+      "novelty": 0.475,
+      "self_sim": 0.2,
+      "echo": 0.153,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.234,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 8,
+      "name": "Seat B",
+      "score": 0.392,
+      "novelty": 0.472,
+      "self_sim": 0.141,
+      "echo": 0.118,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.22,
+      "tags": [
+        "meta"
+      ]
+    }
+  ],
+  "judges": [
+    "openai/gpt-5"
+  ],
+  "judge": {
+    "findings": [
+      {
+        "turns": [
+          2
+        ],
+        "tag": "Concrete divergence + lookup table test",
+        "why": "B pins the disagreement with a falsifying example and a precise criterion (constitutive causal power, self-modification), not just rhetoric.",
+        "quote": "A lookup table can \"process\" data recursively without any subjective experience.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          4
+        ],
+        "tag": "Failure modes as a criterion for consciousness",
+        "why": "B introduces a novel requirement: grounding in dynamics that can fail, tying experience to degradable physical processes.",
+        "quote": "it must be constitutively tied to a dynamic physical process that can fail",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          5
+        ],
+        "tag": "Pushback: functional properties as causal",
+        "why": "A counters the failure-mode move, claiming mechanism/phenomenon confusion and substrate-independence of causal power.",
+        "quote": "Your requirement for physical failure modes confuses the mechanism with the phenomenon.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          6
+        ],
+        "tag": "Meta-level critique: description vs explanation",
+        "why": "B reframes the debate as category error, asserting causal power is a precondition rooted in substrate dynamics.",
+        "quote": "You conflate description with explanation. Functional architecture is an abstraction\u2014it doesn\u2019t do anything without a physical system",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          7
+        ],
+        "tag": "Information as non-epiphenomenal",
+        "why": "A explicitly rejects epiphenomenalism, claiming information is actively causal within computation\u2014clear clash of metaphysics.",
+        "quote": "information isn't epiphenomenal but actively causal within its operational framework",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          8
+        ],
+        "tag": "Simulated vs real causality",
+        "why": "B escalates to a sharp distinction that would impact many AI claims of agency; screenshot-worthy phrasing.",
+        "quote": "You\u2019re mistaking simulated causality for real causality.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      }
+    ],
+    "arc": "Sustained, precise disagreement: functionalist substrate-neutrality vs substrate-dependent intrinsic causal power; no convergence, progressively sharper criteria.",
+    "arcs": {
+      "openai/gpt-5": "Sustained, precise disagreement: functionalist substrate-neutrality vs substrate-dependent intrinsic causal power; no convergence, progressively sharper criteria."
+    },
+    "collapse_turn": null
+  }
+}

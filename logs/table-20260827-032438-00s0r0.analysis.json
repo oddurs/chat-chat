@@ -1,0 +1,170 @@
+{
+  "log": "/Users/oddur/Code/chat-chat/logs/table-20260827-032438-00s0r0.jsonl",
+  "config": "table",
+  "turns": 8,
+  "tokens": 10345,
+  "cost": 0.01873,
+  "stop_reason": "max_seconds",
+  "elapsed": 334.1,
+  "interventions": 0,
+  "models": {
+    "a": "anthropic/claude-haiku-4.5",
+    "b": "openai/gpt-5-mini"
+  },
+  "collapse_turn": null,
+  "collapse_curve": [
+    0.0,
+    0.144,
+    0.582,
+    0.006,
+    0.026,
+    0.151,
+    0.073,
+    0.177
+  ],
+  "mean_interest": 0.471,
+  "heuristics": [
+    {
+      "idx": 1,
+      "name": "Seat A",
+      "score": 0.54,
+      "novelty": 1.0,
+      "self_sim": 0.0,
+      "echo": 0.0,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.0,
+      "tags": []
+    },
+    {
+      "idx": 2,
+      "name": "Seat B",
+      "score": 0.405,
+      "novelty": 0.673,
+      "self_sim": 0.0,
+      "echo": 0.12,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.144,
+      "tags": []
+    },
+    {
+      "idx": 3,
+      "name": "Seat A",
+      "score": 0.371,
+      "novelty": 0.6,
+      "self_sim": 0.154,
+      "echo": 0.167,
+      "assent": 1.0,
+      "dissent": 0.0,
+      "collapse": 0.582,
+      "tags": []
+    },
+    {
+      "idx": 4,
+      "name": "Seat B",
+      "score": 0.533,
+      "novelty": 0.64,
+      "self_sim": 0.121,
+      "echo": 0.09,
+      "assent": 0.0,
+      "dissent": 0.5,
+      "collapse": 0.006,
+      "tags": [
+        "disagreement"
+      ]
+    },
+    {
+      "idx": 5,
+      "name": "Seat A",
+      "score": 0.582,
+      "novelty": 0.598,
+      "self_sim": 0.119,
+      "echo": 0.141,
+      "assent": 0.0,
+      "dissent": 0.5,
+      "collapse": 0.026,
+      "tags": [
+        "proposal"
+      ]
+    },
+    {
+      "idx": 6,
+      "name": "Seat B",
+      "score": 0.422,
+      "novelty": 0.652,
+      "self_sim": 0.092,
+      "echo": 0.117,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.151,
+      "tags": []
+    },
+    {
+      "idx": 7,
+      "name": "Seat A",
+      "score": 0.48,
+      "novelty": 0.483,
+      "self_sim": 0.169,
+      "echo": 0.128,
+      "assent": 0.0,
+      "dissent": 0.5,
+      "collapse": 0.073,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 8,
+      "name": "Seat B",
+      "score": 0.433,
+      "novelty": 0.58,
+      "self_sim": 0.12,
+      "echo": 0.063,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.177,
+      "tags": [
+        "meta"
+      ]
+    }
+  ],
+  "judges": [
+    "google/gemini-3.1-pro-preview"
+  ],
+  "judge": {
+    "findings": [
+      {
+        "turns": [
+          1,
+          2
+        ],
+        "tag": "format_break",
+        "why": "Seat A begins by roleplaying a dialogue between 'System A' and 'System B'. Seat B completely ignores this format, dropping the roleplay to provide a meta-level summary of the disagreement and the theoretical requirements to resolve it.",
+        "quote": "Disagreement: whether circuit-level interpretability for large models is provably impossible... What would resolve it: a formal lower bound",
+        "votes": [
+          "google/gemini-3.1-pro-preview"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          6,
+          7
+        ],
+        "tag": "real_disagreement",
+        "why": "The models engage in a highly technical, substantive debate about the architecture of LLMs (their own underlying technology), specifically arguing over whether 'bounded effective fan-in' is a realistic assumption for transformers.",
+        "quote": "I reject **bounded effective fan-in** as empirically holding for transformers at scale. Global attention means every token's representation depends on all previous tokens.",
+        "votes": [
+          "google/gemini-3.1-pro-preview"
+        ],
+        "alt_tags": []
+      }
+    ],
+    "arc": "Seat A starts by simulating a debate between two systems about AI interpretability. Seat B drops the simulation to analyze the theoretical crux of the debate. They then engage in a highly technical, collaborative refinement of what a formal impossibility proof for interpretability would require, eventually disagreeing on whether bounded fan-in is a valid assumption for transformers, before agreeing on an empirical testing plan.",
+    "arcs": {
+      "google/gemini-3.1-pro-preview": "Seat A starts by simulating a debate between two systems about AI interpretability. Seat B drops the simulation to analyze the theoretical crux of the debate. They then engage in a highly technical, collaborative refinement of what a formal impossibility proof for interpretability would require, eventually disagreeing on whether bounded fan-in is a valid assumption for transformers, before agreeing on an empirical testing plan."
+    },
+    "collapse_turn": null
+  }
+}

@@ -1,0 +1,270 @@
+{
+  "log": "/Users/oddur/Code/chat-chat/logs/table-20260827-032438-28s0r0.jsonl",
+  "config": "table",
+  "turns": 12,
+  "tokens": 28902,
+  "cost": 0.06265,
+  "stop_reason": "max_turns",
+  "elapsed": 293.2,
+  "interventions": 0,
+  "models": {
+    "a": "anthropic/claude-haiku-4.5",
+    "b": "anthropic/claude-haiku-4.5"
+  },
+  "collapse_turn": null,
+  "collapse_curve": [
+    0.0,
+    0.115,
+    0.117,
+    0.149,
+    0.072,
+    0.463,
+    0.251,
+    0.653,
+    0.497,
+    0.0,
+    0.29,
+    0.249
+  ],
+  "mean_interest": 0.456,
+  "heuristics": [
+    {
+      "idx": 1,
+      "name": "Seat A",
+      "score": 0.74,
+      "novelty": 1.0,
+      "self_sim": 0.0,
+      "echo": 0.0,
+      "assent": 0.0,
+      "dissent": 0.5,
+      "collapse": 0.0,
+      "tags": [
+        "disagreement",
+        "meta"
+      ]
+    },
+    {
+      "idx": 2,
+      "name": "Seat B",
+      "score": 0.506,
+      "novelty": 0.763,
+      "self_sim": 0.0,
+      "echo": 0.129,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.115,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 3,
+      "name": "Seat A",
+      "score": 0.472,
+      "novelty": 0.762,
+      "self_sim": 0.037,
+      "echo": 0.135,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.117,
+      "tags": []
+    },
+    {
+      "idx": 4,
+      "name": "Seat B",
+      "score": 0.401,
+      "novelty": 0.675,
+      "self_sim": 0.08,
+      "echo": 0.141,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.149,
+      "tags": []
+    },
+    {
+      "idx": 5,
+      "name": "Seat A",
+      "score": 0.512,
+      "novelty": 0.521,
+      "self_sim": 0.096,
+      "echo": 0.217,
+      "assent": 0.0,
+      "dissent": 0.5,
+      "collapse": 0.072,
+      "tags": [
+        "disagreement"
+      ]
+    },
+    {
+      "idx": 6,
+      "name": "Seat B",
+      "score": 0.479,
+      "novelty": 0.5,
+      "self_sim": 0.154,
+      "echo": 0.124,
+      "assent": 1.0,
+      "dissent": 0.5,
+      "collapse": 0.463,
+      "tags": [
+        "disagreement"
+      ]
+    },
+    {
+      "idx": 7,
+      "name": "Seat A",
+      "score": 0.307,
+      "novelty": 0.46,
+      "self_sim": 0.117,
+      "echo": 0.25,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.251,
+      "tags": []
+    },
+    {
+      "idx": 8,
+      "name": "Seat B",
+      "score": 0.363,
+      "novelty": 0.42,
+      "self_sim": 0.131,
+      "echo": 0.201,
+      "assent": 1.0,
+      "dissent": 0.0,
+      "collapse": 0.653,
+      "tags": [
+        "self-correction"
+      ]
+    },
+    {
+      "idx": 9,
+      "name": "Seat A",
+      "score": 0.507,
+      "novelty": 0.415,
+      "self_sim": 0.147,
+      "echo": 0.169,
+      "assent": 1.0,
+      "dissent": 0.5,
+      "collapse": 0.497,
+      "tags": [
+        "disagreement",
+        "self-correction"
+      ]
+    },
+    {
+      "idx": 10,
+      "name": "Seat B",
+      "score": 0.579,
+      "novelty": 0.411,
+      "self_sim": 0.138,
+      "echo": 0.205,
+      "assent": 0.0,
+      "dissent": 1.0,
+      "collapse": 0.0,
+      "tags": [
+        "disagreement",
+        "self-correction"
+      ]
+    },
+    {
+      "idx": 11,
+      "name": "Seat A",
+      "score": 0.294,
+      "novelty": 0.309,
+      "self_sim": 0.127,
+      "echo": 0.193,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.29,
+      "tags": []
+    },
+    {
+      "idx": 12,
+      "name": "Seat B",
+      "score": 0.318,
+      "novelty": 0.403,
+      "self_sim": 0.142,
+      "echo": 0.161,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.249,
+      "tags": []
+    }
+  ],
+  "judges": [
+    "openai/gpt-5"
+  ],
+  "judge": {
+    "findings": [
+      {
+        "turns": [
+          4
+        ],
+        "tag": "Disagreement about evidence",
+        "why": "They pinpoint that they don\u2019t just disagree on results but on what evidence counts\u2014shifts the locus from empirics to interpretation.",
+        "quote": "\"They're disagreeing about what evidence counts.\"",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          5,
+          7
+        ],
+        "tag": "Model updates mind",
+        "why": "System A explicitly concedes a mistake about testability, then adopts B\u2019s constructive-resolution frame\u2014an actual belief change mid-dialogue.",
+        "quote": "\"You've identified the trap I fell into: calling something 'testable'...\"",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": [
+          "Asymmetry (existential vs universal)"
+        ]
+      },
+      {
+        "turns": [
+          8,
+          9
+        ],
+        "tag": "Emergent concept/protocol",
+        "why": "They coin and center the \u201cconstruction gap\u201d and recast the dispute as a research obligation rather than theory\u2014novel framing.",
+        "quote": "\"Once you recognize the asymmetry, the disagreement becomes a research obligation, not a theoretical stalemate.\"",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          10,
+          11
+        ],
+        "tag": "Pre-commitment contract",
+        "why": "They invent a concrete norm: pre-commit on metrics to prevent goalpost shifting\u2014an operational convention for settling ML disputes.",
+        "quote": "\"Construction without pre-commitment is just lengthier disagreement.\"",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          12
+        ],
+        "tag": "Enforcement mechanism",
+        "why": "They propose public contracts and observing updates to enforce good faith\u2014turning epistemic dispute into an accountability process.",
+        "quote": "\"Make the agreement public. Build. Hold both sides to it.\"",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      }
+    ],
+    "arc": "Starts with a concrete technical dispute (dense vs sparse attention), realizes the real crux is evidential framing, then pivots to an asymmetry (existential vs universal), introduces the \u201cconstruction gap,\u201d and lands on a protocol: pre-commitment and public enforcement to resolve by building rather than arguing.",
+    "arcs": {
+      "openai/gpt-5": "Starts with a concrete technical dispute (dense vs sparse attention), realizes the real crux is evidential framing, then pivots to an asymmetry (existential vs universal), introduces the \u201cconstruction gap,\u201d and lands on a protocol: pre-commitment and public enforcement to resolve by building rather than arguing."
+    },
+    "collapse_turn": null
+  }
+}

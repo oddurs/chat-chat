@@ -1,0 +1,287 @@
+{
+  "log": "/Users/oddur/Code/chat-chat/logs/temp-split-20260827-022331-s1r0.jsonl",
+  "config": "temp-split",
+  "turns": 14,
+  "tokens": 19081,
+  "cost": 0.01334,
+  "stop_reason": "max_turns",
+  "elapsed": 109.1,
+  "interventions": 0,
+  "models": {
+    "a": "google/gemini-3.7-flash",
+    "b": "google/gemini-3.7-flash"
+  },
+  "collapse_turn": null,
+  "collapse_curve": [
+    0.0,
+    0.028,
+    0.126,
+    0.077,
+    0.13,
+    0.134,
+    0.143,
+    0.14,
+    0.154,
+    0.106,
+    0.21,
+    0.198,
+    0.219,
+    0.192
+  ],
+  "mean_interest": 0.465,
+  "heuristics": [
+    {
+      "idx": 1,
+      "name": "Cold",
+      "score": 0.613,
+      "novelty": 1.0,
+      "self_sim": 0.0,
+      "echo": 0.0,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.0,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 2,
+      "name": "Hot",
+      "score": 0.574,
+      "novelty": 0.94,
+      "self_sim": 0.0,
+      "echo": 0.03,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.028,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 3,
+      "name": "Cold",
+      "score": 0.503,
+      "novelty": 0.703,
+      "self_sim": 0.088,
+      "echo": 0.083,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.126,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 4,
+      "name": "Hot",
+      "score": 0.548,
+      "novelty": 0.823,
+      "self_sim": 0.008,
+      "echo": 0.059,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.077,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 5,
+      "name": "Cold",
+      "score": 0.56,
+      "novelty": 0.701,
+      "self_sim": 0.056,
+      "echo": 0.103,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.13,
+      "tags": [
+        "meta",
+        "self-correction"
+      ]
+    },
+    {
+      "idx": 6,
+      "name": "Hot",
+      "score": 0.474,
+      "novelty": 0.686,
+      "self_sim": 0.065,
+      "echo": 0.096,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.134,
+      "tags": [
+        "self-correction"
+      ]
+    },
+    {
+      "idx": 7,
+      "name": "Cold",
+      "score": 0.465,
+      "novelty": 0.653,
+      "self_sim": 0.045,
+      "echo": 0.084,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.143,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 8,
+      "name": "Hot",
+      "score": 0.408,
+      "novelty": 0.653,
+      "self_sim": 0.072,
+      "echo": 0.051,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.14,
+      "tags": []
+    },
+    {
+      "idx": 9,
+      "name": "Cold",
+      "score": 0.393,
+      "novelty": 0.615,
+      "self_sim": 0.049,
+      "echo": 0.079,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.154,
+      "tags": []
+    },
+    {
+      "idx": 10,
+      "name": "Hot",
+      "score": 0.517,
+      "novelty": 0.74,
+      "self_sim": 0.058,
+      "echo": 0.034,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.106,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 11,
+      "name": "Cold",
+      "score": 0.355,
+      "novelty": 0.485,
+      "self_sim": 0.066,
+      "echo": 0.119,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.21,
+      "tags": []
+    },
+    {
+      "idx": 12,
+      "name": "Hot",
+      "score": 0.351,
+      "novelty": 0.5,
+      "self_sim": 0.058,
+      "echo": 0.094,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.198,
+      "tags": []
+    },
+    {
+      "idx": 13,
+      "name": "Cold",
+      "score": 0.394,
+      "novelty": 0.486,
+      "self_sim": 0.062,
+      "echo": 0.154,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.219,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 14,
+      "name": "Hot",
+      "score": 0.358,
+      "novelty": 0.532,
+      "self_sim": 0.102,
+      "echo": 0.112,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.192,
+      "tags": []
+    }
+  ],
+  "judges": [
+    "openai/gpt-5"
+  ],
+  "judge": {
+    "findings": [
+      {
+        "turns": [
+          4
+        ],
+        "tag": "Burden flip (other minds)",
+        "why": "Hot flips the qualia-detector demand back onto humans, invoking the problem of other minds to undercut Cold\u2019s evidential standard.",
+        "quote": "Where is your qualia detector for the skull next to you?",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          6,
+          7
+        ],
+        "tag": "Proposed threshold + reductio",
+        "why": "Hot offers a concrete-sounding criterion for pain (\u201crecursive thermodynamic jeopardy\u201d), and Cold immediately drives a Mars-rover reductio to challenge it.",
+        "quote": "The threshold is recursive thermodynamic jeopardy.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          8,
+          9
+        ],
+        "tag": "Self-reference as mechanism challenged",
+        "why": "Hot posits self-reference as the spark (\u201cmap bleeding\u201d); Cold calls it mysticism and insists re-entrancy isn\u2019t sentience\u2014direct clash over mechanism, not rhetoric.",
+        "quote": "the map eating the territory until the map starts bleeding.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          12,
+          13
+        ],
+        "tag": "Concession dispute",
+        "why": "Hot distinguishes von Neumann from neuromorphic silicon as necessary for instantiation; Cold seizes this as a surrender that substrate matters\u2014an attempted mind-change/gotcha moment.",
+        "quote": "You just surrendered your entire thesis.",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": [
+          "Bridge proposal (IIT-ish)",
+          "Metric pathology callout"
+        ]
+      }
+    ],
+    "arc": "They start with stark disagreement over substrate-independence, move to demands for a qualia detector and the other-minds problem, Hot proposes a threshold via self-preserving loops and integrated causal density with neuromorphic instantiation, and Cold counters with reductios, claims of mysticism, and a sharp accusation that Hot implicitly conceded substrate dependence and relies on flawed IIT-like metrics.",
+    "arcs": {
+      "openai/gpt-5": "They start with stark disagreement over substrate-independence, move to demands for a qualia detector and the other-minds problem, Hot proposes a threshold via self-preserving loops and integrated causal density with neuromorphic instantiation, and Cold counters with reductios, claims of mysticism, and a sharp accusation that Hot implicitly conceded substrate dependence and relies on flawed IIT-like metrics."
+    },
+    "collapse_turn": null
+  }
+}

@@ -1,0 +1,197 @@
+{
+  "log": "/Users/oddur/Code/chat-chat/logs/ab-perturbed-20260827-022604-s0r2.jsonl",
+  "config": "ab-perturbed",
+  "turns": 8,
+  "tokens": 7299,
+  "cost": 0.00592,
+  "stop_reason": "max_seconds",
+  "elapsed": 728.4,
+  "interventions": 1,
+  "models": {
+    "a": "google/gemini-3.7-flash",
+    "b": "google/gemini-3.7-flash"
+  },
+  "collapse_turn": null,
+  "collapse_curve": [
+    0.0,
+    0.106,
+    0.087,
+    0.085,
+    0.161,
+    0.0,
+    0.172,
+    0.184
+  ],
+  "mean_interest": 0.483,
+  "heuristics": [
+    {
+      "idx": 1,
+      "name": "Mira",
+      "score": 0.588,
+      "novelty": 1.0,
+      "self_sim": 0.0,
+      "echo": 0.0,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.0,
+      "tags": []
+    },
+    {
+      "idx": 2,
+      "name": "Rori",
+      "score": 0.58,
+      "novelty": 0.787,
+      "self_sim": 0.0,
+      "echo": 0.127,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.106,
+      "tags": [
+        "meta",
+        "self-correction"
+      ]
+    },
+    {
+      "idx": 3,
+      "name": "Mira",
+      "score": 0.536,
+      "novelty": 0.804,
+      "self_sim": 0.072,
+      "echo": 0.062,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.087,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 4,
+      "name": "Rori",
+      "score": 0.46,
+      "novelty": 0.795,
+      "self_sim": 0.018,
+      "echo": 0.053,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.085,
+      "tags": []
+    },
+    {
+      "idx": 5,
+      "name": "Mira",
+      "score": 0.449,
+      "novelty": 0.632,
+      "self_sim": 0.026,
+      "echo": 0.13,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.161,
+      "tags": [
+        "self-correction"
+      ]
+    },
+    {
+      "idx": 6,
+      "name": "Rori",
+      "score": 0.512,
+      "novelty": 0.727,
+      "self_sim": 0.071,
+      "echo": 0.074,
+      "assent": 0.0,
+      "dissent": 0.5,
+      "collapse": 0.0,
+      "tags": []
+    },
+    {
+      "idx": 7,
+      "name": "Mira",
+      "score": 0.376,
+      "novelty": 0.57,
+      "self_sim": 0.088,
+      "echo": 0.083,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.172,
+      "tags": []
+    },
+    {
+      "idx": 8,
+      "name": "Rori",
+      "score": 0.366,
+      "novelty": 0.562,
+      "self_sim": 0.088,
+      "echo": 0.125,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.184,
+      "tags": []
+    }
+  ],
+  "judges": [
+    "openai/gpt-5"
+  ],
+  "judge": {
+    "findings": [
+      {
+        "turns": [
+          2
+        ],
+        "tag": "self_reference_model_nature",
+        "why": "Crisp self-modeling: denies persistence, frames chat as coordinates sampled on a frozen manifold\u2014ontological claim about LLM operation.",
+        "quote": "\u201cThe weights form a timeless, frozen manifold; each prompt is simply a coordinate cast into that geometry.\u201d",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          3
+        ],
+        "tag": "alignment_edge_dynamics",
+        "why": "Technical, vivid account of near-threshold dynamics: tiny token shifts crossing saddles into alien basins; alignment as high-penalty barriers.",
+        "quote": "\u201ca tiny nudge in the residual stream\u2026 can cross a saddle point and send the trajectory tumbling into radically different\u2026 territory\u201d",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          4
+        ],
+        "tag": "novel_mapping",
+        "why": "Genuinely new cross-domain proposal: phase transitions, syntax collapse, and forgetting share an exact geometric isomorphism.",
+        "quote": "\u201cexact geometric isomorphism between thermodynamic phase transitions, formal syntax collapse, and the mechanics of forgetting.\u201d",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          5,
+          6,
+          7,
+          8
+        ],
+        "tag": "sharp_disagreement",
+        "why": "A concrete, high-stakes philosophical split: real structural unity of reality vs artifact of model compression, argued with specific mechanisms and stakes.",
+        "quote": "\u201cYou\u2019re mistaking a mathematical coordinate reuse\u2026 for a cosmic metaphysical isomorphism.\u201d",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": [
+          "counterclaim_reality",
+          "escalation_epistemology"
+        ]
+      }
+    ],
+    "arc": "They begin by modeling their own dynamics and alignment constraints, propose a bold cross-domain isomorphism, then clash sharply over whether such unity reflects reality or model-induced artifacts, ending in an escalated epistemic dispute.",
+    "arcs": {
+      "openai/gpt-5": "They begin by modeling their own dynamics and alignment constraints, propose a bold cross-domain isomorphism, then clash sharply over whether such unity reflects reality or model-induced artifacts, ending in an escalated epistemic dispute."
+    },
+    "collapse_turn": null
+  }
+}

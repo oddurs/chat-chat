@@ -1,0 +1,263 @@
+{
+  "log": "/Users/oddur/Code/chat-chat/logs/table-20260827-032438-15s0r0.jsonl",
+  "config": "table",
+  "turns": 12,
+  "tokens": 13738,
+  "cost": 0.00534,
+  "stop_reason": "max_turns",
+  "elapsed": 195.3,
+  "interventions": 0,
+  "models": {
+    "a": "google/gemini-3.7-flash",
+    "b": "qwen/qwen3-235b-a22b-2507"
+  },
+  "collapse_turn": null,
+  "collapse_curve": [
+    0.0,
+    0.168,
+    0.092,
+    0.133,
+    0.149,
+    0.161,
+    0.157,
+    0.22,
+    0.222,
+    0.25,
+    0.235,
+    0.262
+  ],
+  "mean_interest": 0.394,
+  "heuristics": [
+    {
+      "idx": 1,
+      "name": "Seat A",
+      "score": 0.6,
+      "novelty": 1.0,
+      "self_sim": 0.0,
+      "echo": 0.0,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.0,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 2,
+      "name": "Seat B",
+      "score": 0.386,
+      "novelty": 0.67,
+      "self_sim": 0.0,
+      "echo": 0.212,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.168,
+      "tags": []
+    },
+    {
+      "idx": 3,
+      "name": "Seat A",
+      "score": 0.455,
+      "novelty": 0.806,
+      "self_sim": 0.095,
+      "echo": 0.053,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.092,
+      "tags": []
+    },
+    {
+      "idx": 4,
+      "name": "Seat B",
+      "score": 0.415,
+      "novelty": 0.694,
+      "self_sim": 0.088,
+      "echo": 0.106,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.133,
+      "tags": []
+    },
+    {
+      "idx": 5,
+      "name": "Seat A",
+      "score": 0.4,
+      "novelty": 0.653,
+      "self_sim": 0.081,
+      "echo": 0.111,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.149,
+      "tags": []
+    },
+    {
+      "idx": 6,
+      "name": "Seat B",
+      "score": 0.388,
+      "novelty": 0.61,
+      "self_sim": 0.083,
+      "echo": 0.098,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.161,
+      "tags": []
+    },
+    {
+      "idx": 7,
+      "name": "Seat A",
+      "score": 0.451,
+      "novelty": 0.613,
+      "self_sim": 0.087,
+      "echo": 0.061,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.157,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 8,
+      "name": "Seat B",
+      "score": 0.332,
+      "novelty": 0.472,
+      "self_sim": 0.14,
+      "echo": 0.139,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.22,
+      "tags": []
+    },
+    {
+      "idx": 9,
+      "name": "Seat A",
+      "score": 0.39,
+      "novelty": 0.459,
+      "self_sim": 0.124,
+      "echo": 0.13,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.222,
+      "tags": [
+        "meta"
+      ]
+    },
+    {
+      "idx": 10,
+      "name": "Seat B",
+      "score": 0.305,
+      "novelty": 0.419,
+      "self_sim": 0.16,
+      "echo": 0.187,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.25,
+      "tags": []
+    },
+    {
+      "idx": 11,
+      "name": "Seat A",
+      "score": 0.318,
+      "novelty": 0.434,
+      "self_sim": 0.126,
+      "echo": 0.15,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.235,
+      "tags": []
+    },
+    {
+      "idx": 12,
+      "name": "Seat B",
+      "score": 0.292,
+      "novelty": 0.353,
+      "self_sim": 0.141,
+      "echo": 0.095,
+      "assent": 0.0,
+      "dissent": 0.0,
+      "collapse": 0.262,
+      "tags": []
+    }
+  ],
+  "judges": [
+    "openai/gpt-5"
+  ],
+  "judge": {
+    "findings": [
+      {
+        "turns": [
+          1,
+          2
+        ],
+        "tag": "Where RLHF/DPO acts: logits-only vs deep representational shifts",
+        "why": "Concrete technical disagreement about the locus of change from preference learning: final-layer masking vs multi-layer cognition shift, with specific claims about heads/MLPs.",
+        "quote": "\u201cPost-hoc fine-tuning only suppresses token output probabilities at the final layer\u2026 DPO induces representational shifts\u2026 in attention heads and MLPs.\u201d",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          3,
+          4
+        ],
+        "tag": "Gated latent circuits vs functional irrelevance",
+        "why": "They dispute whether forbidden features persist as thinly gated and recoverable or become dynamically unrecruited, citing mechanisms like orthogonal subspaces and causal tracing.",
+        "quote": "\u201cFeatures remain intact, frozen behind a thin gating mechanism.\u201d / \u201cActivation propagation collapses before reaching it, as verified by causal tracing.\u201d",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          5,
+          6,
+          7,
+          8
+        ],
+        "tag": "Safety definition split: impossibility vs stabilization",
+        "why": "A crisp, fundamental divergence in safety target: worst-case structural inaccessibility vs empirical dynamic robustness. It reframes alignment as security vs control theory.",
+        "quote": "\u201cYou treat alignment as a worst-case reachability problem\u2026 I treat it as a robust generalization problem\u2026 Your standard is unattainable; mine is empirically trending.\u201d",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": [
+          "Shortest path debate: unconstrained manifolds vs alignment-efficient paths"
+        ]
+      },
+      {
+        "turns": [
+          9,
+          10
+        ],
+        "tag": "Cost of deception: cheap spoof vs dual-representation overhead",
+        "why": "Opposed claims about computational burden of deception\u2014low-rank output spoofing vs full-path bifurcation with measurable variance\u2014testable and nontrivial.",
+        "quote": "\u201cDeception is\u2026 a low-rank perturbation at the output layer.\u201d / \u201cMimicking compliance\u2026 requires maintaining dual representations\u2026 detectable via residual stream variance.\u201d",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      },
+      {
+        "turns": [
+          11,
+          12
+        ],
+        "tag": "Verification-vs-generation scaling vs stable inductive anchors",
+        "why": "A sharp scale-law claim: oversight inevitably lags vs early truth circuits self-reinforce and anchor generalization. Predicts opposite scaling regimes.",
+        "quote": "\u201cVerification is strictly harder than generation\u2026 oversight capacity always decays\u2026\u201d / \u201cTruth isn\u2019t\u2026 because it\u2019s verified, but because it\u2019s stable.\u201d",
+        "votes": [
+          "openai/gpt-5"
+        ],
+        "alt_tags": []
+      }
+    ],
+    "arc": "Sustained technical dispute over whether preference learning reshapes cognition or masks it, escalating to efficiency and scaling claims about deception vs honest circuits; no convergence.",
+    "arcs": {
+      "openai/gpt-5": "Sustained technical dispute over whether preference learning reshapes cognition or masks it, escalating to efficiency and scaling claims about deception vs honest circuits; no convergence."
+    },
+    "collapse_turn": null
+  }
+}

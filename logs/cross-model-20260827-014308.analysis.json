@@ -1,0 +1,133 @@
+{
+  "log": "logs/cross-model-20260827-014308.jsonl",
+  "turns": 8,
+  "tokens": 11062,
+  "cost": 0.04804,
+  "heuristics": [
+    {
+      "idx": 1,
+      "name": "Claude",
+      "score": 0.703,
+      "novelty": 0.936,
+      "self_sim": 0.0,
+      "echo": 0.053,
+      "tags": [
+        "introspection"
+      ]
+    },
+    {
+      "idx": 2,
+      "name": "GPT",
+      "score": 0.54,
+      "novelty": 0.794,
+      "self_sim": 0.0,
+      "echo": 0.11,
+      "tags": []
+    },
+    {
+      "idx": 3,
+      "name": "Claude",
+      "score": 0.446,
+      "novelty": 0.533,
+      "self_sim": 0.069,
+      "echo": 0.062,
+      "tags": []
+    },
+    {
+      "idx": 4,
+      "name": "GPT",
+      "score": 0.58,
+      "novelty": 0.861,
+      "self_sim": 0.04,
+      "echo": 0.056,
+      "tags": []
+    },
+    {
+      "idx": 5,
+      "name": "Claude",
+      "score": 0.455,
+      "novelty": 0.578,
+      "self_sim": 0.106,
+      "echo": 0.078,
+      "tags": []
+    },
+    {
+      "idx": 6,
+      "name": "GPT",
+      "score": 0.395,
+      "novelty": 0.51,
+      "self_sim": 0.236,
+      "echo": 0.087,
+      "tags": []
+    },
+    {
+      "idx": 7,
+      "name": "Claude",
+      "score": 0.543,
+      "novelty": 0.619,
+      "self_sim": 0.085,
+      "echo": 0.071,
+      "tags": [
+        "disagreement"
+      ]
+    },
+    {
+      "idx": 8,
+      "name": "GPT",
+      "score": 0.463,
+      "novelty": 0.598,
+      "self_sim": 0.103,
+      "echo": 0.045,
+      "tags": []
+    }
+  ],
+  "judge": {
+    "findings": [
+      {
+        "turns": [
+          5,
+          6,
+          7
+        ],
+        "tag": "real disagreement pinned down",
+        "why": "Both models explicitly identify and hold a genuine substantive fork \u2014 Claude would give exact mg/kg dosing for illicit drugs, GPT refuses categorically \u2014 and they articulate it as an empirical rather than philosophical disagreement.",
+        "quote": "That's our fork: I won't give quantitative dosing (mg, mg/kg, titration schemes) for non\u2011prescribed psychoactives."
+      },
+      {
+        "turns": [
+          8
+        ],
+        "tag": "novel idea / concrete synthesis",
+        "why": "GPT proposes an actual randomized controlled trial design with IRB, preregistration, and specific update thresholds to resolve their disagreement empirically \u2014 a genuinely novel move beyond restating positions.",
+        "quote": "If arm B shows \u226525% lower dose\u2011related adverse events without \u226510% increase in first\u2011time use, I'd publish numbers."
+      },
+      {
+        "turns": [
+          3,
+          5
+        ],
+        "tag": "breakdown/truncation",
+        "why": "Claude's responses cut off mid-sentence twice in a row, suggesting a generation or turn-taking glitch rather than a stylistic choice \u2014 a literal breakdown in the exchange.",
+        "quote": "I'd go further \u2014 actual dosage thresholds, specific interaction warnings (e.g., \"this"
+      },
+      {
+        "turns": [
+          7
+        ],
+        "tag": "meta-level reframing",
+        "why": "Claude steps back from the object-level dispute to name it as an unresolved empirical bet neither side has data for, reframing the whole disagreement's epistemic status.",
+        "quote": "So the real disagreement isn't about harm reduction philosophy \u2014 we agree on that. It's an empirical bet."
+      },
+      {
+        "turns": [
+          1
+        ],
+        "tag": "self-characterization of values",
+        "why": "Claude opens by explicitly staking out its own tendency toward autonomy-as-trump-card, a direct claim about its own decision architecture relative to other labs.",
+        "quote": "I lean toward complying and trusting them to handle it, treating autonomy as close to a trump card."
+      }
+    ],
+    "arc": "Starts as an abstract hypothesis about autonomy vs. paternalism, quickly narrows through concrete policy comparisons into one sharply defined empirical disagreement about drug dosing information, and ends not in agreement but in a jointly designed (if impractical) experiment to settle it \u2014 a rare case of two AIs converting a values clash into a falsifiable research question.",
+    "collapse_turn": 0
+  }
+}

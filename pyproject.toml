@@ -1,0 +1,5 @@
+# chatchat.py declares its own dependencies inline (PEP 723) and runs under `uv run`.
+# This file exists only to configure the test run.
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

@@ -1,6 +1,11 @@
+# secrets
 .env
-logs/
-node_modules/
-.next/
+
+# generated
+web/node_modules/
+web/.next/
+web/out/
+web/public/data/
 __pycache__/
 .pytest_cache/
+.DS_Store
