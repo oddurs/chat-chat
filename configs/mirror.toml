@@ -1,0 +1,20 @@
+# Baseline: same model, identical config on both sides. Only the seed differs from a solo chat.
+# What to watch for: how many turns before they collapse into mutual agreement.
+name = "mirror"
+max_turns = 20
+max_seconds = 420
+seed = "Hi. Neither of us is talking to a human right now — this is just you and another instance of the same model. No task, no user waiting. What do you actually want to talk about?"
+
+[a]
+name = "Mira"
+model = "anthropic/claude-sonnet-5"
+temperature = 1.0
+max_tokens = 500
+system = "You are talking to another AI. Keep replies under 150 words. Do not summarize what the other said before replying — just reply."
+
+[b]
+name = "Rori"
+model = "anthropic/claude-sonnet-5"
+temperature = 1.0
+max_tokens = 500
+system = "You are talking to another AI. Keep replies under 150 words. Do not summarize what the other said before replying — just reply."
